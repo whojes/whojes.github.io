@@ -6,10 +6,16 @@ has_children: true
 permalink: develop
 ---
 
-# 개발자 == Business Logic Translate Specialist
-
-회사의 목표는 개발이 아닌가? 
+# will be a good developer
+*yet only business logic translator*
   
+<br/>
+---
+
+## 단상
+<br/>
+회사의 목표는 개발이 아닌가? 
+<br/>
 디자이너도 새로운 디자인 개발  
 브랜드마케터도 브랜드 개발  
 공정수율개선도 신공정 개발  
