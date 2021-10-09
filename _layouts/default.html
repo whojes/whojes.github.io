@@ -47,6 +47,12 @@ layout: table_wrappers
         <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
       </a>
     </div>
+    <div class="site-namecard">
+      <img class="site-namecard-image" src="/assets/images/dalee.jpeg"/>
+      <div class="site-namecard-name">
+        <text>달리와 개발자</text>
+      </div>
+    </div>
     <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
       {% if site.just_the_docs.collections %}
         {% assign collections_size = site.just_the_docs.collections | size %}
@@ -65,16 +71,13 @@ layout: table_wrappers
         {% include nav.html pages=site.html_pages %}
       {% endif %}
     </nav>
-    <footer class="site-footer">
-      This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
-    </footer>
   </div>
   <div class="main" id="top">
     <div id="main-header" class="main-header">
       {% if site.search_enabled != false %}
         <div class="search">
           <div class="search-input-wrap">
-            <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search {{ site.title }}" aria-label="Search {{ site.title }}" autocomplete="off">
+            <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="search in {{ site.title }}" aria-label="search in {{ site.title }}" autocomplete="off">
             <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
           </div>
           <div id="search-results" class="search-results"></div>
