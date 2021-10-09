@@ -7,12 +7,11 @@ permalink: develop
 ---
 
 # will be a good developer
-*yet only business logic translator*
+*yet only a business logic translator*
   
 <br/>
 ---
-
-## 단상
+'나 개발자요' 소개하는 직종은 왜 소프트웨어 개발자밖에 없는 것인가? 건방지게시리....
 <br/>
 회사의 목표는 개발이 아닌가? 
 <br/>
@@ -21,8 +20,6 @@ permalink: develop
 공정수율개선도 신공정 개발  
 스마트폰 출시도 신제품 개발​  
 
-그러나 '나 개발자요' 소개하는 직종은 왜 소프트웨어 개발자밖에 없는 것인가? 건방지게시리....  
-  
 <br/>
 
 ### **다른 대부분의 직업들도 모두 개발하고있다.**
