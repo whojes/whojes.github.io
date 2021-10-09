@@ -1,7 +1,7 @@
 ---
 layout: default
-title: 가지
+title: {{ site.gazi_name }}
 parent: 고양이
 ---
 
-## 가지
+## {{ site.gazi_name }}

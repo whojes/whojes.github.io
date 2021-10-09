@@ -6,7 +6,12 @@ description: "Main page of the blog"
 permalink: /
 ---
 
-# whojes blog
+# 
+
+원래 블로그같은 건 이직 시즌에나 쓰는거지만, 인생의 기록을 위해 한 번 시작해보기로 했다.
+
+<br/>
+---
 
 ```java
 fun main(vararg args: String) {
