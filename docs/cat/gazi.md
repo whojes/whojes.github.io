@@ -1,6 +1,6 @@
 ---
 layout: default
-title: {{ site.gazi_name }}
+title: "{{ site.gazi_name }}"
 parent: 고양이
 ---
 
