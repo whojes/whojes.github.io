@@ -44,7 +44,7 @@
   @include mq(md) {
     margin-top: 50px;
     margin-right: calc(
-      (#{$nav-width} - 156px) 
+      (#{$nav-width} - 170px) 
     );
     text-align: center;
     display: table-cell;
