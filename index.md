@@ -6,7 +6,7 @@ description: "Main page of the blog"
 permalink: /
 ---
 
-# for fun
+# whojes blog
 
 ```java
 fun main(vararg args: String) {
@@ -23,6 +23,6 @@ fun main(vararg args: String) {
       .build()
   whojesBlog.start()
 
-  println(LocalDateTime.now()) // 2021-10-10 01:55:03 KST
+  whojesBlog.printStartTime() // 2021-10-10 01:55:03 KST
 }
 ```

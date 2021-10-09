@@ -42,10 +42,10 @@
     "relUrl": "/docs/cat/gazi/"
   },"7": {
     "doc": "Home",
-    "title": "for fun",
-    "content": "fun main(vararg args: String) { val whojesBlog = BlogBuilder.create() .setProvider(GITHUB_PAGES) .useTemplate(JEKYLL.with(\"just-the-docs\")) .withSubjects([ \"cats\", \"develop\", \"life\", \"essay\", \"travel\" ]) .build() whojesBlog.start() println(LocalDateTime.now()) // 2021-10-10 01:55:03 KST } . ",
-    "url": "http://localhost:4000/#for-fun",
-    "relUrl": "/#for-fun"
+    "title": "whojes blog",
+    "content": "fun main(vararg args: String) { val whojesBlog = BlogBuilder.create() .setProvider(GITHUB_PAGES) .useTemplate(JEKYLL.with(\"just-the-docs\")) .withSubjects([ \"cats\", \"develop\", \"life\", \"essay\", \"travel\" ]) .build() whojesBlog.start() whojesBlog.printStartTime() // 2021-10-10 01:55:03 KST } . ",
+    "url": "http://localhost:4000/#whojes-blog",
+    "relUrl": "/#whojes-blog"
   },"8": {
     "doc": "Home",
     "title": "Home",
