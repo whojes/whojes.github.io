@@ -1,6 +1,6 @@
 title: whojes blog
 description: memories of life
-gazi_name: 자몽
+gazi_name: 자몽이
 
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://whojes.github.io" # the base hostname & protocol for your site, e.g. http://example.com
@@ -38,7 +38,7 @@ search:
   # Set the search token separator
   # Default: /[\s\-/]+/
   # Example: enable support for hyphenated search words
-  tokenizer_separator: /[\s/]+/
+  tokenizer_separator: /[\s\-/]+/
   # Display the relative url in search results
   # Supports true (default) or false
   rel_url: true

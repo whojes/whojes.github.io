@@ -11,66 +11,90 @@
     "url": "http://localhost:4000/cats",
     "relUrl": "/cats"
   },"2": {
-    "doc": "달리",
+    "doc": "첫째",
     "title": "달리",
+    "content": " ",
+    "url": "http://localhost:4000/docs/cat/dalee/#%EB%8B%AC%EB%A6%AC",
+    "relUrl": "/docs/cat/dalee/#달리"
+  },"3": {
+    "doc": "첫째",
+    "title": "첫째",
     "content": " ",
     "url": "http://localhost:4000/docs/cat/dalee/",
     "relUrl": "/docs/cat/dalee/"
-  },"3": {
-    "doc": "개발",
-    "title": "개발자 == Business Logic Translate Specialist",
-    "content": " ",
-    "url": "http://localhost:4000/develop#%EA%B0%9C%EB%B0%9C%EC%9E%90--business-logic-translate-specialist",
-    "relUrl": "/develop#개발자--business-logic-translate-specialist"
   },"4": {
+    "doc": "개발",
+    "title": "will be a good developer",
+    "content": "yet only a business logic translator . ",
+    "url": "http://localhost:4000/develop#will-be-a-good-developer",
+    "relUrl": "/develop#will-be-a-good-developer"
+  },"5": {
+    "doc": "개발",
+    "title": "",
+    "content": "‘나 개발자요’ 소개하는 직종은 왜 소프트웨어 개발자밖에 없는 것인가? 건방지게시리…. 회사의 목표는 개발이 아닌가? 디자이너도 새로운 디자인 개발 브랜드마케터도 브랜드 개발 공정수율개선도 신공정 개발 스마트폰 출시도 신제품 개발​ . 다른 대부분의 직업들도 모두 개발하고있다. ",
+    "url": "http://localhost:4000/develop",
+    "relUrl": "/develop"
+  },"6": {
     "doc": "개발",
     "title": "개발",
     "content": " ",
     "url": "http://localhost:4000/develop",
     "relUrl": "/develop"
-  },"5": {
+  },"7": {
     "doc": "글쓰기",
     "title": "글쓰기",
     "content": " ",
     "url": "http://localhost:4000/essay",
     "relUrl": "/essay"
-  },"6": {
-    "doc": "가지",
-    "title": "가지",
+  },"8": {
+    "doc": "둘째",
+    "title": "자몽이",
+    "content": " ",
+    "url": "http://localhost:4000/docs/cat/gazi/#%EC%9E%90%EB%AA%BD%EC%9D%B4",
+    "relUrl": "/docs/cat/gazi/#자몽이"
+  },"9": {
+    "doc": "둘째",
+    "title": "둘째",
     "content": " ",
     "url": "http://localhost:4000/docs/cat/gazi/",
     "relUrl": "/docs/cat/gazi/"
-  },"7": {
+  },"10": {
     "doc": "Home",
-    "title": "whojes blog",
+    "title": "What’s new?",
+    "content": ". | 2021-10-10 . | 원래 블로그같은 건 이직 시즌에나 쓰는거지만, 인생의 기록을 위해 한 번 시작해보기로 했다. | . | . ",
+    "url": "http://localhost:4000/#whats-new",
+    "relUrl": "/#whats-new"
+  },"11": {
+    "doc": "Home",
+    "title": "",
     "content": "fun main(vararg args: String) { val whojesBlog = BlogBuilder.create() .setProvider(GITHUB_PAGES) .useTemplate(JEKYLL.with(\"just-the-docs\")) .withSubjects([ \"cats\", \"develop\", \"life\", \"essay\", \"travel\" ]) .build() whojesBlog.start() whojesBlog.printStartTime() // 2021-10-10 01:55:03 KST } . ",
-    "url": "http://localhost:4000/#whojes-blog",
-    "relUrl": "/#whojes-blog"
-  },"8": {
+    "url": "http://localhost:4000/",
+    "relUrl": "/"
+  },"12": {
     "doc": "Home",
     "title": "Home",
     "content": " ",
     "url": "http://localhost:4000/",
     "relUrl": "/"
-  },"9": {
+  },"13": {
     "doc": "일상",
     "title": "일상 이야기",
     "content": " ",
     "url": "http://localhost:4000/life#%EC%9D%BC%EC%83%81-%EC%9D%B4%EC%95%BC%EA%B8%B0",
     "relUrl": "/life#일상-이야기"
-  },"10": {
+  },"14": {
     "doc": "일상",
     "title": "일상",
     "content": " ",
     "url": "http://localhost:4000/life",
     "relUrl": "/life"
-  },"11": {
+  },"15": {
     "doc": "여행",
     "title": "초심자의 여행기",
     "content": " ",
     "url": "http://localhost:4000/travel#%EC%B4%88%EC%8B%AC%EC%9E%90%EC%9D%98-%EC%97%AC%ED%96%89%EA%B8%B0",
     "relUrl": "/travel#초심자의-여행기"
-  },"12": {
+  },"16": {
     "doc": "여행",
     "title": "여행",
     "content": " ",

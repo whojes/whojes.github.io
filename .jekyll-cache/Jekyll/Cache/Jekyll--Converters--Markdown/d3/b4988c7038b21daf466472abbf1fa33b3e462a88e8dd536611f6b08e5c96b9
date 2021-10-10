@@ -1,4 +1,14 @@
-I"@<h1 id="whojes-blog">whojes blog</h1>
+I"�<h1 id="whats-new">What’s new?</h1>
+<hr />
+<ul>
+  <li>2021-10-10
+    <ul>
+      <li>원래 블로그같은 건 이직 시즌에나 쓰는거지만, 인생의 기록을 위해 한 번 시작해보기로 했다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2><br /></h2>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fun</span> <span class="nf">main</span><span class="o">(</span><span class="n">vararg</span> <span class="nl">args:</span> <span class="nc">String</span><span class="o">)</span> <span class="o">{</span>
   <span class="n">val</span> <span class="n">whojesBlog</span> <span class="o">=</span> <span class="nc">BlogBuilder</span><span class="o">.</span><span class="na">create</span><span class="o">()</span>
@@ -14,7 +24,7 @@
       <span class="o">.</span><span class="na">build</span><span class="o">()</span>
   <span class="n">whojesBlog</span><span class="o">.</span><span class="na">start</span><span class="o">()</span>
 
-  <span class="n">println</span><span class="o">(</span><span class="nc">LocalDateTime</span><span class="o">.</span><span class="na">now</span><span class="o">())</span> <span class="c1">// 2021-10-10 01:55:03 KST</span>
+  <span class="n">whojesBlog</span><span class="o">.</span><span class="na">printStartTime</span><span class="o">()</span> <span class="c1">// 2021-10-10 01:55:03 KST</span>
 <span class="o">}</span>
 </code></pre></div></div>
 :ET

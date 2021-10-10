@@ -152,7 +152,7 @@ hr { height: 1px; padding: 0; margin: 2rem 0; background-color: #44434d; border:
 
 .site-namecard { display: none; }
 
-@media (min-width: 50rem) { .site-namecard { margin-top: 50px; margin-right: calc( (264px - 162px)); text-align: center; display: table-cell; } }
+@media (min-width: 50rem) { .site-namecard { margin-top: 50px; margin-right: calc( (264px - 162px - 38px)); text-align: center; display: table-cell; } }
 
 .site-namecard-image { width: 150px; height: 150px; border-radius: 50%; padding: 5px; border: 1px solid #ddd; }
 

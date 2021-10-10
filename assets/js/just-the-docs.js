@@ -72,12 +72,14 @@ function initSearch() {
   request.open('GET', '{{ "assets/js/search-data.json" | absolute_url }}', true);
 
   request.onload = function(){
+    console.log(request.responseText)
     if (request.status >= 200 && request.status < 400) {
       var docs = JSON.parse(request.responseText);
       
       lunr.tokenizer.separator = {{ site.search.tokenizer_separator | default: site.search_tokenizer_separator | default: "/[\s\-/]+/" }}
 
       var index = lunr(function(){
+        this.use(lunr.ta)
         this.ref('id');
         this.field('title', { boost: 200 });
         this.field('content', { boost: 2 });

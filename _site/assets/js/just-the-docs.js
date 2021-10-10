@@ -56,12 +56,14 @@ function initSearch() {
   request.open('GET', 'http://localhost:4000/assets/js/search-data.json', true);
 
   request.onload = function(){
+    console.log(request.responseText)
     if (request.status >= 200 && request.status < 400) {
       var docs = JSON.parse(request.responseText);
       
-      lunr.tokenizer.separator = /[\s/]+/
+      lunr.tokenizer.separator = /[\s\-/]+/
 
       var index = lunr(function(){
+        this.use(lunr.ta)
         this.ref('id');
         this.field('title', { boost: 200 });
         this.field('content', { boost: 2 });
