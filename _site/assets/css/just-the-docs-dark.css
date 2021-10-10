@@ -116,7 +116,7 @@ html { font-size: 14px !important; scroll-behavior: smooth; }
 
 @media (min-width: 31.25rem) { html { font-size: 16px !important; } }
 
-body { font-family: 맑은고딕, Malgun Gothic, dotum, gulim, sans-serif; font-size: inherit; line-height: 1.4; color: #e6e1e8; background-color: #27262b; }
+body { font-family: "NanumGothic", "serif"; font-size: inherit; line-height: 1.4; color: #e6e1e8; background-color: #27262b; }
 
 ol, ul, dl, pre, address, blockquote, table, div, hr, form, fieldset, noscript .table-wrapper { margin-top: 0; }
 
@@ -156,7 +156,7 @@ hr { height: 1px; padding: 0; margin: 2rem 0; background-color: #44434d; border:
 
 .site-namecard-image { width: 150px; height: 150px; border-radius: 50%; padding: 5px; border: 1px solid #ddd; }
 
-.site-namecard-name { margin-top: 8px; font-style: italic; font-weight: bold; }
+.site-namecard-name { margin-top: 8px; font-weight: bold; }
 
 @media (min-width: 50rem) { .main { position: relative; max-width: 800px; margin-left: 248px; } }
 

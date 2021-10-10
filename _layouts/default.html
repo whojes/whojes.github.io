@@ -48,7 +48,7 @@ layout: table_wrappers
       </a>
     </div>
     <div class="site-namecard">
-      <img class="site-namecard-image" src="/assets/images/dalee.jpeg"/>
+      <img class="site-namecard-image" src="/assets/images/dalee.jpeg" />
       <div class="site-namecard-name">
         <text>달리와 개발자</text>
       </div>
@@ -142,7 +142,8 @@ layout: table_wrappers
 
         {% if page.has_children == true and page.has_toc != false %}
           <hr>
-          <h2 class="text-delta">Table of contents</h2>
+          <h2 class="text-delta">List of contents</h2>
+          <br/>
           <ul>
             {%- assign children_list = pages_list | where: "parent", page.title | where: "grand_parent", page.parent -%}
             {% for child in children_list %}
@@ -151,43 +152,50 @@ layout: table_wrappers
               </li>
             {% endfor %}
           </ul>
+          <hr>
         {% endif %}
 
         {% capture footer_custom %}
           {%- include footer_custom.html -%}
         {% endcapture %}
-        {%- if page.title != "Home" -%}
-          {% if footer_custom != "" or site.last_edit_timestamp or site.gh_edit_link %}
-            <hr>
-            <footer>
-              {% if site.back_to_top %}
-                <p><a href="#top" id="back-to-top">{{ site.back_to_top_text }}</a></p>
-              {% endif %}
+        {%- if page.title != "whojes?" -%}
+          {%- if page.has_children != true -%} 
+            {% if footer_custom != "" or site.last_edit_timestamp or site.gh_edit_link %}
+              <hr>
+              <footer>
+                {% if site.back_to_top %}
+                  <p><a href="#top" id="back-to-top">{{ site.back_to_top_text }}</a></p>
+                {% endif %}
 
-              {{ footer_custom }}
+                {% include share_buttons.html %}
 
-              {% if site.last_edit_timestamp or site.gh_edit_link %}
-                <div class="d-flex mt-2">
-                  {% if site.last_edit_timestamp and site.last_edit_time_format and page.last_modified_date %}
-                    <p class="text-small text-grey-dk-000 mb-0 mr-2">
-                      Page last modified: <span class="d-inline-block">{{ page.last_modified_date | date: site.last_edit_time_format }}</span>.
-                    </p>
-                  {% endif %}
-                  {% if
-                    site.gh_edit_link and
-                    site.gh_edit_link_text and
-                    site.gh_edit_repository and
-                    site.gh_edit_branch and
-                    site.gh_edit_view_mode
-                  %}
-                    <p class="text-small text-grey-dk-000 mb-0">
-                      <a href="{{ site.gh_edit_repository }}/{{ site.gh_edit_view_mode }}/{{ site.gh_edit_branch }}{% if site.gh_edit_source %}/{{ site.gh_edit_source }}{% endif %}/{{ page.path }}" id="edit-this-page">{{ site.gh_edit_link_text }}</a>
-                    </p>
-                  {% endif %}
-                </div>
-              {% endif %}
-            </footer>
-          {% endif %}
+                {{ footer_custom }}
+
+                {% if site.last_edit_timestamp or site.gh_edit_link %}
+                  <div class="d-flex mt-2">
+                    {% if site.last_edit_timestamp and site.last_edit_time_format and page.last_modified_date %}
+                      <p class="text-small text-grey-dk-000 mb-0 mr-2">
+                        Page last modified: <span class="d-inline-block">{{ page.last_modified_date | date: site.last_edit_time_format }}</span>.
+                      </p>
+                    {% endif %}
+                    {% if
+                      site.gh_edit_link and
+                      site.gh_edit_link_text and
+                      site.gh_edit_repository and
+                      site.gh_edit_branch and
+                      site.gh_edit_view_mode
+                    %}
+                      <p class="text-small text-grey-dk-000 mb-0">
+                        <a href="{{ site.gh_edit_repository }}/{{ site.gh_edit_view_mode }}/{{ site.gh_edit_branch }}{% if site.gh_edit_source %}/{{ site.gh_edit_source }}{% endif %}/{{ page.path }}" id="edit-this-page">{{ site.gh_edit_link_text }}</a>
+                      </p>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              </footer>
+            {% endif %}
+          {%- endif -%}
+        {%- else -%}
+          {% include introduce_myself.html %}
         {%- endif -%}
 
       </div>

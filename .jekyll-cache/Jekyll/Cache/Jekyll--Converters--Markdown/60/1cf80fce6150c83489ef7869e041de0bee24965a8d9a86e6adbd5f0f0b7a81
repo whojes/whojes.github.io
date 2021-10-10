@@ -1,4 +1,4 @@
-I"�<h1 id="whats-new">What’s new?</h1>
+I"u<h1 id="whats-new">What’s new?</h1>
 <hr />
 <ul>
   <li>2021-10-10
@@ -8,13 +8,13 @@
   </li>
 </ul>
 
-<h2><br /></h2>
-
+<hr />
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fun</span> <span class="nf">main</span><span class="o">(</span><span class="n">vararg</span> <span class="nl">args:</span> <span class="nc">String</span><span class="o">)</span> <span class="o">{</span>
   <span class="n">val</span> <span class="n">whojesBlog</span> <span class="o">=</span> <span class="nc">BlogBuilder</span><span class="o">.</span><span class="na">create</span><span class="o">()</span>
+      <span class="o">.</span><span class="na">setOwner</span><span class="o">(</span><span class="n">whojes</span><span class="o">)</span>
       <span class="o">.</span><span class="na">setProvider</span><span class="o">(</span><span class="no">GITHUB_PAGES</span><span class="o">)</span>
       <span class="o">.</span><span class="na">useTemplate</span><span class="o">(</span><span class="no">JEKYLL</span><span class="o">.</span><span class="na">with</span><span class="o">(</span><span class="s">"just-the-docs"</span><span class="o">))</span>
-      <span class="o">.</span><span class="na">withSubjects</span><span class="o">([</span>
+      <span class="o">.</span><span class="na">addSubjects</span><span class="o">([</span>
         <span class="s">"cats"</span><span class="o">,</span>
         <span class="s">"develop"</span><span class="o">,</span>
         <span class="s">"life"</span><span class="o">,</span>
@@ -27,4 +27,6 @@
   <span class="n">whojesBlog</span><span class="o">.</span><span class="na">printStartTime</span><span class="o">()</span> <span class="c1">// 2021-10-10 01:55:03 KST</span>
 <span class="o">}</span>
 </code></pre></div></div>
+
+<hr />
 :ET
