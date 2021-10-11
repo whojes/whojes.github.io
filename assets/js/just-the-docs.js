@@ -72,7 +72,6 @@ function initSearch() {
   request.open('GET', '{{ "assets/js/search-data.json" | absolute_url }}', true);
 
   request.onload = function(){
-    console.log(request.responseText)
     if (request.status >= 200 && request.status < 400) {
       var docs = JSON.parse(request.responseText);
       

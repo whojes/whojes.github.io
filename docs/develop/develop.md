@@ -5,9 +5,10 @@ nav_order: 3
 has_children: true
 permalink: develop
 ---
+  
+## 백엔드 엔지니어
 
-# 백엔드 엔지니어
-*yet only a business logic translator*
+*yet only a coder*
   
 ---
 '나 개발자요' 소개하는 직종은 왜 소프트웨어 개발자밖에 없는 것인가? 건방지게시리....  
