@@ -116,11 +116,11 @@ html { font-size: 14px !important; scroll-behavior: smooth; }
 
 @media (min-width: 31.25rem) { html { font-size: 16px !important; } }
 
-body { font-family: "NanumGothic", "serif"; font-size: inherit; line-height: 1.4; color: #e6e1e8; background-color: #27262b; }
+body { font-family: "NanumGothic", "serif"; font-size: inherit; line-height: 1.8; color: #e6e1e8; background-color: #27262b; }
 
 ol, ul, dl, pre, address, blockquote, table, div, hr, form, fieldset, noscript .table-wrapper { margin-top: 0; }
 
-h1, h2, h3, h4, h5, h6 { margin-top: 0; margin-bottom: 1em; font-weight: 500; line-height: 1.25; color: #f5f6fa; }
+h1, h2, h3, h4, h5, h6 { margin-top: 0; margin-bottom: 1em; font-weight: 500; line-height: 2; color: #f5f6fa; }
 
 p { margin-top: 1em; margin-bottom: 1em; }
 
@@ -130,7 +130,7 @@ a:not([class]) { text-decoration: none; background-image: linear-gradient(#44434
 
 a:not([class]):hover { background-image: linear-gradient(rgba(44, 132, 250, 0.45) 0%, rgba(44, 132, 250, 0.45) 100%); background-size: 1px 1px; }
 
-code { font-family: "SFMono-Regular", Menlo, Consolas, Monospace; font-size: 0.75em; line-height: 1.4; }
+code { font-family: "SFMono-Regular", Menlo, Consolas, Monospace; font-size: 0.75em; line-height: 1.8; }
 
 figure, pre { margin: 0; }
 
@@ -194,7 +194,7 @@ hr { height: 1px; padding: 0; margin: 2rem 0; background-color: #44434d; border:
 
 @media (min-width: 50rem) { .site-title { padding-right: 2rem; padding-left: 2rem; } }
 
-@media (min-width: 31.25rem) { .site-title { font-size: 24px !important; line-height: 1.25; } }
+@media (min-width: 31.25rem) { .site-title { font-size: 24px !important; line-height: 2; } }
 
 @media (min-width: 50rem) { .site-title { padding-top: 0.5rem; padding-bottom: 0.5rem; } }
 
@@ -220,7 +220,11 @@ body { position: relative; padding-bottom: 4rem; overflow-y: scroll; }
 
 .icon { width: 1.5rem; height: 1.5rem; color: #2c84fa; }
 
-.main-content { line-height: 1.6; }
+.content-image-1 { max-width: calc(100% + 2rem); width: calc(100% + 2rem); margin-left: -1rem; }
+
+@media (min-width: 31.25rem) { .content-image-1 { width: 80%; } }
+
+.main-content { line-height: 1.8; }
 
 .main-content ol, .main-content ul, .main-content dl, .main-content pre, .main-content address, .main-content blockquote, .main-content .table-wrapper { margin-top: 0.5em; }
 
@@ -360,13 +364,13 @@ body { position: relative; padding-bottom: 4rem; overflow-y: scroll; }
 
 .breadcrumb-nav-list-item:last-child::after { content: ""; }
 
-h1, .text-alpha { font-size: 32px !important; line-height: 1.25; font-weight: 300; }
+h1, .text-alpha { font-size: 32px !important; line-height: 2; font-weight: 300; }
 
 @media (min-width: 31.25rem) { h1, .text-alpha { font-size: 36px !important; } }
 
 h2, .text-beta { font-size: 18px !important; }
 
-@media (min-width: 31.25rem) { h2, .text-beta { font-size: 24px !important; line-height: 1.25; } }
+@media (min-width: 31.25rem) { h2, .text-beta { font-size: 24px !important; line-height: 2; } }
 
 h3, .text-gamma { font-size: 16px !important; }
 
@@ -1030,21 +1034,21 @@ figure.highlight pre, figure.highlight code { padding: 0; margin: 0; border: 0; 
 
 .fs-6 { font-size: 18px !important; }
 
-@media (min-width: 31.25rem) { .fs-6 { font-size: 24px !important; line-height: 1.25; } }
+@media (min-width: 31.25rem) { .fs-6 { font-size: 24px !important; line-height: 2; } }
 
-.fs-7 { font-size: 24px !important; line-height: 1.25; }
+.fs-7 { font-size: 24px !important; line-height: 2; }
 
 @media (min-width: 31.25rem) { .fs-7 { font-size: 32px !important; } }
 
-.fs-8 { font-size: 32px !important; line-height: 1.25; }
+.fs-8 { font-size: 32px !important; line-height: 2; }
 
 @media (min-width: 31.25rem) { .fs-8 { font-size: 36px !important; } }
 
-.fs-9 { font-size: 36px !important; line-height: 1.25; }
+.fs-9 { font-size: 36px !important; line-height: 2; }
 
 @media (min-width: 31.25rem) { .fs-9 { font-size: 42px !important; } }
 
-.fs-10 { font-size: 42px !important; line-height: 1.25; }
+.fs-10 { font-size: 42px !important; line-height: 2; }
 
 @media (min-width: 31.25rem) { .fs-10 { font-size: 48px !important; } }
 
@@ -1058,9 +1062,9 @@ figure.highlight pre, figure.highlight code { padding: 0; margin: 0; border: 0; 
 
 .lh-0 { line-height: 0 !important; }
 
-.lh-default { line-height: 1.4; }
+.lh-default { line-height: 1.8; }
 
-.lh-tight { line-height: 1.25; }
+.lh-tight { line-height: 2; }
 
 .ls-5 { letter-spacing: 0.05em !important; }
 

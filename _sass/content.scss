@@ -4,6 +4,14 @@
 // Styles for rendered markdown in the .main-content container
 //
 // stylelint-disable selector-no-type, max-nesting-depth, selector-max-compound-selectors, selector-max-type
+.content-image-1 {
+  @include mq(sm) {
+    width: 80%;
+  }
+  max-width: calc(100% + 2rem);
+  width: calc(100% + 2rem);
+  margin-left: -1rem;
+}
 
 .main-content {
   line-height: $content-line-height;

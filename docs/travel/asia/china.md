@@ -18,7 +18,7 @@ share_enable: true
 여타 다른 나라들과 별 다를 바 없다고 생각하고 안일 그 자체로 여행을 준비하려다 비자에 당해버린 게 나뿐만은 아닐 것이다. 무비자 여행 가능국 세계 3위에 빛나는 대한민국 여권이 고작 만리밖에 되지 않는 장성에 가로막혀 있다는 사실은 이미 달콤한 중국몽을 꾸고 있는 이들에게는 그다지 고통스러운 일이 아닐지도 모른다. 중국 대사관에서는 여권사진과는 별도의 6개월 이내의 사진, 우리 아빠의 전화번호, 내 직장 주소와 전화번호를 포함한 대부분의 개인정보를 수집해갔고, 3박 4일의 중국 입장료로 8만 원(사진, 대행료 포함) 가량의 부대비용을 청구했다. 재훈이가 이란에 다녀왔다는 사실 때문에 ESTA가 발급되지 않아 200불에 육박하는 미국 입장료를 내야 한다는 사실은 내 분노한 마음을 이내 가라앉혀 주었다.
 
 <p align="center">
-  <br><img alt="img-name" src="/assets/images/travel/ching_1.jpeg" width="80%"><br>
+  <br><img alt="img-name" src="/assets/images/travel/ching_1.jpeg" class="content-image-1"><br>
   <em>비행기 타고싶다..</em><br>
 </p>
 보통 국제선 내부는 목적지의 영토로 간주한다고 하니, 중국 여행은 중국 동방항공 비행기에 탑승하는 것부터 시작되었다. 중국에 대한 첫인상은 대단했다. 그들은 무섭게 생겼으며 무서운 냄새가 나고 무서운 눈초리를 보내며 자고 있었다. 무서운 냄새에 대해 함부로 인상을 찌푸렸다가는 1합만에 목이 달아날지도 몰라 조용히 다리를 모으고 공손하게 잠을 청했지만 옆에서 장비같이 생긴 빡빡머리 중국인이 자꾸 가래를 끓이며 내 단잠을 방해했으므로 취침은 이내 그만두었다.
@@ -28,7 +28,7 @@ share_enable: true
 칭다오의 날씨는 아주 청명했다. 기온도 서울보다 3~4도 낮았으며 습도도 거의 없고 공기도 청명하여 아주 마음에 들었다. 이 몹쓸 놈들이 오만 미세먼지는 한국에 오지게 보내고 정작 자신들은 청명한 하늘을 갖고 있다는 것에 매우 불쾌한 기분이 들었다.
 
 <p align="center">
-  <br><img alt="img-name" src="/assets/images/travel/ching_2.jpeg" width="80%"><br>
+  <br><img alt="img-name" src="/assets/images/travel/ching_2.jpeg" class="content-image-1"><br>
   <em>시내로 들어가는 공항버스 안에서 찍은 사진</em><br>
 </p>
 
@@ -39,7 +39,7 @@ share_enable: true
 우리는 여행 중에 물보다 맥주를 더 많이 마셨기에 거의 항상 취한 상태로 돌아다녔다고 해도 무방하다. 우리가 다녔던 곳에서는 맥주박물관과 오사공원을 제외하면 한국인을 코빼기도 찾아볼 수 없었으므로 취한 상태에서 문명인들이라면 응당 하지 않고 해서도 안 될 개소리들을 양껏 하고 다닐 수 있어 여행에 즐거움을 한 층 더하였다. 칭다오에서만 판매한다는 원장 맥주는 1리터에 약 38~45 위안의 시세를 형성하여 일반 칭다오 맥주의 2~3배 가격이었지만 그 맛이 매우 탁월하여 선택하지 않을 수 없었다. 계속 마시고 또 마셨던 기억이 어렴풋이 난다.
 
 <p align="center">
-  <br><img alt="img-name" src="/assets/images/travel/ching_3.jpeg" width="80%"><br>
+  <br><img alt="img-name" src="/assets/images/travel/ching_3.jpeg" class="content-image-1"><br>
   <em>칭다오 맥주박물관에서 한 잔, 맛 구별은 못해도 뭐가 맛있는 건지는 안다.</em><br>
 </p>
 
@@ -47,12 +47,12 @@ share_enable: true
 칭다오의 음식은 대체적으로 해산물이 주류를 이루고 있다. 현지인만 가득한 식당에서 재훈이의 한자 실력을 바탕으로 다양한 음식을 먹어볼 수 있었는데, 바지락, 가리비, 새우, 생선조림, 미니 가재(샤오롱샤), 양 및 소의 꼬치구이뿐 아니라 오리 대가리(사진을 올리고 싶지만 비주얼이 그다지 좋지 않아 그만두도록 해야겠다), 양의 척수, 심지어는 불가사리도 먹었다. 오리 대가리는 먹을 게 없을뿐더러 나의 약한 비위와 적나라한 비주얼 때문에 끝까지 먹지는 못했다. 양의 척수 또한 뭔가 불쾌한 식감이 느껴져 만족스럽지 못하게 먹었고, 불가사리는 게의 내장 맛이 났고 다리 두 개를 먹긴 했지만 다음에 또 먹고 싶지는 않았다. 불가사리의 껍데기는 먹어본 재훈이의 말을 빌면 아이스크림 콘의 맛이 나지만 씹어도 계속 바삭한 뭔가의 불쾌함이 있다고 한다.
 
 <p align="center">
-  <br><img alt="img-name" src="/assets/images/travel/ching_4.jpeg" width="80%"><br>
+  <br><img alt="img-name" src="/assets/images/travel/ching_4.jpeg" class="content-image-1"><br>
   <em>불가사리의 갈색 속살, 게장 맛이 나지만 또 먹고 싶지는 않다.</em><br>
 </p>
 
 <p align="center">
-  <br><img alt="img-name" src="/assets/images/travel/ching_5.jpeg" width="80%"><br>
+  <br><img alt="img-name" src="/assets/images/travel/ching_5.jpeg" class="content-image-1"><br>
   <em>샤오롱샤, 생각보다 맛이 좋다.</em><br>
 </p>
 
@@ -60,7 +60,7 @@ share_enable: true
 대부분의 음식이 아주 훌륭했지만 뭐니 뭐니 해도 일등 술안주는 라 깔라 라고 하는 바지락 요리였다. 아니 방금 라 깔라가 독음이 맞는지 검색해봤는데 백종원 3대 천왕에 나온 요리라고 하네. 어쩐지 맛있더라... 젠장! 더 먹고 올걸! 이 요리의 가장 큰 장점은 한 접시에 10위안이라는 점이다. 약 1700원 돈에 아래와 같은 바지락을 듬뿍 먹을 수 있다. 혜자 누나도 여기 와서 자신의 부족함에 눈물을 흘리고 갔다는 후문. 바지락의 씨알이 너무 작아 이 정도면 지속 가능한 발전을 포기하고 후대를 착취하는 남획에 가깝다고 생각했다. 아니 우리 서해를 침범해서 깡그리 씨알을 말려놓는 게 중국 어선 놈들이라더니, 진짜 이 정도 씨알도 다 쓸어가 버리나 싶었다. 나쁜 놈들... 맛있게 최선을 다해 먹어서 혼내주기로 했다. 아, 사진을 보니 또 먹고 싶군.
 
 <p align="center">
-  <br><img alt="img-name" src="/assets/images/travel/ching_6.jpeg" width="80%"><br>
+  <br><img alt="img-name" src="/assets/images/travel/ching_6.jpeg" class="content-image-1"><br>
   <em>라 깔라. 아 개꿀맛! 인정이야!</em><br>
 </p>
 
@@ -68,7 +68,7 @@ share_enable: true
 예전에 연수 차 미국에 방문했을 때 북경오리 요리를 먹었던 것 같은데, 그 사진도 없고 먹었던 기억이나 맛도 생각나질 않는다. 아무래도 별 특징이 없었거나, 같이 주문했던 랍스터를 깨 먹는데 신경을 너무 많이 썼거나 해서 그런 것 같다. 그래서 이번에도 먹으러 갈 때 별 기대를 하지 않았으나, 그 맛은 굉장했다. 전취덕이라고 중국에서 유명한 북경오리 체인점인 것 같았다. 우리가 먹었던 음식점 중 유일하게 뭔가 잘 차려진 식당 같은 곳이었고 한국인도 많았으나, 역시 영어가 되는 직원은 찾아볼 수 없었다. 건방진 중국 놈들... 세계정세를 거스르려 하다니, 아! 또 먹고 싶다... 
 
 <p align="center">
-  <br><img alt="img-name" src="/assets/images/travel/ching_7.jpeg" width="80%"><br>
+  <br><img alt="img-name" src="/assets/images/travel/ching_7.jpeg" class="content-image-1"><br>
   <em>북경식 오리구이, 베이징 카오야.</em><br>
 </p>
                          
@@ -95,7 +95,7 @@ share_enable: true
 중국 공공장소에는 문명(文明) 이란 단어가 유독 강조되어 있다. 뭐 해서 문명인 되자, 뭐 하지 말고 문명인 되자, 앞으로의 작은 한걸음은 문명으로의 큰 한걸음, 아! 그럼에도 중국 인민들에게 아직 문명은 요원한 모양이다. 말로만 들어봤던 시간과 장소를 가리지 않는 중국 중년 남성들의 베이징식 비키니는 눈의 건강을 해하였고, 길거리에서 삶아서 파는 불가사리에서 풍기는 어딘가 역한 냄새는 코의 건강을 해하였고, 바로 옆에서 대화하면서도 소리를 질러대는 중국인들의 목소리는 귀의 건강을 해하였다. 그중 단연 압권은 화장실 바로 앞에서 바닥에 오줌을 누는 아이였다. 그냥 화장실 앞 길바닥에 갑자기 오줌을 싸는데 그 누구도 말리지 않고 신경조차 쓰지 않는 모습에 나는 적잖이 당황하여 얼른 사진을 찍어버렸다. 아니 중국 당이 그렇게 문명 문명 노래를 부르는데 중국 인민들이 조금이나마 신경이라도 썼으면 좋겠다.
 
 <p align="center">
-  <br><img alt="img-name" src="/assets/images/travel/ching_8.jpeg" width="80%"><br>
+  <br><img alt="img-name" src="/assets/images/travel/ching_8.jpeg" class="content-image-1"><br>
   <em>왜 여기다 싸는 건데...</em><br>
 </p>
 
@@ -104,14 +104,14 @@ share_enable: true
 오사광장 쪽에 가면 시 청사 건물 앞 광장에 무서운 붉은색의 표어가 걸려있다. 그 앞에 서면 나도 모르게 공손하게 손을 앞으로 모으게 된다. 자칫 해당 선전에 모욕적인 언사를 하거나 천안문, 법륜공 등을 입에 담다가 공안에게 걸리게 되면 위치 불명의 어딘가로 가서 취조를 당할지 모른다는 두려움에 나도 모르게 내면의 겸손함이 밖으로 나오게 되는 것 같다. 우리네 광장이었다면 으레 반정부 시위와 반 반정부 시위가 동시에 벌어지고 있었겠지만, 중국에서 집회 및 결사의 자유를 지녔던 자들은 30년 전 천안문 앞에서 모두 홀연히 종적을 감추었으므로 이 광장에는 체제 선전용 표어만 광장에 덩그러니 남겨져 있다.
 
 <p align="center">
-  <br><img alt="img-name" src="/assets/images/travel/ching_9.jpeg" width="80%"><br>
+  <br><img alt="img-name" src="/assets/images/travel/ching_9.jpeg" class="content-image-1"><br>
   <em>시진핑 신시대 중국 특색 사회주의 사상의 위대한 기치를 높이 들자, 중화민족 위대한 부흥의 중국몽을 실현하기 위해 쉬지 말고 분투하자.</em><br>
 </p>
                                         
 칭다오의 유명한 야경은 해가 거의 질 무렵 해안가의 모든 큰 빌딩에 LED 등이 동시에 들어오면서 시작된다. 그러나, 아름다운 불빛 쇼가 펼쳐지기 전 약 10여분 동안은 중국 체제에 대한 선전이 먼저 스카이라인을 장악한다. 대충 군대에 대한 이야기, 군대와 국민이 서로 화합하고 국력을 키워야 한다는 이야기, 문명으로 가자는 이야기 등이 빨갛게 도시를 메우는데, 자유진영의 인사라면 제법 두려움을 느낄 만하겠지만 중국몽을 꾸는 이들이라면 그에 반할지도 모르겠다. 마치 초등학생 시절 학교 대항 축구경기를 보러 갔을 때 다른 학교에서 하는 카드섹션을 보고 '이야, 저 학교는 대단한 단결력을 가진 경쟁력 있는 학교구나!' 하고 생각하는 것과 비슷한 것 같았다.
 
 <p align="center">
-  <br><img alt="img-name" src="/assets/images/travel/ching_10.jpeg" width="80%"><br>
+  <br><img alt="img-name" src="/assets/images/travel/ching_10.jpeg" class="content-image-1"><br>
   <em>초심을 잃지 말고 우리 사명을 기억하자</em><br>
 </p>
 
@@ -138,20 +138,20 @@ share_enable: true
 내 생각에 중국의 건물은 우선 철근콘크리트만 다 올려놓고 분양이 되고 나서야 내부 공사 착공에 들어가는 것 같았다. 아니면 분양사기를 당한 인민 한 명이 외국인들을 골려주기 위해 에어비앤비로 등록을 한 것일 수도 있겠다. 우리 방을 제외한 옆방들은 분양이 되지 않았는지 창문은커녕 복도 전기설비조차 되어있지 않은 콘크리트 그 자체였다. 숙소 내부로 들어가니 뭔가 있긴 했는데, 사진과는 다르게(사진 기술에 감탄할 뿐) 두세 평 되는 숙소 내부에서는 공사 시멘트 냄새, 지독한 곰팡이 냄새가 가득했다. 급격한 산업화를 따라가기 위해 상경한 농민공의 삶을 체험해볼 수 있는 좋은 기회라고 생각하기로 했지만 그래도 아주 불쾌한 것은 어쩔 수 없었다. 이란과 파키스탄에서 더 열악한 주거환경을 가졌었다고 증언한 재훈이도 중국몽 숙소 퀄리티에 혀를 내둘렀다.
 
 <p align="center">
-  <br><img alt="img-name" src="/assets/images/travel/ching_11.jpeg" width="80%"><br>
+  <br><img alt="img-name" src="/assets/images/travel/ching_11.jpeg" class="content-image-1"><br>
   <em>건물 복도. 창문으로 다른 방 내부를 보면 그냥 콘크리트 덩어리만 보인다.</em><br>
 </p>
 
 <p align="center">
-  <br><img alt="img-name" src="/assets/images/travel/ching_12.jpeg" width="80%"><br>
-  <em>숙소 침대 뷰. ㅋㅋ 살다 살다 나참</em><br>
+  <br><img alt="img-name" src="/assets/images/travel/ching_12.jpeg" class="content-image-1"><br>
+  <em>숙소 침대 뷰. 전망이 좋다.</em><br>
 </p>
 
 
 하루 종일 여행하고 숙소로 들어가는 것 자체가 기대가 되기는커녕 두려움이 앞을 가렸으므로, 결국 우리는 마지막 날 하루 숙박비 중복 지출을 감수하고 공항 근처 호텔로 다시 잡았다. 그 숙소 또한 원래대로라면 전혀 만족스럽지 않은, 사람 한 둘쯤 죽었다 해도 이상하지 않을 퀄리티를 자랑하긴 했지만 그래도 이전 숙소를 떠올리며 꿀잠을 잘 수는 있었다. 오래된 카펫과 담배냄새, Eagles의 Hotel California 노래가 흘러나올 것만 같은 분위기에서 이전 숙소에 대해 에어비앤비에 남길 악플을 생각하며 우리는 웃음을 지었다.
 
 <p align="center">
-  <br><img alt="img-name" src="/assets/images/travel/ching_13.jpeg" width="80%"><br>
+  <br><img alt="img-name" src="/assets/images/travel/ching_13.jpeg" class="content-image-1"><br>
   <em>이주한 호텔 객실의 급수장치</em><br>
 </p>
 

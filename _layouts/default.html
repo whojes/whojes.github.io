@@ -144,8 +144,8 @@ layout: table_wrappers
         {%if page.print_title == true %}
           <div>
             <br>
-            <span style="font-size: 1.8rem; ">{{ page.title }}</span>
-            <span style="margin-left: 2rem; padding-top: 0.5rem; color: lightgrey;">{{ page.created_at }}</span>
+            <span style="font-size: 1.8rem; ">{{ page.title }}</span><br>
+            <span style="padding-top: 0.5rem; color: lightgrey;">at {{ page.created_at }}</span>
           </div>
         {% endif %}
         {% if site.heading_anchors != false %}
