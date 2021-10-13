@@ -50,7 +50,7 @@ layout: table_wrappers
     <div class="site-namecard">
       <img class="site-namecard-image" src="/assets/images/dalee.jpeg" />
       <div class="site-namecard-name">
-        <text>달리와 개발자</text>
+        <text>달리는 개발자</text>
       </div>
     </div>
     <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
@@ -145,7 +145,7 @@ layout: table_wrappers
           <div>
             <br>
             <span style="font-size: 1.8rem; ">{{ page.title }}</span><br>
-            <span style="padding-top: 0.5rem; color: lightgrey;">at {{ page.created_at }}</span>
+            <span style="padding-top: 0.5rem; color: lightgrey;">created at {{ page.created_at }} / modified at {% last_modified_at %}</span>
           </div>
         {% endif %}
         {% if site.heading_anchors != false %}

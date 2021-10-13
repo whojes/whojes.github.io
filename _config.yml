@@ -107,4 +107,4 @@ compress_html:
 
 # Optional. The default date format, used if none is specified in the tag.
 last-modified-at:
-  date-format: '%Y-%m-%d %p %l:%M'
+  date-format: '%Y.%m.%d'
