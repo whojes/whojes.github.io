@@ -144,7 +144,7 @@ layout: table_wrappers
         {%if page.print_title == true %}
           <div>
             <br>
-            <span style="font-size: 1.8rem; ">{{ page.title }}</span><br>
+            <span style="font-size: 1.8rem; ">{%if page.title_sub %} {{ page.title_sub }} {% else %} {{ page.title }} {% endif %}</span><br>
             <span style="padding-top: 0.5rem; color: lightgrey;">created at {{ page.created_at }} / modified at {% last_modified_at %}</span>
           </div>
         {% endif %}

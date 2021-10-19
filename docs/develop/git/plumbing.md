@@ -6,7 +6,7 @@ grand_parent: 개발
 created_at: 2019.8.22
 print_title: true
 share_enable: true
-# nav_order: 1
+permalink: develop/git/plumbing
 ---
 ### [porcelain and plumbing commands](https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EB%82%B4%EB%B6%80-Plumbing-%EB%AA%85%EB%A0%B9%EA%B3%BC-Porcelain-%EB%AA%85%EB%A0%B9){:target="_blank"}  
 <p style='margin-top: 15px;'>

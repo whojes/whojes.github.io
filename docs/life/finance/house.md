@@ -7,6 +7,7 @@ share_enable: false
 print_title: true
 created_at: 2021.10.13
 tags: ['재테크']
+permalink: life/finance/1
 ---
 
 재테크

@@ -13,6 +13,27 @@
   margin-left: -1rem;
 }
 
+.content-image-block-2 {
+  width: 100%;
+  img {
+    width: 49%;
+  }
+}
+
+.content-image-block-3 {
+  width: 100%;
+  img {
+    width: calc(#{$content-width / 3} - 2rem);
+  }
+}
+
+.content-image-block-4 {
+  width: 100%;
+  img {
+    width: 49%;
+  }
+}
+
 .main-content {
   line-height: $content-line-height;
 
