@@ -104,7 +104,3 @@ compress_html:
   profile: false
   # ignore:
   #   envs: all
-
-# Optional. The default date format, used if none is specified in the tag.
-last-modified-at:
-  date-format: '%Y.%m.%d'

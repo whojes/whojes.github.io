@@ -145,7 +145,7 @@ layout: table_wrappers
           <div>
             <br>
             <span style="font-size: 1.8rem; ">{%if page.title_sub %} {{ page.title_sub }} {% else %} {{ page.title }} {% endif %}</span><br>
-            <span style="padding-top: 0.5rem; color: lightgrey;">created at {{ page.created_at }} / modified at {% last_modified_at %}</span>
+            <span style="padding-top: 0.5rem; color: lightgrey;">created at {{ page.created_at }} / modified at {{ page.last_modified_at | date: '%Y.%m.%d'}}</span>
           </div>
         {% endif %}
         {% if site.heading_anchors != false %}
