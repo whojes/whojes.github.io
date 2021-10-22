@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 관음하는 고양이
+title: "#2"
 title_sub: 관음하는 고양이와의 동거
 parent: 첫째
 grand_parent: 고양이

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 건방진 고양이
+title: "#1"
 title_sub: 건방진 고양이가 주는 심신의 안정
 parent: 첫째
 grand_parent: 고양이

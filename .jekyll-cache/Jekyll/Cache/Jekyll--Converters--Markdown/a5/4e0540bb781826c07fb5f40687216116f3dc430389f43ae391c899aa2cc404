@@ -1,0 +1,22 @@
+I"<p>그러니까, 이론적으로 이 코드는 ‘whojes’ 를 찍을 수 있는데, 
+func main(){
+	var a int
+	b := &amp;a
+	go func(){
+		for {
+			*b = 1
+		}
+	}()
+	go func(){
+		for{
+			*b = 2
+		}
+	}()
+	for {
+		if a == 1 &amp;&amp; a == 2 {
+			fmt.Println(“whojes”)
+		}
+	}
+}
+그러니까 a 는 1이면서 동시에 2일 수 있다는 건데, 왜 안되지…. if 조건문 안에 판독은 atomic 하게 진행될까? 그게 제일 중요한거같은데… 그게 핵심일거같은데 어째 검색이 잘 안된다.</p>
+:ET

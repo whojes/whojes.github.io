@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 천하태평
+title: "#3"
 title_sub: 너는 천하태평이구나
 parent: 첫째
 grand_parent: 고양이

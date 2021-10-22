@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Plumbing commands
-parent: Git
+title: plumbing commands
+parent: git
 grand_parent: 개발
-created_at: 2019.8.22
+created_at: 2019.08.22
 print_title: true
 share_enable: true
 permalink: develop/git/plumbing
@@ -73,7 +73,9 @@ b14f6c92f4ec6345c52a06a3fec51d38d091ba4a
 --- 
 * git cat-file 명령어는 git 에서 관리하는 object 들의 정보/상태/종류/내용 등을 볼 수 있는 명령어이다.
 
-![](/assets/images/git/cat-file.png)
+<p align="center">
+  <br><img alt="img-name" src="/assets/images/git/cat-file.png" class="content-image-1"><br>
+</p>
 
 * git 에서 관리하는 objects 에 대한 정보
 

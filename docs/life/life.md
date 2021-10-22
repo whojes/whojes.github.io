@@ -7,3 +7,4 @@ permalink: life
 ---
 
 # 일상 이야기
+

@@ -1,0 +1,166 @@
+I"y/<ol>
+  <li>
+    <p>basic</p>
+
+    <ul>
+      <li>
+        <p>pipeline</p>
+
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  |, <span class="o">||</span>, &amp;, <span class="o">&amp;&amp;</span>
+</code></pre></div>        </div>
+
+        <p>| 는 파이프라인, 좌측 명령어의 stdout 을 우측 명령어의 argument로 전달
+  &amp;는 명령어를 backgroud로 실행, exit code 를 0으로 보냄 (터미널은 붙어있으니 필요시 적절하게 /dev/null 이나 기타 로그파일로 리디렉트해줘야함)
+  || 는 or 연산자, 좌측 명령어의 exit code가 0이 아닐경우 우측 명령어 실행<br />
+  &amp;&amp; 는 and 연산자, 좌측 명령어의 exit code 가 0일 경우 우측 명령어 실행</p>
+      </li>
+      <li>
+        <p>type</p>
+
+        <p>shell script 를 짜는데 유용한 built-in command 가 몇개 있다. 늘상 쓰는 pwd, export, source, exit 외에 몇 가지 binary인줄 알았는데 bash builtin 인것도 있음을 발견했다. cd, echo, history (!), alias 도 builtin 명령어들이었다. 
+  builtin 인지 아닌지 확인하는 builtin command 가 있다.</p>
+
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  :~<span class="nv">$ </span><span class="nb">type</span> <span class="nt">-f</span> <span class="k">${</span><span class="nv">cmd</span><span class="k">}</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>default value</p>
+
+    <p>bash 스크립트 중 parameter 인풋이 없으면 default 로 설정하는 명령어</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">if</span> <span class="o">[</span> <span class="nt">-z</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="o">]</span> <span class="k">then
+     </span>version <span class="o">=</span> <span class="s2">"default"</span>
+ <span class="k">else
+     </span>version <span class="o">=</span> <span class="nv">$1</span>
+ <span class="k">fi</span> 
+</code></pre></div>    </div>
+    <p>대충 이럴텐데 (테스트는 안해봄),</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> version <span class="o">=</span> <span class="k">${</span><span class="p">@</span><span class="k">:-</span><span class="nv">default</span><span class="k">}</span>
+</code></pre></div>    </div>
+
+    <p>그냥 이렇게 쓰면 된단다. 나참…. 문법이 으이구 이걸 어떻게 알아보나이거 배쉬놈들</p>
+  </li>
+  <li>
+    <p>if 조건문</p>
+
+    <p>bash 문법은 if 조건문을 사용할 때</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">if</span> <span class="o">[</span> A <span class="o">==</span> B <span class="o">]</span> 
+ <span class="k">if</span> <span class="o">[</span> C <span class="o">!=</span> D <span class="o">]</span>
+</code></pre></div>    </div>
+
+    <p>이게 아니라</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">if</span> <span class="o">[</span> A <span class="nt">-eq</span> B <span class="o">]</span>
+ <span class="k">if</span> <span class="o">[</span> C <span class="nt">-ne</span> D <span class="o">]</span>
+</code></pre></div>    </div>
+
+    <p>이렇게 써야한다. 이런 예시는 좀 빡치지만 (bash 를 잘 안쓰면 쓸 때마다 검색해야하게만든다), 훨씬 더 많은 비교 및 조사를 할 수 있게 되는 것 같다.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="o">[</span> <span class="nt">-d</span> <span class="o">]</span> : 파일이 디렉토리면 
+ <span class="o">[</span> <span class="nt">-e</span> <span class="o">]</span> : 파일이 있으면 참
+ <span class="o">[</span> <span class="nt">-L</span> <span class="o">]</span> : 파일이 심볼릭 링크면 참
+ <span class="o">[</span> <span class="nt">-r</span> <span class="o">]</span> : 파일이 읽기 가능하면 참
+ <span class="o">[</span> <span class="nt">-s</span> <span class="o">]</span> : 파일의 크기가 0 보다 크면 참
+ <span class="o">[</span> <span class="nt">-w</span> <span class="o">]</span> : 파일이 쓰기 가능하면 참
+ <span class="o">[</span> <span class="nt">-x</span> <span class="o">]</span> : 파일이 실행 가능하면 참
+ <span class="o">[</span> 파일1 <span class="nt">-nt</span> 파일2 <span class="o">]</span>  : 파일1이 파일2보다 최신파일이면 참
+ <span class="o">[</span> 파일1 <span class="nt">-ot</span> 파일2 <span class="o">]</span>  : 파일1이 파일2보다 이전파일이면 참
+ <span class="o">[</span> 파일1 <span class="nt">-ef</span> 파일2 <span class="o">]</span> : 파일1이 파일2랑 같은 파일이면 참 
+
+ // 출처: https://jink1982.tistory.com/48 <span class="o">[</span>돼민이] 
+</code></pre></div>    </div>
+
+    <p>등의 수많은 variation 이 가능하다. 이러면 단순히 같다를 ==로 하게 되면 통일성이 떨어지겠지</p>
+  </li>
+  <li>
+    <p>xargs</p>
+
+    <p>xargs 를 얼마나 잘 활용하는가 하는게 이사람이 쫌 간지나는 사람이구나를 판별하는 척도로 사용할 수 있겠다.</p>
+
+    <p>딱히 bash 랑만 관계있는건 아니지만, bash를 거의 사용하니까…</p>
+
+    <p>사실 대부분 $(명령어) 를 이용해서도 가능하긴 하지만, -0 옵션같은 유용한 사용법이 있어 더 안전하다.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">ls</span> <span class="nt">-al</span> <span class="si">$(</span>find <span class="nb">.</span> <span class="nt">-name</span> <span class="s2">"*.py"</span><span class="si">)</span> 
+</code></pre></div>    </div>
+
+    <p>는 모든 py 스크립트를 찾기에 간편하지만, 파일 이름에 공백이나 다른 특수문자가 있을 경우 명령어 전체에서 에러가 난다. stdout 도 꼬이고 echo $?로 ec를 확인해봐도 1이 나온다. 이를 방지하기 위해</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> find <span class="nb">.</span> <span class="nt">-name</span> <span class="s2">"*.py"</span> <span class="nt">-print0</span> | xargs <span class="nt">-0</span> <span class="nb">ls</span> <span class="nt">-al</span>
+</code></pre></div>    </div>
+
+    <p>이런식으로 사용하면 된다. find 의 -print0 옵션은 결과 사이를 개행문자가 아닌 널문자로 구분하도록 stdout 을 내보내는 역할을 하고,  xarg의 -0옵션은 공백이 아닌 널문자로 인풋파라미터를 구분하도록 하는 옵션이다. man xargs 를 보면 알겠지만 -0 옵션 자체가 find 의 print0에 대응되도록 만들어졌다.​</p>
+  </li>
+  <li>
+    <p>awk</p>
+
+    <p>아… awk…. 뭔가 웹크롤링할때처럼 text 파일들이나 df, fdisk, lshw 등 명령어의 output을 크롤링할때 많이 써서 보기만해도 기분나쁘다. 그냥… 잘 쓰면 좋은데 그냥 기분나쁘다. 
+ 잘 정리된 <a href="https://zzsza.github.io/development/2017/12/20/linux-6/">블로그</a>가 있어 참조한다.</p>
+  </li>
+  <li>
+    <p>command</p>
+
+    <p>해당 명령어는 -v 옵션과함께 사용시 arg 로 들어온 것이 bash 에서 어떤 행동을 하는지 알려준다. (alias가 되어있으면 alias도 알려줌) 이를 이용해 스크립트 내에서 사용하는 바이너리들의 존재여부를 스크립트 시작전에 파악하도록 구성할 수 있다.</p>
+
+    <p><code class="language-plaintext highlighter-rouge">bash
+ //내부 스크립트 진행시 sha256sum, go, javac, java 바이너리는 반드시 필요할 경우
+ //해당 명령어들을 사전에 command -v ${cmd} 을 통해 진행, exitcode가 0이 아닐경우
+ //stderr로 에러메세지 뿜고 스크립트 종료
+ for cmd in sha256sum go javac java; do
+ if ! command -v $cmd &amp;&gt; /dev/null; then  
+     echo &gt;&amp;2 "error: $cmd not found" 
+     exit 1
+ fi
+ done
+ ​</code></p>
+  </li>
+  <li>
+    <p>trap</p>
+
+    <p>trap 명령어는 go 언어의 defer같은 느낌으로다가 사용할수 있는 builtin command이다. 특정 시그널을 받을 때 실행할 명령어를 지정할 수 있다.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> // 스크립트가 종료될 때 다음 명령어를 수행하도록
+ <span class="nb">trap</span> <span class="s2">"echo </span><span class="se">\"</span><span class="s2">ALL IS WELL</span><span class="se">\"</span><span class="s2">"</span> EXIT
+
+ // ERR SIG를 받을 때 다음 명령어를 수행한다.
+ <span class="nb">trap</span> <span class="s2">"echo </span><span class="se">\"</span><span class="s2">SOMETHING</span><span class="se">\'</span><span class="s2">S WRONG</span><span class="se">\"</span><span class="s2">"</span> ERR
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>pipefail</p>
+
+    <p>스크립트 내부에서 명령어가 실패할경우 bash는 스크립트를 끝내지않고 다음 명령어를 수행한다.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">set</span> <span class="nt">-eouE</span> pipefail
+</code></pre></div>    </div>
+
+    <p><code class="language-plaintext highlighter-rouge">-e</code> 옵션은 exit code가 0 이 아닌 커맨드를 만났을 때 script를 진행하지 않고 끝내라는 셋팅이다. (<code class="language-plaintext highlighter-rouge">$cmd || true</code> 등의 명령어를 통해 실패해도 script 종료가 나지 않게 지정할 수 있다.) 다만 이 경우 pipeline 을 통한 명령어가 실행될 때는 pipeline 의 좌측 명령어가 exit code 를 0이 아니게 내뿜어도 우측 명령어가 0이면 에러가 아니게 된다. 즉,</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">ls</span> /not/existing/dir | <span class="nb">grep </span>something
+</code></pre></div>    </div>
+
+    <p>같은 명령어의 경우 좌측이 exit code 2로 나와도 파이프라인을 받는 명령어가 exit code를 0을 내밀기에 해당 스크립트는 여전히 진행된다. 이를 막기위해서 -o pipefail 옵션도 주면 된다. <code class="language-plaintext highlighter-rouge">-E</code> 옵션을 주지 않으면 위의 trap이 지정한 ERR SIG를 캐치하지 못한다.</p>
+
+    <p><code class="language-plaintext highlighter-rouge">-u</code> 옵션은 setting 되지 않은 환경변수를 호출했을 때 empty를 return하지 않고 script를 종료시킨다.</p>
+
+    <p>setting 되지 않은 환경변수 하니까 나온건데 지난번 <code class="language-plaintext highlighter-rouge">${@:-default}</code> 는 <code class="language-plaintext highlighter-rouge">${a:-b}</code> 문법의 확장판이다. a라는 변수가 있으면 a로 세팅하고 없으면 b로 하라는 말이다. -u 옵션은 이 문법에서 a가 세팅되어있지않더라도 에러를뿜거나 하지는 않는다.</p>
+
+    <p>추가로, 디버깅을 위해 명령어가 실행되기 전 명령어를 인쇄하도록 하고싶으면 <code class="language-plaintext highlighter-rouge">-x</code> 옵션을 사용하면 된다.
+​</p>
+  </li>
+  <li>
+    <p>exec</p>
+
+    <p>명령어를 실행하되 실행한 bash 의 하위 프로세스로 돌리는게 아니고 실행한 프로세스의 pid를 물려받아 실행하도록 한다. 허접은 잘 쓸수가 없다.</p>
+  </li>
+  <li>
+    <p>shift</p>
+
+    <p>$1, $2 … 등으로 사용하는 input args 를 왼쪽으로 한칸씩 이동할 때 쓴다. 왜있는건지 도통 모르겠다. 고수들은 잘쓰려나? 약간 java iterable 같은거에서 cursor 옮기는 느낌이려나</p>
+  </li>
+</ol>
+:ET
