@@ -1,6 +1,7 @@
 ---
 layout: default
-title: 공든 탑
+title: "#1"
+title_sub: 공든 탑
 parent: 에세이
 grand_parent: 일상
 created_at: 2019.08.23
