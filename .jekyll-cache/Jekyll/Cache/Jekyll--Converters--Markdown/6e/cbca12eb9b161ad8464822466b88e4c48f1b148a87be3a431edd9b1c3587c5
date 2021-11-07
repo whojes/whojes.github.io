@@ -1,0 +1,74 @@
+I"�<p>java 에서 인터페이스만 익명클래스로 생성 가능한 줄 아랐다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// interface</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Car</span> <span class="o">{</span>
+  <span class="nc">String</span> <span class="nf">getMaker</span><span class="o">();</span>
+  <span class="nc">String</span> <span class="nf">getModelName</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">...</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Car</span> <span class="n">car</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Car</span><span class="o">()</span> <span class="o">{</span>
+      <span class="nd">@Override</span> <span class="nc">String</span> <span class="nf">getMaker</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="s">"whojes"</span><span class="o">;</span> <span class="o">}</span>
+      <span class="nd">@Override</span> <span class="nc">String</span> <span class="nf">getModelName</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="s">"model"</span><span class="o">;</span> <span class="o">}</span>
+    <span class="o">};</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>근데 클래스도 익명클래스로 만들 수 있었따!</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">_maker</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">_modelName</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="nf">Car</span><span class="o">(</span><span class="nc">String</span> <span class="n">maker</span><span class="o">,</span> <span class="nc">String</span> <span class="n">modelName</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">_maker</span> <span class="o">=</span> <span class="n">maker</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">_modelName</span> <span class="o">=</span> <span class="n">modelName</span><span class="o">;</span>
+  <span class="o">}</span>
+  <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">setMaker</span><span class="o">(</span><span class="nc">String</span> <span class="n">maker</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">_maker</span> <span class="o">=</span> <span class="n">maker</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">...</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Car</span> <span class="n">car</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Car</span><span class="o">(</span><span class="s">"whojes"</span><span class="o">,</span> <span class="s">"model"</span><span class="o">)</span> <span class="o">{{</span>
+      <span class="n">setMaker</span><span class="o">(</span><span class="s">"not whojes"</span><span class="o">);</span>
+    <span class="o">}};</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>요래 <code class="language-plaintext highlighter-rouge">double curly braces</code> 하면 익명 클래스의 객체가 되고, 이 안에는 세컨더리 컨스트럭터로 동작한다.
+그래서 아니 이게 뭔가, 싶어서 조금 찾아봤는데..</p>
+
+<hr />
+<h3 id="동작-설명">동작 설명</h3>
+<p><a href="https://stackoverflow.com/questions/1958636/what-is-double-brace-initialization-in-java" target="_blank">https://stackoverflow.com/questions/1958636/what-is-double-brace-initialization-in-java</a></p>
+
+<p>동작 원리는 대충 이렇게 된다고 한다.</p>
+
+<blockquote>
+  <ul>
+    <li><em>The first brace creates a new Anonymous Inner Class. These inner classes are capable of accessing the behavior of their parent class.</em></li>
+    <li><em>The second set of brace creates an instance initializers like static block in Class. If you remember core java concepts then you can easily associate instance initializer blocks with static initializers due to similar brace like struct. Only difference is that static initializer is added with static keyword, and is run only once; no matter how many objects you create.</em></li>
+  </ul>
+</blockquote>
+
+<h3 id="그러나">그러나…</h3>
+
+<p><a href="https://jesperdj.com/2016/07/19/dont-use-the-double-brace-initialization-trick/" target="_blank">https://jesperdj.com/2016/07/19/dont-use-the-double-brace-initialization-trick/</a></p>
+
+<p>간단히 하면 이 일명 <code class="language-plaintext highlighter-rouge">익명 초기화 블록</code> 은 직렬화 혹은 가비지 컬렉팅 과정에서 문제가 될 수 있는데, 이렇게 익명 인스턴스를 만드는 블록에서 어느 클래스 인스턴스 A의 어느 메서드를 사용한다 치면, 한 번 사용하고 버려지더라도 익명 인스턴스에서 그 메서드의 레퍼런스를 들고 있는 꼴이 돼서 그 인스턴스 A 는 더이상 사용되지 않더라도 가비지 컬렉션의 대상으로 선택되지 않는다고 한다. 즉, 메모리 릭이 발생하는데..</p>
+
+<p><strong><em>잘 쓰면 되겠네 그럼..</em></strong> 은 아니고.. 단순한 환경에서 잘 알고 사용한다 치더라도 잠재적인 문제를 야기한다 하니 우선은 지양하는걸로..</p>
+
+<hr />
+
+<p>젠장 모멘트</p>
+
+<blockquote>
+  <p><em>First of all, it is a trick, which means that the code is obscure – if you’ve never seen this before, it’s hard to quickly understand what is happening. Especially less experienced developers will be baffled by the {{ and }} and might think that these are tokens with special significance. Also, instance initializers are a seldom used Java feature, which many developers won’t have seen before.</em></p>
+</blockquote>
+
+<p>ㅋㅋㅋ 젠장..</p>
+:ET
