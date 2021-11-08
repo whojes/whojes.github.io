@@ -161,5 +161,29 @@ permalink: develop/backend/optimize-api
 
 요 api 는 서버 리스폰스가 100kB 정도 되는 비교적 큰 api 이다. 그래서 리턴할 때 `Content-Encoding: gzip` 으로 압축해서 보내고 있었고, 압축을 하고 나면 ~32kB 로 꽤 효율이 좋았다. 이거를 SRE 분께서 apm 을 분석하다가 발견해주셨는데, 요 과정이 시간이 오래 걸리더라. 사실 비정형 json 아웃풋이었기에 serialize 가 오래 걸리나? 비정형이라 kryo/proto 뭐 할 수 있는게 없겠다 생각을 하고 있었는데, `gzip` 압축이 문제가 될 수 있다는걸 찾아주시고 해결해주셨다. 아예 모르던 부분에서 개선이 가능하다는 걸 확인해서 또 한번 겸손이 필요한 시기임을 깨달았다.
 
-`gzip` 에는 `compression level`이 있다. `BEST_SPEED`~`BEST_COMPRESSION` 으로 압축 레벨이 올라갈수록 압축률은 높아지고 압축 속도는 떨어진다. spring boot 의 엔진으로 쓰고 있는 톰캣은 `java.util.zip.GZIPOutputStream`의 디폴트인 레벨 6 을 사용하는데, 이 값을 변수 등으로 설정해 줄수가 없어 `org.apache.coyote.http11.filters.GZIPOutputFilter` 클래스를 그대로 오버라이드 한 후에 compression level 만 BEST_SPEED 로 변경하여 적용해 보았다.
+`gzip` 에는 `compression level`이 있다. `BEST_SPEED`~`BEST_COMPRESSION` 으로 압축 레벨이 올라갈수록 압축률은 높아지고 압축 속도는 떨어진다. spring boot 의 엔진으로 쓰고 있는 톰캣은 `java.util.zip.GZIPOutputStream`의 디폴트인 레벨 6 을 사용하는데, 이 값을 변수 등으로 설정해 줄수가 없어 `org.apache.coyote.http11.filters.GZIPOutputFilter` 클래스를 그대로 오버라이드 한 후에 compression level 만 `BEST_SPEED` 로 변경하여 적용해 보았다.
+
+{% raw %}
+```java
+@Override
+public int doWrite(ByteBuffer chunk) throws IOException {
+    if (compressionStream == null) {
+        compressionStream = new GZIPOutputStream(fakeOutputStream, true) {{
+            def.setLevel(Deflater.BEST_SPEED);
+        }};
+    }
+    ...
+}
+```
+{% endraw %}
+
+사실 gzip 압축 레벨을 낮추는게 무슨 큰 의미가 있겠냐 싶어서 의심이 들었는데, 결과는 아주 놀라웠다. compression 효율은 조금 떨어져서 38kB 로 약 15퍼센트 정도 손해를 봤지만, 응답속도는 p50 에서 `12.5ms -> 7.8ms`, p95에서 `26.1ms -> 21.1ms` 로 5 ms 정도나 떨어졌던 것이다. 아니 내가 이거 개선하려고 진짜 이것저것 다해봤는데.. 이게 gzip 압축레벨 바꿔서 해결된다고? 아..
+<p align="center">
+  <br><img alt="img-name" src="/assets/images/backend/apioptimize_7.png" class="content-image-1"><br>
+  <em>gzip 압축레벨만 낮췄는데 극적인 효과가..</em><br>
+</p>
+
+데이터 사이즈가 클수록 효과가 큰걸까? 후.. 정말 아는 게 없다고 느낀 하루였다.
+
+어쨌거나 이런식으로 남의 클래스 자체를 오버라이드 하는 방식이 마음에 들지 않아서, 다른 방안을 봤는데 서버의 `server.compression.enabled` 옵션을 꺼서 `Content-Encoding` 하지 않고, 컨테이너에 사이드카로 붙어있는 envoy 에 `envoy.compression.gzip.compressor` 설정을 넣어 압축을 envoy 가 수행해서 헤더를 붙여 내보내는 방식이다. 이건 따로 서버가 해주지 않아도 돼서 괜찮지만, 현재 프로젝트가 여러 환경에서 동시에 서빙되고 있는 프로젝트라 환경 디펜던시가 걸리는게 영 께름칙했다. 뭐 이리저리 다 께름칙한 방법 뿐이라.. 우선 `GZIPOutputFilter`클래스를 오버라이딩 해서 쓰고는 있는데, 그래! 스프링부트 자바 버전업을 하지 말자!
 
