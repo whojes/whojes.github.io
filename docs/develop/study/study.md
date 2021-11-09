@@ -6,4 +6,4 @@ nav_order: 1
 parent: 개발
 permalink: develop/study
 ---
-## job공부  
+## 잡공부  

@@ -42,11 +42,11 @@ public class Foo {		// TypeElement
 
 이런 식이다.  elementUtils 는 이 Element를 잘 조작할 수 있게 도와준다. 
 
-`public class Foo` 라는 것은 TypeElement 이고, 이는 그 자체로는 Foo 라는 클래스의 정보를 갖고 있지 않다. TypeElement.asType() 메서드는 TypeMirror 클래스의 객체를 리턴하며, 이 타입미러가 Foo 라는 클래스 타입의 정보를 가지고 있고, typeUtils 는 이 타입미러를 잘 조작할 수 있게 도와준다. (타입미러는 Java의 타입을 나타내는 클래스로, 타입이라 함은 primitive types, declared type(class/interfaces), array types, type variables, null 등 모든 타입을 포괄하는 개념이다.) messager 는 메세지를 잘 예쁘게 꾸며서 내보낼 수 있는...그런...
+`public class Foo` 라는 것은 TypeElement 이고, 이는 그 자체로는 Foo 라는 클래스의 정보를 갖고 있지 않다. `TypeElement.asType()` 메서드는 TypeMirror 클래스의 객체를 리턴하며, 이 타입미러가 Foo 라는 클래스 타입의 정보를 가지고 있고, typeUtils 는 이 타입미러를 잘 조작할 수 있게 도와준다. (타입미러는 Java의 타입을 나타내는 클래스로, 타입이라 함은 primitive types, declared type(class/interfaces), array types, type variables, null 등 모든 타입을 포괄하는 개념이다.) messager 는 메세지를 잘 예쁘게 꾸며서 내보낼 수 있는...그런...
 ​
 이 글을 왜 쓰냐하면, 개인적인 깨달음이 있었기 때문이다. 새로운 것을 배울 때는 끝까지 배우고 쓰자! 하는 마인드가 바로 그것인데, 나는 보통 새로운 것을 배울 때 '오 이렇게 하면 되네! 여기에 내가 아는 이만큼을 추가하면 이렇게 할 수 있겠네!' 로 하기 때문에 매뉴얼을 덜 읽고 코딩을 하는 모양새가 됐었기 때문이다. 뭔 말인고 하니, 아! AbstractProcessor 를 상속하고 process 메서드 안에 코딩을 해놓으면 컴파일때 작동하네! 하고는 끝까지 안 읽고 그냥 일반 FileWriter로 파일을 쓰고, 그 때 쓴 파일은 컴파일이 안되니 전체 컴파일을 다시 하고, 그러다보니 빌드타임이 무진장 길어지고, ...
 
-AbstractProcessing 에서 SourceGen을 위한 javax.annotation.processing.Filer 클래스가 있다. Filer.createSourceFile의 인자로 full classname 을 넣어주면 javax.tools.JavaFileObject 객체가 생기는데, 이 객체로 file write를 하면, 빌드디렉토리의 generated/sources/annotationProcessor/java/main/ 디렉토리 하위에 소스파일이 생기게 되고, 여러 번의 라운드가 끝나고 나서야 src/ 하위 및 build/generated/source/ 하위의 소스들이 컴파일되어 바이트 코드가 된다고 하네.
+AbstractProcessing 에서 SourceGen을 위한 `javax.annotation.processing.Filer` 클래스가 있다. Filer.createSourceFile의 인자로 full classname 을 넣어주면 `javax.tools.JavaFileObject` 객체가 생기는데, 이 객체로 file write를 하면, 빌드디렉토리의 `generated/sources/annotationProcessor/java/main/` 디렉토리 하위에 소스파일이 생기게 되고, 여러 번의 라운드가 끝나고 나서야 `src/` 하위 및 `build/generated/source/` 하위의 소스들이 컴파일되어 바이트 코드가 된다고 하네.
 
 <p align="center">
   <br><img alt="img-name" src="/assets/images/java/filer_1.png" class="content-image-1"><br>
@@ -63,17 +63,17 @@ AbstractProcessing 에서 SourceGen을 위한 javax.annotation.processing.Filer 
 그까짓 것 잊어버리고, 다시 Filer로 돌아와서,  
 Filer에서는 createClassFile, createResource, createSourceFile 세 가지의 비범한 메서드들을 제공한다. 
 
-createResource 는 첫번째 인자로 javax.tools.FileManager.Location 을 받는데, 이넘으로 정해져있는 패스 외의 다른 경로를 사용하는 법을 결국 찾지 못해 어차피 컴파일 할 파일들도 아닌데 그냥 java.nio.File 로 사용하였다.
+createResource 는 첫번째 인자로 `javax.tools.FileManager.Location` 을 받는데, 이넘으로 정해져있는 패스 외의 다른 경로를 사용하는 법을 결국 찾지 못해 어차피 컴파일 할 파일들도 아닌데 그냥 java.nio.File 로 사용하였다.
 
-createSourceFile 은 나는 2줄정도밖에 되지 않는 소스코드로 그냥 스트링으로 만들었으나, https://github.com/square/javapoet 에서 제공하는 JavaPoet 클래스를 이용하여 더욱 쉽게 자바 소스파일을 생성할 수 있다고 하니 심심하면 사용해보도록 하자. 
+createSourceFile 은 나는 2줄정도밖에 되지 않는 소스코드로 그냥 스트링으로 만들었으나, <https://github.com/square/javapoet>{:target="_blank"} 에서 제공하는 JavaPoet 클래스를 이용하여 더욱 쉽게 자바 소스파일을 생성할 수 있다고 하니 심심하면 사용해보도록 하자. 
 
 <p align="center">
-  <br><img alt="img-name" src="/assets/images/java/filer_2.png" class="content-image-1"><br>
+  <br><img alt="img-name" src="/assets/images/java/filer_3.png" class="content-image-1"><br>
   <em>Hello, JavaPoet 을 출력하는 HelloWorld.java 파일을 자동생성하는 소스코드. (exiting)이 붙어있는 설명이 인상적이다.</em>
   <br>
 </p>
 
-createClassFile 은 바이트코드를 그대로 작성하여 클래스파일을 직접 만든다는건데, kapex의 말에 따르면 웬만한 경우에 굳이 그럴 필요가 없을 것이고, 그는 꼭 그래야만 한다면 이런 질문을 작성할 수준으로는 안된다고 완곡하게 일침을 가했다. https://stackoverflow.com/questions/20952897/java-6-annotation-processor-with-filer-createclassfile-implementation
+createClassFile 은 바이트코드를 그대로 작성하여 클래스파일을 직접 만든다는건데, kapex의 말에 따르면 웬만한 경우에 굳이 그럴 필요가 없을 것이고, 그는 꼭 그래야만 한다면 이런 질문을 작성할 수준으로는 안된다고 완곡하게 일침을 가했다. [stack overflow](https://stackoverflow.com/questions/20952897/java-6-annotation-processor-with-filer-createclassfile-implementation){:target="_blank"}
 
 Filer에서 작성된 소스코드는 컴파일 시에 자동으로 함께 컴파일된다고 하니, 내가 했던 쓰레기짓은 다시는 저지르지 않도록 하자.
 

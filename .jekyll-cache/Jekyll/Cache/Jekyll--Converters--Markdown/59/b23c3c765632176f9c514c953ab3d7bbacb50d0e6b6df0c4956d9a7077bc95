@@ -1,4 +1,4 @@
-I"�G<p>많은 서버에서 여러가지 이유로 중복해서 호출이 일어나는 api 가 있었다. 사실 그러라고 만들어 놓은 api 이기도 했지만, data center squize 테스트를 위해 트래픽을 한 쪽에 몰아 넣은 상황에서 uv 가 50k 정도 되었을 때 문제가 발생했다. 머신난이었던 때 인스턴스를 너무 많이 띄우는 괴물 아니냐는 말과 함께 로직에 최적화가 되어있는게 맞는 것인지 하는 챌린지가 많이 들어왔었다. 그래서, 다방면으로 이유를 분석해서 수정을 진행했다. 훌륭한 분들이 많이 봐주시고 해결해 주신 것도 많고 배운 것도 많고 해서 효과가 좋았던 것들을 몇개 정리하기로 했다.</p>
+I"�O<p>많은 서버에서 여러가지 이유로 중복해서 호출이 일어나는 api 가 있었다. 사실 그러라고 만들어 놓은 api 이기도 했지만, data center squize 테스트를 위해 트래픽을 한 쪽에 몰아 넣은 상황에서 uv 가 50k 정도 되었을 때 문제가 발생했다. 머신난이었던 때 인스턴스를 너무 많이 띄우는 괴물 아니냐는 말과 함께 로직에 최적화가 되어있는게 맞는 것인지 하는 챌린지가 많이 들어왔었다. 그래서, 다방면으로 이유를 분석해서 수정을 진행했다. 훌륭한 분들이 많이 봐주시고 해결해 주신 것도 많고 배운 것도 많고 해서 효과가 좋았던 것들을 몇개 정리하기로 했다.</p>
 
 <p align="center">
   <br /><img alt="img-name" src="/assets/images/backend/apioptimize_1.png" class="content-image-1" /><br />
@@ -56,29 +56,29 @@
 <h3 id="mongos-이슈들"><strong>mongos 이슈들</strong></h3>
 
 <ul>
-  <li><strong>mongos command max response 가 이상한 주기성을 가지고 늘어났음</strong></li>
-</ul>
-
-<p align="center">
+  <li><strong>mongos command max response 가 이상한 주기성을 가지고 늘어났음</strong>
+    <ul>
+      <li><strong>why</strong>
+        <p align="center">
   <br /><img alt="img-name" src="/assets/images/backend/apioptimize_4.png" class="content-image-1" /><br />
   <em>uv 가 높은 상황에서, mongos 별로 주기적으로 max response 가 증가하는 피크가 관측됨</em><br />
 </p>
 
-<ul>
-  <li><strong>why</strong>
-    <ul>
-      <li>mongos 로그 중 <code class="language-plaintext highlighter-rouge">LockBusy: could not acquire collection lock for ${dbName}.${collectionName} to split chunk</code>를 발견 (<a href="https://jira.mongodb.org/browse/SERVER-56654" target="_blank">관련 이슈</a>)</li>
-      <li>해당 command 가 날아가는 collection 은 5.7b 개의 다큐먼트를 들고 있고, 인서트도 활발히 일어나는 컬렉션이었다. insert 후에 chunk split 하던 와중 분산락을 획득하는 과정이 있는데, 이게 이슈가 있다고 리포트가 되었음</li>
-    </ul>
-  </li>
-  <li><strong>how</strong>
-    <ul>
-      <li>mongos 버전을 업데이트하는 것으로 해결.</li>
-    </ul>
-  </li>
-  <li><strong>result</strong>
-    <ul>
-      <li>해결됨. 그러나…</li>
+        <ul>
+          <li>mongos 로그 중 <code class="language-plaintext highlighter-rouge">LockBusy: could not acquire collection lock for ${dbName}.${collectionName} to split chunk</code>를 발견 (<a href="https://jira.mongodb.org/browse/SERVER-56654" target="_blank">관련 이슈</a>)</li>
+          <li>해당 command 가 날아가는 collection 은 5.7b 개의 다큐먼트를 들고 있고, 인서트도 활발히 일어나는 컬렉션이었다. insert 후에 chunk split 하던 와중 분산락을 획득하는 과정이 있는데, 이게 이슈가 있다고 리포트가 되었음</li>
+        </ul>
+      </li>
+      <li><strong>how</strong>
+        <ul>
+          <li>mongos 버전을 업데이트하는 것으로 해결.</li>
+        </ul>
+      </li>
+      <li><strong>result</strong>
+        <ul>
+          <li>해결됨. 그러나…</li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li>
@@ -268,5 +268,15 @@
     <span class="o">...</span>
 <span class="o">}</span>
 </code></pre></div></div>
+
+<p>사실 gzip 압축 레벨을 낮추는게 무슨 큰 의미가 있겠냐 싶어서 의심이 들었는데, 결과는 아주 놀라웠다. compression 효율은 조금 떨어져서 38kB 로 약 15퍼센트 정도 손해를 봤지만, 응답속도는 p50 에서 <code class="language-plaintext highlighter-rouge">12.5ms -&gt; 7.8ms</code>, p95에서 <code class="language-plaintext highlighter-rouge">26.1ms -&gt; 21.1ms</code> 로 5 ms 정도나 떨어졌던 것이다. 아니 내가 이거 개선하려고 진짜 이것저것 다해봤는데.. 이게 gzip 압축레벨 바꿔서 해결된다고? 아..</p>
+<p align="center">
+  <br /><img alt="img-name" src="/assets/images/backend/apioptimize_7.png" class="content-image-1" /><br />
+  <em>gzip 압축레벨만 낮췄는데 극적인 효과가..</em><br />
+</p>
+
+<p>데이터 사이즈가 클수록 효과가 큰걸까? 후.. 정말 아는 게 없다고 느낀 하루였다.</p>
+
+<p>어쨌거나 이런식으로 남의 클래스 자체를 오버라이드 하는 방식이 마음에 들지 않아서, 다른 방안을 봤는데 서버의 <code class="language-plaintext highlighter-rouge">server.compression.enabled</code> 옵션을 꺼서 <code class="language-plaintext highlighter-rouge">Content-Encoding</code> 하지 않고, 컨테이너에 사이드카로 붙어있는 envoy 에 <code class="language-plaintext highlighter-rouge">envoy.compression.gzip.compressor</code> 설정을 넣어 압축을 envoy 가 수행해서 헤더를 붙여 내보내는 방식이다. 이건 따로 서버가 해주지 않아도 돼서 괜찮지만, 현재 프로젝트가 여러 환경에서 동시에 서빙되고 있는 프로젝트라 환경 디펜던시가 걸리는게 영 께름칙했다. 뭐 이리저리 다 께름칙한 방법 뿐이라.. 우선 <code class="language-plaintext highlighter-rouge">GZIPOutputFilter</code>클래스를 오버라이딩 해서 쓰고는 있는데, 그래! 스프링부트 자바 버전업을 하지 말자!</p>
 
 :ET
