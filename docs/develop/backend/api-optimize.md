@@ -1,6 +1,7 @@
 ---
 layout: default
-title: api 최적화
+title: api 최적화와 gzip
+title_sub: api 최적화 - gzip compression level
 nav_order: 5
 parent: backend
 grand_parent: 개발 
