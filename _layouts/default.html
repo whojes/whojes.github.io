@@ -180,10 +180,12 @@ layout: table_wrappers
                 <p><a href="#top" id="back-to-top">{{ site.back_to_top_text }}</a></p>
               {% endif %}
               {% if page.grand_parent != nil %}
-                <b>{{ page.parent }}의 다른 글 보기</b>
                 {% for other_page in pages_list %}
                   {% if other_page.parent == page.parent and other_page.title != page.title %}
                     {% assign index = index | plus: 1 %}
+                    {% if index == 1 %}
+                      <b>{{ page.parent }}의 다른 글 보기</b>
+                    {% endif %}
                     {% if index <= 3 %} 
                       <p><a href="/{{ other_page.permalink }}">{{ other_page.title }}</a></p>
                     {% endif %}
