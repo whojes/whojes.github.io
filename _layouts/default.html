@@ -175,11 +175,23 @@ layout: table_wrappers
           {%- if page.share_enable == true -%} 
             {% if footer_custom != "" or site.last_edit_timestamp or site.gh_edit_link %}
               <hr>
-              <footer>
-                {% if site.back_to_top %}
-                  <p><a href="#top" id="back-to-top">{{ site.back_to_top_text }}</a></p>
-                {% endif %}
 
+              {% if site.back_to_top %}
+                <p><a href="#top" id="back-to-top">{{ site.back_to_top_text }}</a></p>
+              {% endif %}
+              {% if page.grand_parent != nil %}
+                <b>{{ page.parent }}의 다른 글 보기</b>
+                {% for other_page in pages_list %}
+                  {% if other_page.parent == page.parent and other_page.title != page.title %}
+                    {% assign index = index | plus: 1 %}
+                    {% if index <= 3 %} 
+                      <p><a href="/{{ other_page.permalink }}">{{ other_page.title }}</a></p>
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+
+              <footer>
                 {% include share_buttons.html %}
 
                 {{ footer_custom }}

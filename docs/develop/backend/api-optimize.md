@@ -48,13 +48,11 @@ permalink: develop/backend/optimize-api
 --- 
 ### **mongos 이슈들**
 
-- **mongos command max response 가 이상한 주기성을 가지고 늘어났음**
-
-<p align="center">
-  <br><img alt="img-name" src="/assets/images/backend/apioptimize_4.png" class="content-image-1"><br>
-  <em>uv 가 높은 상황에서, mongos 별로 주기적으로 max response 가 증가하는 피크가 관측됨</em><br>
-</p>
-
+- **mongos command max response 가 이상한 주기성을 가지고 늘어났음**   
+  <p align="center">
+    <br><img alt="img-name" src="/assets/images/backend/apioptimize_4.png" class="content-image-1"><br>
+    <em>uv 가 높은 상황에서, mongos 별로 주기적으로 max response 가 증가하는 피크가 관측됨</em><br>
+  </p>   
   - **why**
     - mongos 로그 중 `LockBusy: could not acquire collection lock for ${dbName}.${collectionName} to split chunk`를 발견 ([관련 이슈](https://jira.mongodb.org/browse/SERVER-56654){:target="_blank"})
     - 해당 command 가 날아가는 collection 은 5.7b 개의 다큐먼트를 들고 있고, 인서트도 활발히 일어나는 컬렉션이었다. insert 후에 chunk split 하던 와중 분산락을 획득하는 과정이 있는데, 이게 이슈가 있다고 리포트가 되었음
