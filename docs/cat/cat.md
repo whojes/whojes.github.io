@@ -10,8 +10,8 @@ permalink: cats
 *달리와 {{site.gazi_name}}*
 
 ---
-<style>
-  img{width: 50%;display:table;}
-</style>
 
-![](/assets/images/cats/dalee_gazi_main.jpeg){: }
+<p align="center">
+  <br><img alt="img-name" src="/assets/images/cats/dalee_gazi_main.jpeg" class="content-image-1"><br>
+  <br>
+</p>  
