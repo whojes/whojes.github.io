@@ -1,4 +1,4 @@
-I"�O<p>많은 서버에서 여러가지 이유로 중복해서 호출이 일어나는 api 가 있었다. 사실 그러라고 만들어 놓은 api 이기도 했지만, data center squeeze 테스트를 위해 트래픽을 한 쪽에 몰아 넣은 상황에서 uv 가 50k 정도 되었을 때 문제가 발생했다. 머신난이었던 때 인스턴스를 너무 많이 띄우는 괴물 아니냐는 말과 함께 로직에 최적화가 되어있는게 맞는 것인지 하는 챌린지가 많이 들어왔었다. 그래서, 다방면으로 이유를 분석해서 수정을 진행했다. 훌륭한 분들이 많이 봐주시고 해결해 주신 것도 많고 배운 것도 많고 해서 효과가 좋았던 것들을 몇개 정리하기로 했다.</p>
+I"�R<p>많은 서버에서 여러가지 이유로 중복해서 호출이 일어나는 api 가 있었다. 사실 그러라고 만들어 놓은 api 이기도 했지만, data center squeeze 테스트를 위해 트래픽을 한 쪽에 몰아 넣은 상황에서 uv 가 50k 정도 되었을 때 문제가 발생했다. 머신난이었던 때 인스턴스를 너무 많이 띄우는 괴물 아니냐는 말과 함께 로직에 최적화가 되어있는게 맞는 것인지 하는 챌린지가 많이 들어왔었다. 그래서, 다방면으로 이유를 분석해서 수정을 진행했다. 훌륭한 분들이 많이 봐주시고 해결해 주신 것도 많고 배운 것도 많고 해서 효과가 좋았던 것들을 몇개 정리하기로 했다.</p>
 
 <p align="center">
   <br /><img alt="img-name" src="/assets/images/backend/apioptimize_1.png" class="content-image-1" /><br />
@@ -275,6 +275,20 @@
 </p>
 
 <p>데이터 사이즈가 클수록 효과가 큰걸까? 후.. 정말 아는 게 없다고 느낀 하루였다.</p>
+
+<p>실제로 93k 정도 되는 json object 를 만들어서 gzip 압축을 해보니, 압축하는 속도만 해도 차이가 컸다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>objectNode bytes size: 93154
+compressed size: 25796 (DEFLATED(8))
+compressed size: 93182 (NO_COMPRESSION(0))
+compressed size: 29830 (BEST_SPEED(1))
+compressed size: 25796 (BEST_COMPRESSION(9))
+compressed size: 25849 (DEFAULT_COMPRESSION(-1))
+2.701 milliseconds &lt;&lt; DEFLATED(8)
+0.101 milliseconds &lt;&lt; NO_COMPRESSION(0)
+0.829 milliseconds &lt;&lt; BEST_SPEED(1)
+2.665 milliseconds &lt;&lt; BEST_COMPRESSION(9)
+2.122 milliseconds &lt;&lt; DEFAULT_COMPRESSION(-1)
+</code></pre></div></div>
 
 <p>어쨌거나 이런식으로 남의 클래스 자체를 오버라이드 하는 방식이 마음에 들지 않아서, 다른 방안을 봤는데 서버의 <code class="language-plaintext highlighter-rouge">server.compression.enabled</code> 옵션을 꺼서 <code class="language-plaintext highlighter-rouge">Content-Encoding</code> 하지 않고, 컨테이너에 사이드카로 붙어있는 envoy 에 <code class="language-plaintext highlighter-rouge">envoy.compression.gzip.compressor</code> 설정을 넣어 압축을 envoy 가 수행해서 헤더를 붙여 내보내는 방식이다. 이건 따로 서버가 해주지 않아도 돼서 괜찮지만, 현재 프로젝트가 여러 환경에서 동시에 서빙되고 있는 프로젝트라 환경 디펜던시가 걸리는게 영 께름칙했다. 뭐 이리저리 다 께름칙한 방법 뿐이라.. 우선 <code class="language-plaintext highlighter-rouge">GZIPOutputFilter</code>클래스를 오버라이딩 해서 쓰고는 있는데, 그래! 스프링부트 자바 버전업을 하지 말자!</p>
 

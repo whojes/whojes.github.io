@@ -1,0 +1,48 @@
+I"�<p>k8s 에서 서빙중인 pod 에 각각 사이드카인 envoy 가 붙어있다. L7 filter 용도로 쓰고있어서, 서비스 컨테이너로 패킷이 전달되기 전에 사이드카에 먼저 들렀다가 나가는데…</p>
+
+<hr />
+
+<p>kublet 이 pod 에 shutdown hook 을 날리게 되면, envoy 컨테이너와 서비스 컨테이너가 같이 셧다운 훅을 받는다. 서비스 컨테이너(여기서는 톰캣)는 셧다운 훅을 받고 하던 일을 차례로 정리하기 시작한다. envoy 컨테이너는 자신이 서비스 컨테이너가 내려가기 전에 먼저 내려가게 되면 서비스 컨테이너로 패킷이 가는 길이 막히기 때문에 서비스가 의도하지 않은 상태에서 <code class="language-plaintext highlighter-rouge">500 service unavailable</code> 상태가 될 수가 있기 때문에, 서비스 컨테이너의 헬스를 체크해서 unhealthy 상태가 되면 서비스를 내린다. <a href="https://istio.io/latest/docs/ops/configuration/mesh/app-health-check/" target="_blank">참조</a></p>
+
+<p>api 서빙과 kafka consuming 을 동시에 하는 서버가 있다. 정상적으로 동작하고 있던 서버를 내린다고 했을 때</p>
+<blockquote>
+  <ol>
+    <li>api 트래픽을 뺀다. (ingress야 힘을 내)</li>
+    <li>어플리케이션에서 graceful shutdown 을 한다. (shutdown hook)
+    - api 트래픽은 앞에서 빼줬으니, 컨슈머 빈과 디펜던시 걸려있는 애들을 정리한다.
+    - 컨슈머 빈을 포함한 bean 들이 destroy 가 끝나면 health check path 의 status 를 unhealthy 로 변경한다.</li>
+    <li>끝! 별 문제 없이 깔끔하다.</li>
+  </ol>
+</blockquote>
+
+<p>그러나 아직 부팅이 끝나지 않은 상태의 pod 에 셧다운 훅이 들어오게 되면 다음과 같은 이상동작이 발생할 수 있다.</p>
+<blockquote>
+  <ol>
+    <li>bean initialize - kafka consumer bean initialized, auto startup (<code class="language-plaintext highlighter-rouge">org.springframework.kafka.listenerAbstractMessageListenerContainer</code> 의 default 동작) 되어서 일하기 시작함</li>
+    <li>shutdown hook 들어옴</li>
+    <li>전체 bean initialize 가 아직 완료는 되지 않아서 (혹은 완료 되어도 health on 하기 전이라서) health 는 들어오지 않음</li>
+    <li>envoy 가 service unavailable 으로 판단, outbound traffic 을 내림</li>
+    <li>카프카 컨슈머에서 외부로 api 호출을 하는 부분이 있다면, 바로 막혀버림</li>
+  </ol>
+</blockquote>
+
+<p>그래서, 결국 kafka consumer bean 의 라이프사이클을 container 의 health 라이프사이클과 맞춰줄 필요가 있다.</p>
+
+<p>auto-startup 옵션을 꺼주고, <code class="language-plaintext highlighter-rouge">org.springframework.boot.context.event.ApplicationReadyEvent</code> 를 받아서 그때 startup 을 해주면 문제 끝~</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Bean</span>
+<span class="k">fun</span> <span class="nf">kafkaListener</span><span class="p">():</span> <span class="nc">KafkaListenerContainerFactory</span><span class="p">&lt;</span><span class="nc">ConcurrentMessageListenerContainer</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">String</span><span class="p">&gt;&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nc">ConcurrentKafkaListenerContainerFactory</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">String</span><span class="p">&gt;().</span><span class="nf">apply</span> <span class="p">{</span>
+        <span class="nf">setAutoStartup</span><span class="p">(</span><span class="k">false</span><span class="p">)</span>
+        <span class="o">..</span><span class="p">.</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nd">@Bean</span>
+<span class="k">fun</span> <span class="nf">startupHandler</span><span class="p">(</span><span class="n">listeners</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">MessageListenerContainer</span><span class="p">&gt;):</span> <span class="nc">ApplicationListener</span><span class="p">&lt;</span><span class="nc">ApplicationReadyEvent</span><span class="p">&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nc">ApplicationListener</span> <span class="p">{</span> <span class="n">listeners</span><span class="p">.</span><span class="nf">forEach</span> <span class="p">{</span> <span class="n">it</span><span class="p">.</span><span class="nf">start</span><span class="p">()</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+:ET

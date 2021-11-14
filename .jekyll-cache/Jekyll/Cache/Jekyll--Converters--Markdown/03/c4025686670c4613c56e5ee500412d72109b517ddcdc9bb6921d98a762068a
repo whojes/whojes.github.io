@@ -1,0 +1,26 @@
+I"n<p>리눅스 환경에서 Jvm 은 <code class="language-plaintext highlighter-rouge">SIGTERM</code> 이 들어올 경우 graceful shutdown 을 진행한다. 여기에 필요한 코드는</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Runtime</span><span class="p">.</span><span class="nf">getRuntime</span><span class="p">().</span><span class="nf">addShutdownHook</span><span class="p">(</span><span class="nc">Thread</span> <span class="p">{</span> <span class="n">logger</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="s">"whojes"</span><span class="p">)</span> <span class="p">})</span>
+</code></pre></div></div>
+
+<hr />
+
+<p>spring boot 앱에서 어떤 훅이 등록되었는지 리플렉션을 써서 확인해보면</p>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">clazz</span> <span class="p">=</span> <span class="nc">Class</span><span class="p">.</span><span class="nf">forName</span><span class="p">(</span><span class="s">"java.lang.ApplicationShutdownHooks"</span><span class="p">)</span>
+<span class="kd">val</span> <span class="py">field</span> <span class="p">=</span> <span class="n">clazz</span><span class="p">.</span><span class="nf">getDeclaredField</span><span class="p">(</span><span class="s">"hooks"</span><span class="p">)</span>
+<span class="n">field</span><span class="p">.</span><span class="n">isAccessible</span> <span class="p">=</span> <span class="k">true</span>
+<span class="kd">val</span> <span class="py">threads</span> <span class="p">=</span> <span class="n">field</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">clazz</span><span class="p">)</span> <span class="k">as</span> <span class="nc">IdentityHashMap</span><span class="p">&lt;</span><span class="nc">Thread</span><span class="p">,</span> <span class="nc">Thread</span><span class="p">&gt;</span>
+</code></pre></div></div>
+
+<p>여기서 threads 를 살펴보면</p>
+<blockquote>
+  <ol>
+    <li><code class="language-plaintext highlighter-rouge">{LogManager$Cleaner@~} "Thread[Thread-0,5,main]"</code></li>
+    <li><code class="language-plaintext highlighter-rouge">{AbstracApplicationContext$1@~} "Thread[SpringContextShutdownHook,5,main]"</code>
+이렇게 두 개의 shutdown 훅이 등록되어있다.</li>
+  </ol>
+</blockquote>
+
+<p>첫번째 훅은 <code class="language-plaintext highlighter-rouge">java.util.logging.LogManager$Cleaner</code>쓰레드로, 자바 1.4에서 도입된.. 뭐.. 그런거고, 두번째 것이 spring boot 에서 등록한 훅이다. spring boot 프레임워크에서 개발을 할 때에 유저레벨에서 서버가 종료될 때 동작했으면 하는 코드가 있으면 <code class="language-plaintext highlighter-rouge">ContextClosedEvent</code> 이벤트를 리스닝해서 훅을 등록하는게 낫다. <code class="language-plaintext highlighter-rouge">Runtime.getRuntime()</code> 에 등록된 훅들이 실행될 때는 순서가 없기 때문에, spring boot context 에 등록하지 않도 따로 <code class="language-plaintext highlighter-rouge">Runtime</code> 에 등록을 해두게 되면 spring boot context 의 종료가 되기 전에 사용하는 모듈이 내려가버리는 불상사가 발생할 수도 있다.</p>
+
+:ET

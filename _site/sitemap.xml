@@ -14,7 +14,7 @@
     
     
     <url>
-        <loc>http://localhost:4000/develop/backend/optimize-api</loc>
+        <loc>http://localhost:4000/develop/springboot/optimize-api</loc>
     </url>
     
     
@@ -30,7 +30,7 @@
     
     
     <url>
-        <loc>http://localhost:4000/develop/backend</loc>
+        <loc>http://localhost:4000/develop/springboot</loc>
     </url>
     
     
@@ -216,6 +216,14 @@
     
     
     <url>
+        <loc>http://localhost:4000/develop/springboot/kafka-consumer-health</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
         <loc>http://localhost:4000/develop/study/kubevirt</loc>
     </url>
     
@@ -241,6 +249,14 @@
     
     <url>
         <loc>http://localhost:4000/develop/git/plumbing</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://localhost:4000/develop/springboot/shutdown-hook</loc>
     </url>
     
     

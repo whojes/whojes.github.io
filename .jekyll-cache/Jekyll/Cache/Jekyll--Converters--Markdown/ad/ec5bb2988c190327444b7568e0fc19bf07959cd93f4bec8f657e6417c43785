@@ -1,0 +1,32 @@
+I"!<p>리눅스 환경에서 Jvm 은 <code class="language-plaintext highlighter-rouge">SIGTERM</code> 이 들어올 경우 graceful shutdown 을 진행한다. 여기에 필요한 코드는</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Runtime</span><span class="p">.</span><span class="nf">getRuntime</span><span class="p">().</span><span class="nf">addShutdownHook</span><span class="p">(</span><span class="nc">Thread</span> <span class="p">{</span> <span class="n">logger</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="s">"whojes"</span><span class="p">)</span> <span class="p">})</span>
+</code></pre></div></div>
+
+<hr />
+
+<p>spring boot 앱에서 어떤 훅이 등록되었는지 리플렉션을 써서 확인해보면</p>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">clazz</span> <span class="p">=</span> <span class="nc">Class</span><span class="p">.</span><span class="nf">forName</span><span class="p">(</span><span class="s">"java.lang.ApplicationShutdownHooks"</span><span class="p">)</span>
+<span class="kd">val</span> <span class="py">field</span> <span class="p">=</span> <span class="n">clazz</span><span class="p">.</span><span class="nf">getDeclaredField</span><span class="p">(</span><span class="s">"hooks"</span><span class="p">)</span>
+<span class="n">field</span><span class="p">.</span><span class="n">isAccessible</span> <span class="p">=</span> <span class="k">true</span>
+<span class="kd">val</span> <span class="py">threads</span> <span class="p">=</span> <span class="n">field</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">clazz</span><span class="p">)</span> <span class="k">as</span> <span class="nc">IdentityHashMap</span><span class="p">&lt;</span><span class="nc">Thread</span><span class="p">,</span> <span class="nc">Thread</span><span class="p">&gt;</span>
+</code></pre></div></div>
+
+<p>여기서 threads 를 살펴보면</p>
+<blockquote>
+  <ol>
+    <li><code class="language-plaintext highlighter-rouge">{LogManager$Cleaner@~} "Thread[Thread-0,5,main]"</code></li>
+    <li><code class="language-plaintext highlighter-rouge">{AbstracApplicationContext$1@~} "Thread[SpringContextShutdownHook,5,main]"</code></li>
+  </ol>
+</blockquote>
+
+<p>이렇게 두 개의 shutdown 훅이 등록되어 있다.</p>
+
+<p>첫번째 훅은 <code class="language-plaintext highlighter-rouge">java.util.logging.LogManager$Cleaner</code>쓰레드로, 자바 1.4에서 도입된.. 뭐.. 그런거고, 두번째 것이 spring boot 에서 등록한 훅이다. spring boot 프레임워크에서 개발을 할 때에 유저레벨에서 서버가 종료될 때 동작했으면 하는 코드가 있으면 <code class="language-plaintext highlighter-rouge">ContextClosedEvent</code> 이벤트를 리스닝해서 훅을 등록하는게 낫다. <code class="language-plaintext highlighter-rouge">Runtime.getRuntime()</code> 에 등록된 훅들이 실행될 때는 순서가 없기 때문에, spring boot context 에 등록하지 않고 따로 <code class="language-plaintext highlighter-rouge">Runtime</code> 에 등록을 해두게 되면 spring boot context 의 종료가 되기 전에 사용하는 모듈이 내려가버리는 불상사가 발생할 수도 있기 때문이다.</p>
+
+<hr />
+
+<p><a href="https://shardingsphere.apache.org/" target="_blank">apache shardingsphere</a> 는 아파치에서 제공하는 샤딩 라이브러리인데, 여기서는 broadcasting table 에 대해 각각의 샤드로 쿼리를 날릴 때 자체적으로 쓰레드풀을 만들어서 쿼리를 날린다. 셧다운 훅이 왔을 때 그 스레드풀이 내려가는데, 요 동작이 <code class="language-plaintext highlighter-rouge">java.lang.Runtime</code> 에 직접 등록이 되어있다. <a href="https://github.com/apache/shardingsphere/blob/master/shardingsphere-infra/shardingsphere-infra-executor/src/main/java/org/apache/shardingsphere/infra/executor/kernel/thread/ExecutorServiceManager.java#L47" target=":blank">코드</a></p>
+
+<p>그렇기 때문에, 내 어플리케이션 코드에서 디펜던시가 있는 <code class="language-plaintext highlighter-rouge">JpaRepository</code> 가 먼저 내려가기 전에 그 쓰레드풀이 먼저 내려가 버리는 상황이 종종 발생했고, 그로 인해 에러가 올라오고 있었다. 저 코드에서는 <code class="language-plaintext highlighter-rouge">google guava</code> 라이브러리의 <a href="https://guava.dev/releases/22.0/api/docs/com/google/common/util/concurrent/MoreExecutors.html#addDelayedShutdownHook-java.util.concurrent.ExecutorService-long-java.util.concurrent.TimeUnit-" target="_blank"><code class="language-plaintext highlighter-rouge">MoreExecutors.addDelayedShutdownHook</code></a> 를 사용하는데, 이름은 delayed shutdown 이지만 코드를 읽어보면 시간을 기다리고 shutdown 을 날리는게 아니라 우선 shutdown 을 하고 시간동안 기다리는 코드다.</p>
+:ET

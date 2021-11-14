@@ -2,13 +2,13 @@
 layout: default
 title: api 최적화와 gzip
 title_sub: api 최적화 - gzip compression level
-nav_order: 5
-parent: backend
+nav_order: 1
+parent: springboot
 grand_parent: 개발 
 created_at: 2021.11.07
 print_title: true
 share_enable: true
-permalink: develop/backend/optimize-api
+permalink: develop/springboot/optimize-api
 ---
 
 많은 서버에서 여러가지 이유로 중복해서 호출이 일어나는 api 가 있었다. 사실 그러라고 만들어 놓은 api 이기도 했지만, data center squeeze 테스트를 위해 트래픽을 한 쪽에 몰아 넣은 상황에서 uv 가 50k 정도 되었을 때 문제가 발생했다. 머신난이었던 때 인스턴스를 너무 많이 띄우는 괴물 아니냐는 말과 함께 로직에 최적화가 되어있는게 맞는 것인지 하는 챌린지가 많이 들어왔었다. 그래서, 다방면으로 이유를 분석해서 수정을 진행했다. 훌륭한 분들이 많이 봐주시고 해결해 주신 것도 많고 배운 것도 많고 해서 효과가 좋았던 것들을 몇개 정리하기로 했다.
