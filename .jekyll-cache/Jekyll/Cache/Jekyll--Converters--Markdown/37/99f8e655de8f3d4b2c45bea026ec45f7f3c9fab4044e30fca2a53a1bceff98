@@ -1,2 +1,0 @@
-I"�<p>리눅스 환경에서 Jvm 은 <code class="language-plaintext highlighter-rouge">SIGTERM</code> 이 들어올 경우 graceful shutdown 을 진행한다. 여기에 필요한 동작은</p>
-:ET

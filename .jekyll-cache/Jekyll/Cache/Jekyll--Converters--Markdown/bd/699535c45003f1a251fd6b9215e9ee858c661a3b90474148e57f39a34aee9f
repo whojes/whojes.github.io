@@ -1,7 +1,0 @@
-I"�<p>리눅스 환경에서 Jvm 은 <code class="language-plaintext highlighter-rouge">SIGTERM</code> 이 들어올 경우 graceful shutdown 을 진행한다. 여기에 필요한 코드는</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Runtime</span><span class="p">.</span><span class="nf">getRuntime</span><span class="p">().</span><span class="nf">addShutdownHook</span><span class="p">(</span><span class="nc">Thread</span> <span class="p">{</span> <span class="n">logger</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="s">"whojes"</span><span class="p">)</span> <span class="p">})</span>
-</code></pre></div></div>
-
-<p>spring</p>
-:ET
