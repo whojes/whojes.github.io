@@ -19,6 +19,6 @@ permalink: develop
 <br/>
 **다른 대부분의 직업들도 모두 개발하고있다.**
 
---- 
+<!-- --- 
 - 2021-11-07
-    - *TODO: google analytics 붙이기, 사진 클릭해서 확대하기 추가*
+    - *TODO: google analytics 붙이기, 사진 클릭해서 확대하기 추가* -->

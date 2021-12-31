@@ -5,9 +5,12 @@
     
     
     
+    
     <url>
         <loc>http://localhost:4000/404</loc>
     </url>
+    
+    
     
     
     
@@ -21,17 +24,13 @@
     
     
     
+    
+    
     <url>
         <loc>http://localhost:4000/travel/asia</loc>
     </url>
     
     
-    
-    
-    
-    <url>
-        <loc>http://localhost:4000/develop/springboot</loc>
-    </url>
     
     
     
@@ -45,9 +44,11 @@
     
     
     
-    <url>
-        <loc>http://localhost:4000/cats</loc>
-    </url>
+    
+     
+    <!-- life/cat 카테고리는 노출하고싶지 않다. -->
+    
+    
     
     
     
@@ -61,6 +62,8 @@
     
     
     
+    
+    
     <url>
         <loc>http://localhost:4000/develop/java/collector</loc>
     </url>
@@ -69,33 +72,35 @@
     
     
     
-    <url>
-        <loc>http://localhost:4000/cat/dalee</loc>
-    </url>
+    
+     
+    <!-- life/cat 카테고리는 노출하고싶지 않다. -->
     
     
     
     
     
-    <url>
-        <loc>http://localhost:4000/cat/dalee/1</loc>
-    </url>
+    
+     
+    <!-- life/cat 카테고리는 노출하고싶지 않다. -->
     
     
     
     
     
-    <url>
-        <loc>http://localhost:4000/cat/dalee/2</loc>
-    </url>
+    
+     
+    <!-- life/cat 카테고리는 노출하고싶지 않다. -->
     
     
     
     
     
-    <url>
-        <loc>http://localhost:4000/cat/dalee/3</loc>
-    </url>
+    
+     
+    <!-- life/cat 카테고리는 노출하고싶지 않다. -->
+    
+    
     
     
     
@@ -109,6 +114,24 @@
     
     
     
+    
+     
+    <!-- life/cat 카테고리는 노출하고싶지 않다. -->
+    
+    
+    
+    
+    
+    
+     
+    <!-- life/cat 카테고리는 노출하고싶지 않다. -->
+    
+    
+    
+    
+    
+    
+    
     <url>
         <loc>http://localhost:4000/develop/java/doublebraces</loc>
     </url>
@@ -117,17 +140,19 @@
     
     
     
-    <url>
-        <loc>http://localhost:4000/life/essay</loc>
-    </url>
+    
+     
+    <!-- life/cat 카테고리는 노출하고싶지 않다. -->
     
     
     
     
     
-    <url>
-        <loc>http://localhost:4000/life/essay/1</loc>
-    </url>
+    
+     
+    <!-- life/cat 카테고리는 노출하고싶지 않다. -->
+    
+    
     
     
     
@@ -136,6 +161,8 @@
     <url>
         <loc>http://localhost:4000/develop/etc</loc>
     </url>
+    
+    
     
     
     
@@ -151,6 +178,8 @@
     
     
     
+    
+    
     <url>
         <loc>http://localhost:4000/develop/java/filer</loc>
     </url>
@@ -159,17 +188,19 @@
     
     
     
-    <url>
-        <loc>http://localhost:4000/life/finance</loc>
-    </url>
+    
+     
+    <!-- life/cat 카테고리는 노출하고싶지 않다. -->
     
     
     
     
     
-    <url>
-        <loc>http://localhost:4000/cat/second</loc>
-    </url>
+    
+     
+    <!-- life/cat 카테고리는 노출하고싶지 않다. -->
+    
+    
     
     
     
@@ -183,9 +214,11 @@
     
     
     
-    <url>
-        <loc>http://localhost:4000/life/finance/1</loc>
-    </url>
+    
+     
+    <!-- life/cat 카테고리는 노출하고싶지 않다. -->
+    
+    
     
     
     
@@ -194,6 +227,8 @@
     <url>
         <loc>http://localhost:4000/</loc>
     </url>
+    
+    
     
     
     
@@ -215,9 +250,13 @@
     
     
     
+    
+    
     <url>
         <loc>http://localhost:4000/develop/springboot/kafka-consumer-health</loc>
     </url>
+    
+    
     
     
     
@@ -231,9 +270,11 @@
     
     
     
-    <url>
-        <loc>http://localhost:4000/life</loc>
-    </url>
+    
+     
+    <!-- life/cat 카테고리는 노출하고싶지 않다. -->
+    
+    
     
     
     
@@ -247,9 +288,13 @@
     
     
     
+    
+    
     <url>
         <loc>http://localhost:4000/develop/git/plumbing</loc>
     </url>
+    
+    
     
     
     
@@ -265,9 +310,23 @@
     
     
     
+    
+    
     <url>
         <loc>http://localhost:4000/develop/etc/sorry-computers</loc>
     </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://localhost:4000/develop/springboot</loc>
+    </url>
+    
+    
     
     
     
@@ -281,9 +340,13 @@
     
     
     
+    
+    
     <url>
         <loc>http://localhost:4000/travel/asia/japan_1</loc>
     </url>
+    
+    
     
     
     
@@ -297,6 +360,8 @@
     
     
     
+    
+    
     <url>
         <loc>http://localhost:4000/travel/asia/vietnam_1</loc>
     </url>
@@ -305,9 +370,12 @@
     
     
     
+    
+    
     <url>
         <loc>http://localhost:4000/travel/europe/vladik_1</loc>
     </url>
+    
     
     
     

@@ -143,9 +143,11 @@ layout: table_wrappers
       <div id="main-content" class="main-content" role="main">
         {%if page.print_title == true %}
           <div>
-            <br>
             <span style="font-size: 1.8rem; ">{%if page.title_sub %} {{ page.title_sub }} {% else %} {{ page.title }} {% endif %}</span><br>
+            {%if page.created_at != nil %}
             <span style="padding-top: 0.5rem; color: lightgrey;">created at {{ page.created_at }}</span>
+            {% endif %}
+            <hr/>
           </div>
         {% endif %}
         {% if site.heading_anchors != false %}
