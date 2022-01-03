@@ -12,7 +12,7 @@
     {% if page.layout != nil %}
     {% if page.layout != 'feed' %}
     {% if page.url contains "/life" or page.url contains "/cat" %} 
-    <!-- life/cat 카테고리는 노출하고싶지 않다. -->
+    {% comment %} <!-- life/cat 카테고리는 노출하고싶지 않다. --> {% endcomment %}
     {% else %}
     <url>
         <loc>{{ site.url }}{{ page.url | remove: 'index.html' }}</loc>
