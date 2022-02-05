@@ -1,0 +1,138 @@
+I"27<p><code class="language-plaintext highlighter-rouge">@ConditionalOnBean</code> 의 설명은 다음과 같다.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>that only matches when beans meeting all the specified requirements are already contained in the BeanFactory.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>대충 인자로 들어있는 클래스의 빈이 빈팩토리에 존재한다면 컴포넌트를 생성한다는 말이다. <code class="language-plaintext highlighter-rouge">@ConditionalOnMissingBean</code> 은 반대로 빈팩토리에 없을 때 컴포넌트를 생성한다는 것이다. 즉,</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Configuration</span>
+<span class="kd">class</span> <span class="nc">ApplicationConfiguration</span><span class="p">{</span>
+    <span class="nd">@Bean</span>
+    <span class="nd">@ConditionalOnBean</span><span class="p">(</span><span class="nc">TestProperty</span><span class="o">::</span><span class="k">class</span><span class="p">)</span>
+    <span class="k">fun</span> <span class="nf">someConfig</span><span class="p">(</span><span class="n">testProperty</span><span class="p">:</span> <span class="nc">TestProperty</span><span class="p">):</span> <span class="nc">SomeConfig</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nc">SomeConfig</span><span class="p">(</span><span class="n">testProperty</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>이 코드에서 <code class="language-plaintext highlighter-rouge">TestProperty</code> 타입의 빈이 있을 경우에 해당 빈을 주입받아 <code class="language-plaintext highlighter-rouge">SomeConfig</code> 빈을 만들고, <code class="language-plaintext highlighter-rouge">TestProperty</code> 빈이 없으면 <code class="language-plaintext highlighter-rouge">SomeConfig</code> 빈을 만들지 않도록 한다.</p>
+
+<p>허나, 다음과 같은 경우일 지라도 <code class="language-plaintext highlighter-rouge">SomeConfig</code> 빈이 생성될 수가 있다.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Configuration</span>
+<span class="kd">class</span> <span class="nc">ApplicationConfiguration</span><span class="p">:</span> <span class="nc">ApplicationContextAware</span> <span class="p">{</span>
+    <span class="k">private</span> <span class="k">lateinit</span> <span class="kd">var</span> <span class="py">applicationContext</span><span class="p">:</span> <span class="nc">ApplicationContext</span>
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">logger</span> <span class="p">=</span> <span class="nc">Logger</span><span class="p">.</span><span class="nf">getLogger</span><span class="p">(</span><span class="nc">ApplicationConfiguration</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">simpleName</span><span class="p">)</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">setApplicationContext</span><span class="p">(</span><span class="n">applicationContext</span><span class="p">:</span> <span class="nc">ApplicationContext</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">applicationContext</span> <span class="p">=</span> <span class="n">applicationContext</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Bean</span>
+    <span class="nd">@ConditionalOnMissingBean</span><span class="p">(</span><span class="nc">TestProperty</span><span class="o">::</span><span class="k">class</span><span class="p">)</span>
+    <span class="k">fun</span> <span class="nf">someConfig</span><span class="p">(</span><span class="n">testProperty</span><span class="p">:</span> <span class="nc">TestProperty</span><span class="p">):</span> <span class="nc">SomeConfig</span> <span class="p">{</span>
+        <span class="n">logger</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="s">"testProperty has been injected! $testProperty"</span><span class="p">)</span>
+        <span class="n">logger</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="s">"testProperty found in application context! ${applicationContext.getBean("</span><span class="n">testProperty</span><span class="s">")}"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nc">SomeConfig</span><span class="p">(</span><span class="n">testProperty</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// output</span>
+<span class="c1">// testProperty has been injected! com.whojes.common.config.TestPropertyImpl@4aa3d36</span>
+<span class="c1">// testProperty found in application context! com.whojes.common.config.TestPropertyImpl@4aa3d36</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">@ConditionalOnMissingBean</code> 을 달아놨는데도 주입도 되고 applicationContext 에서 가져올 수도 있다. <strong><em>엥?</em></strong></p>
+
+<hr />
+
+<p align="center">
+  <br /><img alt="img-name" src="/assets/images/backend/conditional_1.png" class="content-image-1" /><br />
+  <em>프로젝트 구조</em><br />
+</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// com.whojes.demo.DemoApplication</span>
+<span class="nd">@SpringBootApplication</span>
+<span class="kd">class</span> <span class="nc">DemoApplication</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;)</span> <span class="p">{</span>
+    <span class="n">runApplication</span><span class="p">&lt;</span><span class="nc">DemoApplication</span><span class="p">&gt;(*</span><span class="n">args</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// com.whojes.demo.configuration.ApplicationConfiguration </span>
+<span class="nd">@Configuration</span>
+<span class="kd">class</span> <span class="nc">ApplicationConfiguration</span> <span class="p">{</span>
+
+    <span class="nd">@Bean</span>
+    <span class="nd">@ConditionalOnBean</span><span class="p">(</span><span class="nc">TestProperty</span><span class="o">::</span><span class="k">class</span><span class="p">)</span>
+    <span class="k">fun</span> <span class="nf">someConfig</span><span class="p">(</span><span class="n">testProperty</span><span class="p">:</span> <span class="nc">TestProperty</span><span class="p">):</span> <span class="nc">SomeConfig</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nc">SomeConfig</span><span class="p">(</span><span class="n">testProperty</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// com.whojes.common.config.ApplicationConfiguration </span>
+<span class="kd">class</span> <span class="nc">TestPropertyConfiguration</span> <span class="p">{</span>
+    <span class="nd">@Bean</span>
+    <span class="k">fun</span> <span class="nf">testProperty</span><span class="p">():</span> <span class="nc">TestProperty</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nc">TestProperty</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>문제는 이렇게 내가 나의 코드에서 사용할 <code class="language-plaintext highlighter-rouge">@ConditionalOn(Missing)Bean</code> 의 인자로 사용된 빈의 생성 정보가 다른 라이브러리에 있을 때에 발생한다.</p>
+
+<p>이 예시에서 DemoApplication 은 <code class="language-plaintext highlighter-rouge">com.whojes.demo</code> 패키지에 있으므로 <code class="language-plaintext highlighter-rouge">com.whojes.common</code> 패키지에 있는 <code class="language-plaintext highlighter-rouge">TestPropertyConfiguration</code> 은 컴포넌트 스캔에 대상이 되지 않는다.</p>
+
+<p>지금 예시에서는 같은 프로젝트에 있지만, 보통 <code class="language-plaintext highlighter-rouge">TestProperty</code> 를 외부에서 라이브러리 형태로 제공하는데, 제공하는 쪽에서는 이 config를 로드하게 하기 위해 다음과 같은 방법을 쓴다.</p>
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">@Enable~</code> 류의 클래스를 작성해둔다.
+    <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Target</span><span class="p">(</span><span class="nc">ElementType</span><span class="p">.</span><span class="nc">TYPE</span><span class="p">)</span>
+<span class="nd">@Retention</span><span class="p">(</span><span class="nc">RetentionPolicy</span><span class="p">.</span><span class="nc">RUNTIME</span><span class="p">)</span>
+<span class="nd">@Documented</span>
+<span class="nd">@Import</span><span class="p">(</span><span class="nc">TestPropertyConfiguration</span><span class="o">::</span><span class="k">class</span><span class="p">)</span>
+<span class="k">annotation</span> <span class="kd">class</span> <span class="nc">EnableTestProperty</span>
+</code></pre></div>    </div>
+    <p>이러면 DemoApplication 의 컴포넌트 스캔 경로 아래에 <code class="language-plaintext highlighter-rouge">@EnableTestProperty</code> 가 달린 configuration 을 하나 만들면 된다.</p>
+  </li>
+  <li>META-INF/spring.factories 파일을 추가하고, 다음 글귀를 작성한다.
+    <div class="language-properties highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">org.springframework.boot.autoconfigure.EnableAutoConfiguration</span><span class="p">=</span><span class="s">com.whojes.common.config.TestPropertyConfiguration</span>
+</code></pre></div>    </div>
+    <p>이러면 의존성을 추가해주기만 하면 springboot application 이 로딩될 때 autoconfiguration 된다.</p>
+  </li>
+</ol>
+
+<hr />
+
+<p><code class="language-plaintext highlighter-rouge">com.whojes.demo</code> 를 개발중인 나는, 커먼 소스인 <code class="language-plaintext highlighter-rouge">com.whojes.common</code> 를 사용중이고, <code class="language-plaintext highlighter-rouge">TestProperty</code> 가 조건부로 생기기 때문에 해당 빈이 있으면 뭐 해야지~ 하고 <code class="language-plaintext highlighter-rouge">@ConditionalOnBean(TestProperty::class)</code> 를 해버리면 안된다는 것이다. auto-configure 되어있거나, 아무 configure 에나 <code class="language-plaintext highlighter-rouge">@EnableTestProperty</code> 를 달아도 <code class="language-plaintext highlighter-rouge">TestProperty</code> 빈을 주입받아서 사용하는거는 문제가 없으나, <code class="language-plaintext highlighter-rouge">@Conditional</code> 의 인자로 쓰려면 다음 중 하나의 방법으로 사용해야 한다.</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">@EnableTestProperty</code> 로 제공되는 경우
+    <ul>
+      <li>ApplicationConfiguration 에 직접 달거나, 이것보다 빠른 순서로 ComponentScan 이 되는 클래스에 달아야 한다.</li>
+    </ul>
+    <ul>
+      <li>알파벳 순으로 컴포넌트 스캔이 되기 때문에 alphabetically high order 로 해야한다. 즉, 이 예시에서 <code class="language-plaintext highlighter-rouge">@EnableTestProperty</code> 를 <code class="language-plaintext highlighter-rouge">AoConfig</code> 에 달면 사용가능하지만 <code class="language-plaintext highlighter-rouge">ArConfig</code> 에 달면 사용이 불가능하다.</li>
+      <li><code class="language-plaintext highlighter-rouge">@Order</code> 혹은 <code class="language-plaintext highlighter-rouge">@DependsOn</code> 은 스캔의 순서가 아니라 bean creation 의 순서여서 그런가 무용지물이다.</li>
+    </ul>
+  </li>
+  <li>ApplicationConfiguration 에 <code class="language-plaintext highlighter-rouge">@Import(TestPropertyConfiguration::class)</code> 를 단다.</li>
+  <li>DemoApplication 에 <code class="language-plaintext highlighter-rouge">@ComponentScan("com.whojes.common", "com.whojes.demo")</code> 를 단다.</li>
+  <li>DemoApplication 에 <code class="language-plaintext highlighter-rouge">@ComponentScan("com.whojes.demo", "com.whojes.common")</code> 를 단다.</li>
+  <li>DemoApplication 에 <code class="language-plaintext highlighter-rouge">@Import(TestPropertyConfiguration::class)</code> 를 단다.</li>
+  <li>META-INF/spring.factories 에 <code class="language-plaintext highlighter-rouge">org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.whojes.common.config.TestPropertyConfiguration</code> 를 추가해준다.</li>
+</ol>
+
+<p>이 다섯가지 방법은 모두 차후에 어플리케이션에서 <code class="language-plaintext highlighter-rouge">testProperty</code> 빈을 주입받거나 applicationContext 에서 서치가 가능하다. 
+<strong>그러나, 1번과 2번 방법으로 로딩되었을 때만 <code class="language-plaintext highlighter-rouge">@ConditionalOnBean(TestProperty::class)</code> 로 찾을 수 있다.</strong></p>
+
+<p>2번과 3번의 차이를 보면 알 수 있겠지만, <code class="language-plaintext highlighter-rouge">already contained in the BeanFactory.</code> 의 의미가 <strong><em>빈의 실제 생성여부와는 별개로 component scan 의 순서와 연관</em></strong>이 있는 것임을 추론할 수 있겠다.</p>
+
+<hr />
+
+:ET

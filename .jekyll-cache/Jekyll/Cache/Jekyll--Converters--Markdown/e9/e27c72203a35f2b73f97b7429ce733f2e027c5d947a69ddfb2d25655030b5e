@@ -1,0 +1,24 @@
+I"�<p><code class="language-plaintext highlighter-rouge">@Conditonal</code> 형제들의 설명은 다음과 같다.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Indicates that a component is only eligible for registration when all specified conditions match.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>그 중에서 <code class="language-plaintext highlighter-rouge">@ConditionalOnBean</code> 은 <code class="language-plaintext highlighter-rouge">that only matches when beans meeting all the specified requirements are already contained in the BeanFactory.</code> 이라고 적혀있고.. 대충 인자로 들어있는 클래스의 빈이 빈팩토리에 존재한다면 컴포넌트가 생긴다는 말이다.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Configuration</span>
+<span class="kd">class</span> <span class="nc">ApplicationConfiguration</span><span class="p">{</span>
+    <span class="nd">@Bean</span>
+    <span class="nd">@ConditionalOnBean</span><span class="p">(</span><span class="nc">TestProperty</span><span class="o">::</span><span class="k">class</span><span class="p">)</span>
+    <span class="k">fun</span> <span class="nf">someConfig</span><span class="p">(</span><span class="n">testProperty</span><span class="p">:</span> <span class="nc">TestProperty</span><span class="p">):</span> <span class="nc">SomeConfig</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nc">SomeConfig</span><span class="p">(</span><span class="n">testProperty</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>이 코드에서 <code class="language-plaintext highlighter-rouge">TestProperty</code> 타입의 빈이 있을 경우에 해당 빈을 주입받아 <code class="language-plaintext highlighter-rouge">SomeConfig</code> 빈을 만들고, <code class="language-plaintext highlighter-rouge">TestProperty</code> 빈이 없으면 <code class="language-plaintext highlighter-rouge">SomeConfig</code> 빈을 만들지 않도록 하는 코드인데, 이건 의도한 대로 동작하지 않는 경우가 있다.</p>
+:ET
