@@ -93,7 +93,7 @@ class Aq {
   fun testProperty(): TestProperty = TestProperty()
 }
 ```
-Ao 클래스로 생성을 하던 Aq 클래스로 생성을 하던 런타임에 `TestProperty` 빈을 인젝션받거나 applicationContext 에서 찾는건 문제없이 가능하지만, 컴포넌트 스캔 순서가 Ao -> ApplicationConfiguration -> Aq 이기 때문에 Aq 로 빈을 만들면 `ApplicationConfiguration` 에 있는 `@ConditionalOn(Missing)Bean`은 정상동작하지 않는다. Component Scan 은 alphabetically 이뤄지기 때문에 만약 클래스 이름 따위로 제어하기 싫다면 `@ComponentScan({})` 의 순서를 바꾸거나, Aq 클래스의 `@Configuration` 애너테이션을 떼버리고 `ApplicationConfiguration` 클래스에 `@Import(ArConfig::class)` 를 달아버리면 된다. 역시 이상한건 매한가지지만...
+Ao 클래스로 생성을 하던 Aq 클래스로 생성을 하던 런타임에 `TestProperty` 빈을 인젝션받거나 applicationContext 에서 찾는건 문제없이 가능하지만, 컴포넌트 스캔 순서가 Ao -> ApplicationConfiguration -> Aq 이기 때문에 Aq 로 빈을 만들면 `ApplicationConfiguration` 에 있는 `@ConditionalOn(Missing)Bean`은 정상동작하지 않는다. Component Scan 은 alphabetically 이뤄지기 때문에 만약 클래스 이름 따위로 제어하기 싫다면 `@ComponentScan({})` 의 순서를 바꾸거나, Aq 클래스의 `@Configuration` 애너테이션을 떼버리고 `ApplicationConfiguration` 클래스에 `@Import(Aq::class)` 를 달아버리면 된다. 역시 이상한건 매한가지지만...
 <hr>
 
 일반적으로 한 프로젝트 안에서 `@ConditionalOn(Missing)Bean` 을 사용하지는 않고, (나는 원소스로 서로 다른 인프라에 제공하기 위해 작성한 적이 있다.) 다른 프로젝트를 위해 사용할 라이브러리를 짤 때나 특정 라이브러리를 사용할 때 해당 애너테이션을 쓰는 경우가 있다.
@@ -124,7 +124,7 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.whojes.common
 2. auto-config 로 제공되는 경우
   - 나만의 auto-config 를 만든다. 
     - `ApplicationConfiguration` 클래스를 컴포넌트 스캔이 되지 않는 패키지로 옮긴다.
-    - 그리고 `@AutoConfigureAfter(TestPropertyConfiguration::class)` 를 추가해준다.
+    - 그리고 `@AutoConfigureAfter (TestPropertyConfiguration::class)` 를 추가해준다.
     - 해당 파일을 `META-INF/spring.factories` 에 추가하여 auto-configure 되도록 한다.
   - 또는, `ApplicationConfiguration` 클래스에 `@Import(TestPropertyConfiguration::class)` 를 붙여준다.
 
