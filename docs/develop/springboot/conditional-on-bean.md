@@ -126,7 +126,7 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.whojes.common
     - `ApplicationConfiguration` 클래스를 컴포넌트 스캔이 되지 않는 패키지로 옮긴다.
     - 그리고 `@AutoConfigureAfter (TestPropertyConfiguration::class)` 를 추가해준다.
     - 해당 파일을 `META-INF/spring.factories` 에 추가하여 auto-configure 되도록 한다.
-  - 또는, `ApplicationConfiguration` 클래스에 `@Import(TestPropertyConfiguration::class)` 를 붙여준다.
+    - 또는, `ApplicationConfiguration` 클래스에 `@Import(TestPropertyConfiguration::class)` 를 붙여준다.
 
 그리고, 다른 프로젝트에 제공하기 위해 라이브러리를 짜는 경우에는 보통 "네가 만든거 있으면 쓰고 없으면 디폴트로 하나 만들어줄게" 하는 형식일 것인데, auto-config 의 경우에는 `META-INF/spring.factories` 에 의한 auto configuration 은 메인 스프링부트 앱의 component scan 이후에 진행이 되므로, 크게 고려할 사항은 없다. `@Enable~` 의 경우에는... 저렇게 쓰지 말아야한다. 사용하는 쪽에서 `@Enable~` 을 어느 클래스에 다느냐에 따라서 달라지기 때문이다.
 
