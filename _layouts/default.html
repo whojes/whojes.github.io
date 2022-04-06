@@ -179,10 +179,12 @@ layout: table_wrappers
               <hr>
 
               {% if site.back_to_top %}
-                <p><a href="#top" id="back-to-top">{{ site.back_to_top_text }}</a></p>
+                <p><a href="#top" id="back-to-top" style="float:right">{{ site.back_to_top_text }}</a></p>
               {% endif %}
               {% if page.grand_parent != nil %}
-                {% for other_page in pages_list %}
+                {% assign n = pages_list | size %}
+                {% assign shuffled = pages_list | sample: n %}
+                {% for other_page in shuffled %}
                   {% if other_page.parent == page.parent and other_page.title != page.title %}
                     {% assign index = index | plus: 1 %}
                     {% if index == 1 %}
