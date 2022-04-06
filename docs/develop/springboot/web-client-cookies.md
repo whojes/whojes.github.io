@@ -50,7 +50,7 @@ class Controller(
     fun test(
         @RequestParam("type") type: Type
     ): Map<String, String> {
-        val uri = "http://localhost:8080/get-cookie?type=$type"
+        val uri = "http://localhost:8080/get-cookie"
         val (user, password) = Auth.userPassword
 
         return when (type) {
