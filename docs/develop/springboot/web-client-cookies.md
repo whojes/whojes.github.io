@@ -181,3 +181,6 @@ private fun ClientResponse.defaultCookiesWork(url: String) {
 ### 아직 풀지 못한 문제
 1. webClient 에도 RFC6265 스펙을 위한 필터 (RequestAddCookies 같은) 가 있을 텐데, 그걸 못찾겠다... 없는건가??
 2. setCookie가 동작하지 않아서 securityContext 에서 기존 인증 컨텍스트를 유지하지 않고 매번 새로운 세션을 생성한다면 cpu 가 풀로 쓰인다는건데, 이게 그렇게까지 cpu 를 많이 먹는 작업인가?? `WebSecurityConfigurerAdapter` 에 대한 내부 동작의 이해도가 낮아서 잘 모르겠다.
+
+참조: https://sungminhong.github.io/spring/security/
+
