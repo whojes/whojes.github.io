@@ -9,17 +9,18 @@ share_enable: false
 permalink: life/career
 ---
 
-
+## *Career*
 ### 2020.03 ~   
 **[Toss](https://toss.im/team) Server Developer (Server Platform Team)**  
 
 - skills
     - spring boot
-    - mongodb, redis, kafka, mysql(5.7)
+    - mongodb, redis, kafka, mysql(5.7, shardingsphere)
     - k8s, nexus, spring-cloud, api-gateway
     - elk, grafana, impala(hue), pinpoint
-- done
+- projects
     - unified messaging system (push/inbox/sms/alimtalk/email)
+        - massive push sending system for toss and toss-affiliates
     - ab testing tools
     - web socket servers (used for chats, websocket push)
     - achievements server (badge system & services for churn users)
@@ -47,7 +48,12 @@ permalink: life/career
 
 <br/>
 
+## *Educations*
+
 ### 2015.02 ~ 2017.02  
+Master of Science in Materials Science and Engineering, Seoul National Univ.  
 [MFSM](http://mfsm.snu.ac.kr) soft-materials researchers  
 
+### 2011.03 ~ 2015.02
+Bachelor of Science in Materials Science and Engineering, Seoul National Univ.
 <br/>
