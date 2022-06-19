@@ -7,11 +7,21 @@ has_children: true
 permalink: life/career
 ---
 
-## Current interestings 
-- [Fastforward](https://domino.oopy.io)
+### 2020.03 ~         
+[Toss](https://toss.im/team) Server Developer (Server Platform Team)
 
-## 2020.03 ~         Toss Server Developer (Server Platform Team)
-## 2017.02 ~ 2020.02 Tmax Cloud engineer
-## 2015.02 ~ 2017.02 MFSM soft-materials researchers
+<br/>
+<hr/>
 
+### 2017.02 ~ 2020.02 
+[Tmax Cloud](https://www.tmax.co.kr/) engineer
+
+<br/>
+<hr/>
+
+### 2015.02 ~ 2017.02 
+[MFSM](http://mfsm.snu.ac.kr) soft-materials researchers  
+
+<br/>
+<hr/>
 
