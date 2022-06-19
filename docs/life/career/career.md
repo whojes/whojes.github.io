@@ -14,7 +14,7 @@ permalink: life/career
 **[Toss](https://toss.im/team) Server Developer (Server Platform Team)**  
 
 - skills
-    - spring boot
+    - spring boot (2.x.x, webmvc, webflux)
     - mongodb, redis, kafka, mysql(5.7, shardingsphere)
     - k8s, nexus, spring-cloud, api-gateway
     - elk, grafana, impala(hue), pinpoint
