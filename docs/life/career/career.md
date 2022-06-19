@@ -10,7 +10,7 @@ permalink: life/career
 ---
 
 ### 2020.03 ~   
-[Toss](https://toss.im/team) Server Developer (Server Platform Team)
+**[Toss](https://toss.im/team) Server Developer (Server Platform Team)**
 
 <br/>
 
