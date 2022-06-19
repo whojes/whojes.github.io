@@ -2,7 +2,7 @@
 layout: default
 title: 커리어
 parent: 일상
-nav_order: 1
+nav_order: 4
 has_children: true
 print_title: true
 share_enable: false
