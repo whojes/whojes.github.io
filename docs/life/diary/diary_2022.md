@@ -4,7 +4,7 @@ title: "2022"
 title_sub: Health in 2022
 parent: 다이어리
 grand_parent: 일상
-nav_order: 2
+nav_order: 1
 print_title: true
 share_enable: false
 permalink: life/diary/2022

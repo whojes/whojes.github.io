@@ -10,6 +10,8 @@ permalink: /
 
 <br>
 
+- 2023-01-01
+    - God, grant me the serenity to accept the things I cannot change, courage to change the things I can, and wisdom to know the difference.
 - 2022-07-28
     - 이런 개씨발. 인생은 역시 개씨발이 맞다. 아닌 척 자꾸 숨길 뿐이다. 
 - 2022-03-05
