@@ -16,3 +16,8 @@ permalink: life/career/interestings
     - 핀테크 회사 - 다음에도 핀테크를 가고싶다??? 엥? 
     - 앱이 아직은 너무 구리다 (안드기준)
   
+- 2023/04/23
+  - [Alwayz](https://team.alwayz.co/)
+    - 커머셜 
+    - 공고 자체가 장난이 아니다...
+    - can i define myself as a problem solver?

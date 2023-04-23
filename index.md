@@ -10,10 +10,12 @@ permalink: /
 
 <br>
 
+- 2023-04-23
+    - wedding D-48, time flies..
 - 2023-01-01
     - God, grant me the serenity to accept the things I cannot change, courage to change the things I can, and wisdom to know the difference.
 - 2022-07-28
-    - 이런 개씨발. 인생은 역시 개씨발이 맞다. 아닌 척 자꾸 숨길 뿐이다. 
+    - 이런 개씨발, 인생은 역시 개씨발이 맞다. 아닌 척 자꾸 숨길 뿐이다. 
 - 2022-03-05
     - 진이가 우크라이나를 우루과이라고 했다.
 - 2022-02-05
