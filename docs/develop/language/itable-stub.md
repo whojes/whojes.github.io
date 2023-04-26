@@ -13,7 +13,9 @@ permalink: develop/java/itable-stub
 
 itable stub 이 뭘까? 
 
-[*흑마술*](https://shipilev.net/blog/2015/black-magic-method-dispatch/)
+[읽어봄직1](http://insightfullogic.com/2014/May/12/fast-and-megamorphic-what-influences-method-invoca/)  
+[읽어봄직2](https://mrale.ph/blog/2015/01/11/whats-up-with-monomorphism.html)  
+[*너무길어서 못읽겠는 흑마술*](https://shipilev.net/blog/2015/black-magic-method-dispatch/)  
 
 > An "itable stub" is a term from the Java Virtual Machine (JVM) world, and it refers to the method stubs that are generated as part of the Interface Method Resolution process. An itable (short for Interface Method Table) is a data structure that enables efficient dispatching of interface method calls on the JVM.
 > 
