@@ -24,3 +24,4 @@ permalink: life/career/interestings
 
 - 2023/05/01
   - [페오펫](https://www.peopet.co.kr/)
+  - [어웨이크코퍼레이션](https://creator.ly/)
