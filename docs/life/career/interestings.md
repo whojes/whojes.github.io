@@ -21,3 +21,6 @@ permalink: life/career/interestings
     - 커머셜 
     - 공고 자체가 장난이 아니다...
     - can i define myself as a problem solver?
+
+- 2023/05/01
+  - [페오펫](https://www.peopet.co.kr/)
