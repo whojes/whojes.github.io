@@ -7,7 +7,7 @@ permalink: cats
 ---
 
 ## 고양이 이야기
-*달리와 {{site.gazi_name}}*
+*달리와 가지*
 
 ---
 

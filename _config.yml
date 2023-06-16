@@ -1,6 +1,5 @@
 title: whojes blog
 description: 이야기 이야기
-gazi_name: 가지
 
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://whojes.github.io" # the base hostname & protocol for your site, e.g. http://example.com
