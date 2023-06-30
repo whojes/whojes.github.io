@@ -32,6 +32,9 @@ permalink: life/career/interestings
     - 레베뉴마켓, 수익이 있으면 그걸 담보로 대출해줌
     - 10명짜리 회사, 팀 리더(도은욱)가 신뢰받는듯?
     - 체크
+  - [블리츠다이나믹스](https://team.blitz-dynamics.com/bcc62330-3988-4a1d-a33b-6668308d3138)
+    - AI 주방
+    - 체크
   - [플렉스](https://flex.team/)
   - [라포랩스](https://www.rapportlabs.kr/8dogam)
 
