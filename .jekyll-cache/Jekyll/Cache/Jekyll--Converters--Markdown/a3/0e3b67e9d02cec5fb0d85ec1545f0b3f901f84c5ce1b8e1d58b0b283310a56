@@ -1,0 +1,122 @@
+I"�9<p>런타임 중의 자바 어플리케이션을 프로파일링해서 문제점을 찾아내고, 개선했다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get update <span class="o">&amp;&amp;</span><span class="se">\</span>
+  apt-get <span class="nb">install</span> <span class="nt">-y</span> wget <span class="o">&amp;&amp;</span><span class="se">\</span>
+  <span class="nb">cd</span> /tmp <span class="o">&amp;&amp;</span><span class="se">\</span>
+  wget <span class="nt">-q</span> https://github.com/jvm-profiling-tools/async-profiler/releases/download/v2.7/async-profiler-2.7-linux-x64.tar.gz <span class="o">&amp;&amp;</span><span class="se">\</span>
+  <span class="nb">tar </span>xzvf async-profiler-2.7-linux-x64.tar.gz <span class="o">&amp;&amp;</span><span class="se">\ </span>
+  <span class="nb">cd </span>async-profiler-2.7-linux-x64 <span class="o">&amp;&amp;</span><span class="se">\</span>
+  ./profiler.sh <span class="nt">-d</span> 60 <span class="nt">-e</span> cpu,alloc <span class="nt">-f</span> ./<span class="si">$(</span><span class="nb">echo</span> <span class="nv">$APP_NAME</span><span class="si">)</span>-<span class="si">$(</span><span class="nb">echo</span> <span class="nv">$DEPLOY_VERSION</span><span class="si">)</span>.jfr 1
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">-e cpu,alloc</code> 옵션은 프로파일링 대상에 cpu clock 이랑 mem alloc 을 포함시키도록 한다. 마지막 인자 <code class="language-plaintext highlighter-rouge">1</code>이 pid 이고, 여러 옵션은 <a href="https://github.com/async-profiler/async-profiler#profiler-options">여기</a> 에서 확인 가능하다.</p>
+
+<p>떨궈진 jfr 을 적절한 프로파일링 툴(여기선 intellij)으로 확인하면 된다.</p>
+
+<hr />
+
+<p align="center">
+  <br /><img alt="img-name" src="/assets/images/backend/profile_1.png" class="content-image-1" /><br />
+  <em>cpu 샘플 전체 2252개 중 473개를 차지하는 것</em><br />
+</p>
+
+<p>아니 이런….!! 이런 게 나왔다. <code class="language-plaintext highlighter-rouge">java.time.ZonedDateTime.parse</code> 에서 발생하는 exception 생성 코드가 cpu 전체의 20퍼센트를 먹고있었다!
+해당 코드는 다음과 같았다.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">formatters</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="s">"yyyy"</span><span class="p">,</span> <span class="s">"yyyy-MM"</span><span class="p">,</span> <span class="s">"yyyy-MM-dd"</span><span class="p">,</span> <span class="o">..</span><span class="p">.</span> <span class="p">)</span> <span class="c1">// 22가지 포맷</span>
+	<span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="n">it</span><span class="p">.</span><span class="nf">toDateTimeFormatter</span><span class="p">()</span> <span class="p">}</span> 
+
+<span class="k">fun</span> <span class="nf">parse</span><span class="p">(</span><span class="n">dateString</span><span class="p">:</span> <span class="nc">String</span><span class="p">):</span> <span class="nc">ZonedDateTime</span><span class="p">?</span> <span class="p">{</span>
+    <span class="n">formatters</span><span class="p">.</span><span class="nf">forEach</span> <span class="p">{</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nc">ZonedDateTime</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">dateString</span><span class="p">,</span> <span class="n">it</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="nc">Exception</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">null</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>다양한 포맷의 시간을 파싱하기 위한 코드였는데, exception 을 생성하는것 자체가 큰 부하였음을 간과하였다. 그리하여 다음과 같이 코드를 수정하고, 낭비되던 20퍼센트의 cpu 를 회수하였다.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">parse</span><span class="p">(</span><span class="n">dateString</span><span class="p">:</span> <span class="nc">String</span><span class="p">):</span> <span class="nc">ZonedDateTime</span><span class="p">?</span> <span class="p">{</span>
+    <span class="n">formatters</span><span class="p">.</span><span class="nf">forEach</span> <span class="p">{</span> <span class="n">dtf</span> <span class="p">-&gt;</span>
+        <span class="kd">val</span> <span class="py">position</span> <span class="p">=</span> <span class="nc">ParsePosition</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="kd">val</span> <span class="py">temporalAccessor</span> <span class="p">=</span> <span class="n">dtf</span><span class="p">.</span><span class="nf">parseUnresolved</span><span class="p">(</span><span class="n">dateString</span><span class="p">,</span> <span class="n">position</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">temporalAccessor</span> <span class="p">!=</span> <span class="k">null</span> <span class="p">&amp;&amp;</span> <span class="n">position</span><span class="p">.</span><span class="n">errorIndex</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="p">&amp;&amp;</span> <span class="n">position</span><span class="p">.</span><span class="n">index</span> <span class="p">==</span> <span class="n">dateString</span><span class="p">.</span><span class="n">length</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nc">ZonedDateTime</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">dateString</span><span class="p">,</span> <span class="n">dtf</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">null</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<p align="center">
+  <br /><img alt="img-name" src="/assets/images/backend/profile_2.png" class="content-image-1" /><br />
+  <em>1494 샘플중 45샘플, 약 3퍼센트</em><br />
+</p>
+
+<p>이건 코틀린 코드 가독성을 높이기 위해 <code class="language-plaintext highlighter-rouge">trimIndent</code>를 사용했던건데, 잘 정리하여 없앴다. 가독성은 유지하되 불필요한 자원이 쓰이지 않게 조절했다.</p>
+
+<hr />
+
+<p align="center">
+  <br /><img alt="img-name" src="/assets/images/backend/profile_4.png" class="content-image-1" /><br />
+  <br /><img alt="img-name" src="/assets/images/backend/profile_3.png" class="content-image-1" /><br />
+  <em>mongodb 에서 쓰는 bson 의 ObjectId 만들 때 쓰이는 코드, 샘플링 된 메모리의 약 9퍼센트를 쓴다.</em><br />
+</p>
+
+<p>해당 코드는 다음과 같다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="kd">static</span> <span class="kt">byte</span><span class="o">[]</span> <span class="nf">parseHexString</span><span class="o">(</span><span class="kd">final</span> <span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">byte</span><span class="o">[]</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="no">OBJECT_ID_LENGTH</span><span class="o">];</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">b</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="n">b</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="o">(</span><span class="kt">byte</span><span class="o">)</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span><span class="o">,</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">),</span> <span class="mi">16</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">b</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>문제가 되는 부분은 <code class="language-plaintext highlighter-rouge">s.substring</code> 이 <code class="language-plaintext highlighter-rouge">b.length</code>번 만큼, 즉 12번 반복되는 것이다.
+<a href="https://www.baeldung.com/java-hexformat">HexFormat</a> 이 java 17 의 피쳐로 들어와서 자바 버전을 올리는게 가장 깔끔한 해결책이지만, 이런저런 이유로 그러지 못해 bson 라이브러리의 ObjectId 클래스를 새로 작성하여 사용했다. 
+수정한 코드는 다음과 같다.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">parseHexString</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nc">String</span><span class="p">):</span> <span class="nc">ByteArray</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">bytes</span> <span class="p">=</span> <span class="nc">ByteArray</span><span class="p">(</span><span class="n">string</span><span class="p">.</span><span class="n">length</span> <span class="p">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="n">bytes</span><span class="p">.</span><span class="n">indices</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">bytes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="nf">fromHexDigits</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">i</span> <span class="p">*</span> <span class="mi">2</span><span class="p">).</span><span class="nf">toByte</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">bytes</span>
+<span class="p">}</span>
+
+<span class="k">private</span> <span class="k">fun</span> <span class="nf">fromHexDigits</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nc">CharSequence</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nc">Int</span><span class="p">):</span> <span class="nc">Int</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">high</span><span class="p">:</span> <span class="nc">Int</span> <span class="p">=</span> <span class="nf">fromHexDigit</span><span class="p">(</span><span class="n">string</span><span class="p">[</span><span class="n">index</span><span class="p">].</span><span class="n">code</span><span class="p">)</span>
+    <span class="kd">val</span> <span class="py">low</span><span class="p">:</span> <span class="nc">Int</span> <span class="p">=</span> <span class="nf">fromHexDigit</span><span class="p">(</span><span class="n">string</span><span class="p">[</span><span class="n">index</span> <span class="p">+</span> <span class="mi">1</span><span class="p">].</span><span class="n">code</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">high</span> <span class="n">shl</span> <span class="mi">4</span> <span class="n">or</span> <span class="n">low</span>
+<span class="p">}</span>
+
+<span class="k">private</span> <span class="k">fun</span> <span class="nf">fromHexDigit</span><span class="p">(</span><span class="n">ch</span><span class="p">:</span> <span class="nc">Int</span><span class="p">):</span> <span class="nc">Int</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="py">value</span><span class="p">:</span> <span class="nc">Int</span> <span class="p">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="n">ushr</span> <span class="mi">8</span> <span class="p">==</span> <span class="mi">0</span> <span class="p">&amp;&amp;</span> <span class="nc">DIGITS</span><span class="p">[</span><span class="n">ch</span><span class="p">].</span><span class="nf">also</span><span class="p">{</span><span class="n">value</span> <span class="p">=</span><span class="n">it</span><span class="p">.</span><span class="nf">toInt</span><span class="p">()}&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">value</span>
+    <span class="p">}</span>
+    <span class="k">throw</span> <span class="nc">NumberFormatException</span><span class="p">(</span><span class="s">"not a hexadecimal digit: \""</span> <span class="p">+</span> <span class="n">ch</span><span class="p">.</span><span class="nf">toChar</span><span class="p">()</span> <span class="p">+</span> <span class="s">"\" = "</span> <span class="p">+</span> <span class="n">ch</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="리소스-개선-확인">리소스 개선 확인</h3>
+
+<p>그 외에 path matcher 를 ant path matcher 에서 path pattern parser 로 변경하였고, 기타 등등 수정해서</p>
+
+<ul>
+  <li>cpu 사용률 30 퍼센트 절감</li>
+  <li>api response time 20퍼센트 개선</li>
+  <li>eden space alloc rate 25 퍼센트 절감</li>
+</ul>
+
+<p>를 달성했다.</p>
+
+:ET

@@ -1,0 +1,72 @@
+I"Z	<h2 id="career"><em>Career</em></h2>
+<h3 id="202003-">2020.03 ~</h3>
+<p><strong><a href="https://toss.im/team">Toss</a> Server Developer (Server Platform Team)</strong></p>
+
+<ul>
+  <li>skills
+    <ul>
+      <li>spring boot (2.x.x, webmvc, webflux)</li>
+      <li>mongodb, redis, kafka, mysql(5.7, shardingsphere)</li>
+      <li>k8s, nexus, spring-cloud, api-gateway</li>
+      <li>elk, grafana, impala(hue), pinpoint</li>
+    </ul>
+  </li>
+  <li>projects
+    <ul>
+      <li>unified messaging system (push/inbox/sms/alimtalk/email)
+        <ul>
+          <li>massive push sending system for toss and toss-affiliates</li>
+        </ul>
+      </li>
+      <li>ab testing tools</li>
+      <li>web socket servers (used for chats, websocket push)</li>
+      <li>achievements server (badge system &amp; services for churn users)</li>
+      <li>common libraries</li>
+      <li>other servers (chat logic server, inbox merging server, user journey server, …)</li>
+      <li>toss securities platform build
+        <ul>
+          <li>unified messaging system, ab testing tools (self-hosted)</li>
+          <li>nexus, gradle, logging, grafana, logstash for self-hosted services</li>
+        </ul>
+      </li>
+      <li>toss bank platform build
+        <ul>
+          <li>unified messaging system (infra-sharing)</li>
+        </ul>
+      </li>
+      <li>toss cb server platform building
+        <ul>
+          <li>spring cloud config server</li>
+          <li>spring api gateway server</li>
+          <li>common libraries
+            <ul>
+              <li>http req/res logging</li>
+              <li>logging format</li>
+              <li>event tracing</li>
+              <li>common metric collect, prometheus endpoint</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>other affiliates support for messaging/ab-tests</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="201702--202002">2017.02 ~ 2020.02</h3>
+<p><a href="https://www.tmax.co.kr/">Tmax Cloud</a> engineer</p>
+
+<p><br /></p>
+
+<h2 id="educations"><em>Educations</em></h2>
+
+<h3 id="201502--201702">2015.02 ~ 2017.02</h3>
+<p>Master of Science in Materials Science and Engineering, Seoul National Univ.<br />
+<a href="http://mfsm.snu.ac.kr">MFSM</a> soft-materials researchers</p>
+
+<h3 id="201103--201502">2011.03 ~ 2015.02</h3>
+<p>Bachelor of Science in Materials Science and Engineering, Seoul National Univ.
+<br /></p>
+:ET

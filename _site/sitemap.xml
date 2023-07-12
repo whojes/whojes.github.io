@@ -53,6 +53,14 @@
     
     
     
+     
+    
+    
+    
+    
+    
+    
+    
     
     <url>
         <loc>http://localhost:4000/travel/asia/china_1</loc>
@@ -75,8 +83,34 @@
     
     
     <url>
+        <loc>http://localhost:4000/develop/thoughts/common-libs</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
         <loc>http://localhost:4000/develop/springboot/conditional-on-bean</loc>
     </url>
+    
+    
+    
+    
+    
+    
+     
+    
+    
+    
+    
+    
+    
+    
+     
+    
     
     
     
@@ -225,7 +259,7 @@
     
     
     <url>
-        <loc>http://localhost:4000/develop/git</loc>
+        <loc>http://localhost:4000/</loc>
     </url>
     
     
@@ -243,7 +277,7 @@
     
     
     <url>
-        <loc>http://localhost:4000/</loc>
+        <loc>http://localhost:4000/develop/java/itable-stub</loc>
     </url>
     
     
@@ -309,7 +343,17 @@
     
     
     <url>
-        <loc>http://localhost:4000/develop/git/plumbing</loc>
+        <loc>http://localhost:4000/develop/etc/plumbing</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://localhost:4000/develop/springboot/java-profiling</loc>
     </url>
     
     
@@ -323,16 +367,6 @@
     </url>
     
     
-    
-    
-    
-    
-    
-    
-    
-    <url>
-        <loc>http://localhost:4000/develop/etc/sorry-computers</loc>
-    </url>
     
     
     
@@ -361,6 +395,16 @@
     
     
     <url>
+        <loc>http://localhost:4000/develop/thoughts</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
         <loc>http://localhost:4000/travel/asia/japan_1</loc>
     </url>
     
@@ -373,6 +417,14 @@
     <url>
         <loc>http://localhost:4000/travel</loc>
     </url>
+    
+    
+    
+    
+    
+    
+     
+    
     
     
     
