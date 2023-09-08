@@ -10,14 +10,28 @@ permalink: life/career
 ---
 
 ## *Career*
-### 2020.03 ~   
-**[Toss](https://toss.im/team) Server Developer (Server Platform Team)**  
-
+**[Toss](https://toss.im/team) Server Developer**  
 - skills
     - spring boot (2.x.x, webmvc, webflux)
     - mongodb, redis, kafka, mysql(5.7, shardingsphere)
     - k8s, nexus, spring-cloud, api-gateway
     - elk, grafana, impala(hue), pinpoint
+    
+### SRE Team: 2023.07 ~ 
+- works
+    - redis key scanner: find heavy(use huge amount of memory or have no ttl) keys automatically
+    - nodejs ssr server performance tuning
+        - linux perf, node prof, ...
+    - find unnecessarily resource-consuming services and fix them 
+        - bcrypt, duplicate db/redis/api call
+        - wrong usage of libraries
+        - unnecessary double (de)serialization
+        - find un-bulkheaded between microservices and fix them
+        - find blocking codes(such as cpu-intensive encrypting) in eventloop and removing them
+        - resource optimization for service peak
+    - use cdn for services
+
+### Server Platform Team: 2020.03 ~ 2023.06
 - projects
     - unified messaging system (push/inbox/sms/alimtalk/email)
         - massive push sending system for toss and toss-affiliates
@@ -40,6 +54,7 @@ permalink: life/career
             - event tracing
             - common metric collect, prometheus endpoint
     - other affiliates support for messaging/ab-tests
+    - sherpa: real-time tracking app-event and help users churned out of services
 
 <br/>
 
