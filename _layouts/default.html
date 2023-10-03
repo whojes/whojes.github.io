@@ -174,7 +174,7 @@ layout: table_wrappers
           {%- include footer_custom.html -%}
         {% endcapture %}
         {%- if page.title != "whojes?" -%}
-          {%- if page.permalink contains "develop" and page.has_children != true -%}
+          <!-- {%- if page.permalink contains "develop" and page.has_children != true -%}
             <hr/>
             <script src="https://utteranc.es/client.js"
                     repo="whojes/whojes.github.io"
@@ -184,7 +184,7 @@ layout: table_wrappers
                     crossorigin="anonymous"
                     async>
             </script>
-          {%- endif -%}
+          {%- endif -%} -->
           {%- if page.share_enable == true -%} 
             {% if footer_custom != "" or site.last_edit_timestamp or site.gh_edit_link %}
               <hr>
