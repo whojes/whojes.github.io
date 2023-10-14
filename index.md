@@ -12,7 +12,7 @@ permalink: /
 
 ---  
 
-### *Refreshing..*
+### 유연한 사고
 
 ---  
 
