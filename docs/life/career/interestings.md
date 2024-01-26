@@ -47,18 +47,23 @@ permalink: life/career/interestings
       - 통일주권이므로 주식 살수는 있을듯
     - 닷, 디스이스엔지니어링(TIE)
 
-- 2022/06/19
+- 2023/06/19
   - [Fastforward](https://domino.oopy.io)
     - 핀테크 회사 - 다음에도 핀테크를 가고싶다??? 엥? 
     - 앱이 아직은 너무 구리다 (안드기준)
   
 - 2023/04/23
   - [Alwayz](https://team.alwayz.co/)
-    - 커머셜 
-    - 공고 자체가 장난이 아니다...
-    - can i define myself as a problem solver?
+    - 커머셜. 공고 자체가 장난이 아니다...
 
 - 2023/05/01
   - [페오펫](https://www.peopet.co.kr/)
   - [어웨이크코퍼레이션](https://creator.ly/)
     - 대표(김민준)를 눈여겨봐야
+
+- 2024/01/26
+  - [팀러너스](https://teamlearners.career.greetinghr.com/)
+    - 어째 대표 평이 좋지 못하다. 형도 그닥 탐탁찮아했던듯....
+  - [블루시그넘](https://bluesignum2023.career.greetinghr.com/)
+    - 기술 스택이 안맞고, 내가 그닥 잘 아는 분야도 아니다.
+    - 그러나 BM이 어떻게 될지는 궁금.... 시장 크기도 궁금하다
