@@ -10,7 +10,7 @@ permalink: life/reproduce/fetus
 
 ### 7주차 
 
-몇주차의 기준이 마지막 생리일임으로 인해, 임신임을 알게 되는 시기가 보통 4~5주차가 된다.
+몇주차의 기준이 마지막 생리일임으로 인해, 임신임을 알게 되는 시기가 보통 4~5주차가 된다. 임신을 알게된지 어언 3주..
 심장 뛰는 소리를 듣고 왔다. 태아 사이즈가 5mm 정도인데 심장이 왤케 열심히 뛰나? 모세관 한번이면 모든 몸에 그냥 피가 돌거같은데 왜 심장이 뛰지.. 신기하네
 
 13주 정도까지는 생존에 필요한 행위만 하라는 의사의 전언이 있어 집에 가만히 누워있기만 하는데 벌써부터 이슈 발생.
@@ -21,5 +21,5 @@ permalink: life/reproduce/fetus
 산부인과에서는 큰 문제가 없다고 하나, 두려운 것은 어쩔 수 없다. 다음 병원 방문일까지 우리는 계속 불안에 벌벌 떨겠지..
 
 <p align="center">
-  <br><video src="/assets/movies/reproduce/아기심장소리.mp4" class="content-image-1" controls loop><br>
+  <br><video src="/assets/movies/reproduce/아기심장소리.mp4" class="content-image-1" controls=true loop=false></video><br>
 </p>
