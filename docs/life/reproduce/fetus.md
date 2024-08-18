@@ -2,6 +2,7 @@
 layout: default
 title: 임신과 출산
 parent: 재생산
+grand_parent: 일상
 has_children: false
 nav_order: 1
 permalink: life/reproduce/fetus
@@ -20,5 +21,5 @@ permalink: life/reproduce/fetus
 산부인과에서는 큰 문제가 없다고 하나, 두려운 것은 어쩔 수 없다. 다음 병원 방문일까지 우리는 계속 불안에 벌벌 떨겠지..
 
 <p align="center">
-  <br><video alt="img-name" src="/assets/movies/reproduce/아기심장소리.mp4" class="content-image-1"><br>
+  <br><video src="/assets/movies/reproduce/아기심장소리.mp4" class="content-image-1" controls loop><br>
 </p>
