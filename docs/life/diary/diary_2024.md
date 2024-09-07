@@ -19,7 +19,7 @@ code {
 <!-- - [December](#december) -->
 <!-- - [November](#november) -->
 <!-- - [October](#october) -->
-<!-- - [September](#september) -->
+- [September](#september)
 <!-- - [August](#August) -->
 <!-- - [July](#july) -->
 <!-- - [June](#june) -->
@@ -28,6 +28,17 @@ code {
 - [March](#march)
 <!-- - [February](#february) -->
 - [January](#january)
+
+
+### September
+
+| 7일 토요일, 집, 시원해질 줄 모르는 날씨
+
+이조전랑을 하고 싶지 않은 선비들도 많았겠다. 그런 생각을 했다. 
+7년차부터는 시니어로써의 기대를 많이 한다나? 연봉은 미래의 성장성을 담보로 주는건가? 그렇다면 퇴사하면 뱉어내야하나? 그렇지는 않잖아
+그렇다는건, 연봉을 물가상승률씩만 올린다면 내가 성장을 해야하나? 딱 지금 잘하는만큼만 계속 잘하면 되는걸까?
+여기서 더 성장하는건 자기만족을 위함일까? 그렇지... 자기만족이지 
+이러나 저러나... 
 
 
 ### March
