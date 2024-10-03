@@ -18,7 +18,7 @@ code {
 
 <!-- - [December](#december) -->
 <!-- - [November](#november) -->
-<!-- - [October](#october) -->
+- [October](#october)
 - [September](#september)
 <!-- - [August](#August) -->
 <!-- - [July](#july) -->
@@ -28,6 +28,16 @@ code {
 - [March](#march)
 <!-- - [February](#february) -->
 - [January](#january)
+
+
+### October
+
+| 3일 목요일, 개천절, 집, 날이 춥다.
+
+나는 볼록핑이 되어버렸다. 손목결절종이라나 뭐라나...  
+인간의 신체란 내구연한 30년짜리로 나는 이제 거의 다 끝나가나보다. 아기는 또 어떻게 키우나?  
+걱정은 되어도 기대도 많다. 결국 자식이란게 종보존의 역할이니, 내가 불로장생하는건 의미가 없다.  
+아닌가? 불로장생을 못하니까 자식을 낳는걸까?  
 
 
 ### September
