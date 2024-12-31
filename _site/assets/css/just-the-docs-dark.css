@@ -116,7 +116,7 @@ html { font-size: 14px !important; scroll-behavior: smooth; }
 
 @media (min-width: 31.25rem) { html { font-size: 16px !important; } }
 
-body { font-family: "NanumGothic", "serif"; font-size: inherit; line-height: 1.8; color: #e6e1e8; background-color: #27262b; }
+body { font-family: "Helvetica", "NanumGothic"; font-size: inherit; line-height: 1.8; color: #e6e1e8; background-color: #27262b; }
 
 ol, ul, dl, pre, address, blockquote, table, div, hr, form, fieldset, noscript .table-wrapper { margin-top: 0; }
 
