@@ -9,8 +9,6 @@ share_enable: false
 permalink: life/career
 ---
 
-<body style="font-family:Helvetica;">
-
 ## *Career*
 **[Toss](https://toss.im/team) Server Developer**  
 - skills
@@ -74,5 +72,3 @@ Master of Science in Materials Science and Engineering, Seoul National Univ.
 ### 2011.03 ~ 2015.02
 Bachelor of Science in Materials Science and Engineering, Seoul National Univ.
 <br/>
-
-</body>
