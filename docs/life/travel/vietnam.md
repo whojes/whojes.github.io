@@ -2,14 +2,14 @@
 layout: default
 title: 2017-08 베트남 
 title_sub: 동남아 초심자의 베트남 여행기
-parent: 아시아
-grand_parent: 여행
+parent: 여행
+grand_parent: 일상
 nav_order: 1
 created_at: 2019.10.10
 print_title: true
 share_enable: true
 tags: ["여행", "동남아", "베트남"]
-permalink: travel/asia/vietnam_1
+permalink: life/travel/vietnam_1
 ---
 
 ## 여행의 시작

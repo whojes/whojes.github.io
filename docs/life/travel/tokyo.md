@@ -1,15 +1,15 @@
 ---
 title: 2019-02 일본 도쿄
 title_sub: 일본 초심자의 도쿄 여행기
-parent: 아시아
+parent: 여행
 layout: default
-grand_parent: 여행
+grand_parent: 일상
 nav_order: 2
 created_at: 2020.02.23
 print_title: true
 share_enable: true
 tags: ['여행', '일본', '도쿄']
-permalink: travel/asia/japan_1
+permalink: life/travel/japan_1
 ---
 ## 여행의 시작  
 <p style="margin-top:30px;"></p>

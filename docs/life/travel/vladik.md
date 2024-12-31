@@ -1,15 +1,15 @@
 ---
 title: 2019-10 블라디보스톡
 title_sub: 유럽 초심자의 블라디보스톡 여행기
-parent: 유럽
+parent: 여행
 layout: default
-grand_parent: 여행
-nav_order: 1
+grand_parent: 일상
+nav_order: 4
 created_at: 2019.10.15
 print_title: true
 share_enable: true
 tags: ['여행', '유럽', '블라디보스톡']
-permalink: travel/europe/vladik_1
+permalink: life/travel/vladik_1
 ---
 ## 여행의 시작  
 <p style="margin-top:30px;"></p>

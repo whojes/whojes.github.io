@@ -1,15 +1,15 @@
 ---
 title: 2019-08 중국 칭다오
 title_sub: 중국 초심자의 칭다오 여행기
-parent: 아시아
+parent: 여행
 layout: default
-grand_parent: 여행
+grand_parent: 일상
 nav_order: 3
 created_at: 2019.10.03
 print_title: true
 share_enable: true
 tags: ['여행', '중국', '칭다오']
-permalink: travel/asia/china_1
+permalink: life/travel/china_1
 ---
 ## 여행의 시작  
 <p style="margin-top:30px;"></p>
