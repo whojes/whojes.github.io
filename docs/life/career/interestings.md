@@ -10,9 +10,8 @@ permalink: life/career/interestings
 ---
 
 ### 흥미로운 회사들에 관하여...
-
-흥미롭다 함은 역시 J-curve?
-
+  
+  
 - 2024/12/26
   - [두어스](https://doerscorp.notion.site/ZVZO-6b2b76ec3f0f42fb8e74bf4ccec401e1)
     - 마인드가 좋다. 이런 대표한테 투자를 할 수 있으면 좋을텐데..
@@ -20,12 +19,13 @@ permalink: life/career/interestings
 - 2024/01/26
   - [팀러너스](https://teamlearners.career.greetinghr.com/)
     - 어째 대표 평이 좋지 못하다. 형도 그닥 탐탁찮아했던듯....
+    - 24.12.31 회사가 없어졌나? 페이지가 없어졌다.
   - [블루시그넘](https://bluesignum2023.career.greetinghr.com/)
     - 기술 스택이 안맞고, 내가 그닥 잘 아는 분야도 아니다.
     - 그러나 BM이 어떻게 될지는 궁금.... 시장 크기도 궁금하다
 
 - 2023/06/19
-  - [Fastforward](https://domino.oopy.io)
+  - [Fastforward](https://domino.is/)
     - 핀테크 회사 - 다음에도 핀테크를 가고싶다??? 엥? 
     - 앱이 아직은 너무 구리다 (안드기준)
   
@@ -44,15 +44,16 @@ permalink: life/career/interestings
   - [엘박스](https://lbox.kr/)
     - 법률검색, 꽤 재밌어보임..!!
     - 체크
-  - [버티카](https://revenue.market/ko/team/) [채용](https://verticah.career.greetinghr.com/o/76832)
+  - [버티카](https://revenue.market/ko/team/)
     - 레베뉴마켓, 수익이 있으면 그걸 담보로 대출해줌
     - 10명짜리 회사, 팀 리더(도은욱)가 신뢰받는듯?
     - 체크
+    - 24.12.31 https://clobe.ai/ 아이템을 바꾼듯??
   - [블리츠다이나믹스](https://team.blitz-dynamics.com/bcc62330-3988-4a1d-a33b-6668308d3138)
     - AI 주방
     - 체크
   - [플렉스](https://flex.team/)
-  - [라포랩스](https://www.rapportlabs.kr/8dogam)
+  - [라포랩스](https://www.rapportlabs.kr/)
 
   - 기타...
     - [스탠다드에너지](https://stndenergy.com/)
@@ -71,3 +72,4 @@ permalink: life/career/interestings
 - 2023/04/23
   - [Alwayz](https://team.alwayz.co/)
     - 커머셜. 공고 자체가 장난이 아니다...
+    - 24.12.31 24년도 매출이 꾸준히 감소하고 있으나, 조직은 키우는중. gmv 는 토스쇼핑보다 살짝 높은 수준까지 내려온듯

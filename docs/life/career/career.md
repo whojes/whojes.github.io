@@ -9,7 +9,7 @@ share_enable: false
 permalink: life/career
 ---
 
-<body style="font-family: 'Helvetica'">
+<body style="font-family:Helvetica;">
 
 ## *Career*
 **[Toss](https://toss.im/team) Server Developer**  
