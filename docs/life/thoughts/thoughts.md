@@ -5,6 +5,7 @@ parent: 일상
 nav_order: 1
 print_title: true
 share_enable: false
+has_children: true
 permalink: life/thoughts
 ---
   
