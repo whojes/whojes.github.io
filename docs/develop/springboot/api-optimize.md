@@ -199,5 +199,5 @@ compressed size: 25849 (DEFAULT_COMPRESSION(-1))
 2.122 milliseconds << DEFAULT_COMPRESSION(-1)
 ```
 
-어쨌거나 이런식으로 남의 클래스 자체를 오버라이드 하는 방식이 마음에 들지 않아서, 다른 방안을 봤는데 서버의 `server.compression.enabled` 옵션을 꺼서 `Content-Encoding` 하지 않고, 컨테이너에 사이드카로 붙어있는 envoy 에 `envoy.compression.gzip.compressor` 설정을 넣어 압축을 envoy 가 수행해서 헤더를 붙여 내보내는 방식이다. 이건 따로 서버가 해주지 않아도 돼서 괜찮지만, 현재 프로젝트가 여러 환경에서 동시에 서빙되고 있는 프로젝트라 환경 디펜던시가 걸리는게 영 께름칙했다. 뭐 이리저리 다 께름칙한 방법 뿐이라.. 우선 `GZIPOutputFilter`클래스를 오버라이딩 해서 쓰고는 있는데, 그래! 스프링부트 자바 버전업을 하지 말자!
+어쨌거나 이런식으로 남의 클래스 자체를 오버라이드 하는 방식이 마음에 들지 않아서, 다른 방안을 봤는데 서버의 `server.compression.enabled` 옵션을 꺼서 `Content-Encoding` 하지 않고, 컨테이너에 사이드카로 붙어있는 envoy 에 `envoy.compression.gzip.compressor` 설정을 넣어 압축을 envoy 가 수행해서 헤더를 붙여 내보내는 방식이다. 이건 따로 서버가 해주지 않아도 돼서 괜찮지만, 현재 프로젝트가 여러 환경에서 동시에 서빙되고 있는 프로젝트라 환경 디펜던시가 걸리는게 영 께름칙했다. 뭐 이리저리 다 께름칙한 방법 뿐이라.. 우선 `GZIPOutputFilter`클래스를 오버라이딩 해서 쓰고는 있는데, 그래! 버전업을 하지 말자!
 
