@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Interestings
-parent: 커리어
+parent: 생각들
 nav_order: 1
 grand_parent: 일상
 print_title: true

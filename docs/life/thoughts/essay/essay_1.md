@@ -3,7 +3,7 @@ layout: default
 title: "#1"
 title_sub: 공든 탑
 parent: 에세이
-grand_parent: 생각
+grand_parent: 생각들
 created_at: 2019.08.23
 nav_order: 1
 print_title: true
