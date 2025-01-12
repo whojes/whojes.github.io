@@ -1,10 +1,10 @@
 ---
 layout: default
 title: 에세이
-parent: 일상
+parent: 생각
 nav_order: 2
 has_children: true
-permalink: life/essay
+permalink: life/thoughts/essay
 ---
 
 ## 글쓰기

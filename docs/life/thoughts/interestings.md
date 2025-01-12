@@ -6,7 +6,7 @@ nav_order: 1
 grand_parent: 일상
 print_title: true
 share_enable: false
-permalink: life/career/interestings
+permalink: life/thoughts/interestings
 ---
 
 ### 흥미로운 회사들에 관하여...
