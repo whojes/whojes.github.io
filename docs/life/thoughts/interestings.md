@@ -11,7 +11,6 @@ permalink: life/thoughts/interestings
 
 ### 흥미로운 회사들에 관하여...
   
-  
 - 2024/12/26
   - [두어스](https://doerscorp.notion.site/ZVZO-6b2b76ec3f0f42fb8e74bf4ccec401e1)
     - 마인드가 좋다. 이런 대표한테 투자를 할 수 있으면 좋을텐데..
