@@ -20,10 +20,10 @@ permalink: life/reproduce/fetus
   
 미루고 미루던 만삭사진을 찍었다. 인생 재밌다~
 <p align="center">
-  <br><img alt="img-name" src="/assets/images/reproduce/fetus_37w.jpeg" class="content-image-1"><br>
+  <br><img alt="img-name" src="/assets/images/reproduce/fetus_37w.jpg" class="content-image-1"><br>
 </p>
 <p align="center">
-  <br><img alt="img-name" src="/assets/images/reproduce/fetus_37w2.jpeg" class="content-image-1"><br>
+  <br><img alt="img-name" src="/assets/images/reproduce/fetus_37w2.jpg" class="content-image-1"><br>
 </p>
 
 ### 34주차
