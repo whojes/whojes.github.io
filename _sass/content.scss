@@ -37,16 +37,14 @@
 .content-image-fit img {
   height: 200px;
   object-fit: cover;
-  margin: 0 1%;
 }
 
-// /* 모바일 대응 */
-// @media (max-width: 768px) {
-//   .content-image-fit {
-//     height: 150px; /* 모바일에서는 높이를 좀 더 작게 설정 가능 */
-//     object-fit: cover; /* 비율 유지하며 컨테이너에 맞춤 */
-//   }
-// }
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  .content-image-fit img {
+    object-fit: cover;
+  }
+}
 
 .main-content {
   line-height: $content-line-height;
