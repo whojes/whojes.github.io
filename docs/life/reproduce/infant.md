@@ -30,8 +30,8 @@ permalink: life/reproduce/infant
 <p align="center">
   <br>
   <div class="content-image-fit">
-    <img alt="img-name" src="/assets/images/reproduce/infant_10d_1.jpeg">
-    <img alt="img-name" src="/assets/images/reproduce/infant_24d.jpeg">
+    <img alt="img-name" src="/assets/images/reproduce/infant_10d_1.jpeg" style="width:60%">
+    <img alt="img-name" src="/assets/images/reproduce/infant_24d.png" style="width:39%">
   </div>
   <br>
 </p>

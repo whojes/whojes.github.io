@@ -35,7 +35,7 @@
 }
 
 .content-image-fit img {
-  height: 200px;
+  // height: 200px;
   object-fit: cover;
 }
 
@@ -43,6 +43,7 @@
 @media (max-width: 768px) {
   .content-image-fit img {
     object-fit: cover;
+    width: 100%;
   }
 }
 
