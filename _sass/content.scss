@@ -34,6 +34,21 @@
   }
 }
 
+.content-image-3 {
+  height: 200px; /* 원하는 높이로 설정 */
+  width: 30%; /* 3개 이미지가 한 줄에 들어가도록 설정 */
+  object-fit: contain; /* 비율 유지하며 컨테이너에 맞춤 */
+  margin: 0 1.5%; /* 이미지 사이 간격 */
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  .content-image-3 {
+    width: 30%; /* 모바일에서도 3개 이미지를 한 줄에 유지 */
+    height: 150px; /* 모바일에서는 높이를 좀 더 작게 설정 가능 */
+  }
+}
+
 .main-content {
   line-height: $content-line-height;
 
