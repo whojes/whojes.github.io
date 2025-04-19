@@ -31,7 +31,6 @@ permalink: life/reproduce/infant
   <br>
   <div class="content-image-fit">
     <img alt="img-name" src="/assets/images/reproduce/infant_10d_1.jpeg">
-    <img alt="img-name" src="/assets/images/reproduce/infant_10d_2.png">
     <img alt="img-name" src="/assets/images/reproduce/infant_24d.jpeg">
   </div>
   <br>
