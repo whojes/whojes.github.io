@@ -18,7 +18,6 @@ permalink: life/reproduce/infant
   
 회사에서 제공한 과일바구니에는 아주 맛이 훌륭한 과일들이 가득 차 있었다. 지유가 먹어야 마땅한 과일들을 먹고 있노라니, 좋은 것들은 다 자식을 주려는 부모의 마음을 알게 됐달까.. 이유식이 끝나고 나면 결국 닭한마리를 먹어도 다리는 먹지 못하게 되는 날이 곧 오리라.  
 <p align="center">
-  <br>
   <div class="content-image-fit">
     <img alt="img-name" src="/assets/images/reproduce/infant_39d_1.jpeg" style="width:49%">
     <img alt="img-name" src="/assets/images/reproduce/infant_39d_2.jpeg" style="width:49%">
@@ -45,7 +44,6 @@ permalink: life/reproduce/infant
   
 아직 왜 우는지는 잘 모르겠다. 뭔가가 불편한 게 있는 울음은 구별하겠는데, 뭐가 배고픔이고 뭐가 칭얼댐인지 파악하기 힘들달까... 우리 지유는 닭 잡을 때도 전력을 다하는 존재일까? 걍 칭얼거려도 될걸 최대볼륨의 샤우팅을 시원하게 질러버리니, 정신이 아득해진다.  
 <p align="center">
-  <br>
   <div class="content-image-fit">
     <img alt="img-name" src="/assets/images/reproduce/infant_10d_1.jpeg" style="width:56%">
     <img alt="img-name" src="/assets/images/reproduce/infant_24d.png" style="width:41%">
