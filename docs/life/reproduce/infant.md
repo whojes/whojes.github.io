@@ -16,8 +16,7 @@ permalink: life/reproduce/infant
   
 시도 때도 없던 그녀의 요구는 이제 얼추 시간대를 맞춰가고 있다. 수많은 선조들이 유튜브며 블로그에 많은 것들을 공유해주셔서 어쩔 줄 몰라 허둥대던 신참 부모에게 큰 도움이 되고 있다. 모든 것은 익숙해져 간다.  
   
-회사에서 제공한 과일바구니에는 아주 맛이 훌륭한 과일들이 가득 차 있었다. 지유가 먹어야 마땅한 과일들을 먹고 있노라니, 좋은 것들은 다 자식을 주려는 부모의 마음을 알게 됐달까.. 이유식이 끝나고 나면 결국 닭한마리를 먹어도 다리는 먹지 못하게 되는 날이 곧 오리라.    
-  
+회사에서 제공한 과일바구니에는 아주 맛이 훌륭한 과일들이 가득 차 있었다. 지유가 먹어야 마땅한 과일들을 먹고 있노라니, 좋은 것들은 다 자식을 주려는 부모의 마음을 알게 됐달까.. 이유식이 끝나고 나면 결국 닭한마리를 먹어도 다리는 먹지 못하게 되는 날이 곧 오리라.  
 <p align="center">
   <br>
   <div class="content-image-fit">
@@ -45,11 +44,10 @@ permalink: life/reproduce/infant
 분유도 아이엠마더 (똥이 질고 초록색) 에서 앱솔루트 산양으로 바꿨더니, 노랗고 좀 단단한 똥으로 바뀌어서 닦아주기도 좀 더 편하고, 뭣보다 이전보다 더 잘먹는 것 같은 느낌이다. 이것도 걍 느낌일 뿐일까? 좀 더 지켜봐야겠다.  
   
 아직 왜 우는지는 잘 모르겠다. 뭔가가 불편한 게 있는 울음은 구별하겠는데, 뭐가 배고픔이고 뭐가 칭얼댐인지 파악하기 힘들달까... 우리 지유는 닭 잡을 때도 전력을 다하는 존재일까? 걍 칭얼거려도 될걸 최대볼륨의 샤우팅을 시원하게 질러버리니, 정신이 아득해진다.  
-
 <p align="center">
   <br>
   <div class="content-image-fit">
-    <img alt="img-name" src="/assets/images/reproduce/infant_10d_1.jpeg" style="width:60%">
+    <img alt="img-name" src="/assets/images/reproduce/infant_10d_1.jpeg" style="width:59%">
     <img alt="img-name" src="/assets/images/reproduce/infant_24d.png" style="width:39%">
   </div>
   <br>
