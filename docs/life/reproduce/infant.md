@@ -12,7 +12,20 @@ permalink: life/reproduce/infant
   
 4/28 ~ 5/25 연휴에 출산휴가를 겹쳐 한달 간 지유를 밤에는 쭉 잘 수 있는 존재로 만들기 위해 노력 중이다.  
   
-흔히들 육아를 표현할 때에 "말도 안되게 힘들지만 말도 안되게 행복하다", "내가 아이를 키우는 것 같지만 아이가 나를 키우는 것이다" 라고들 하는데, "What doesn't kill you makes you stronger" 라는 고대 격언을 
+흔히들 육아를 표현할 때에 "말도 안되게 힘들지만 말도 안되게 행복하다", "내가 아이를 키우는 것 같지만 아이가 나를 키우는 것이다" 라고들 하는데, "What doesn't kill you makes you stronger" 라는 고대 격언이 참이라고 가정했을 때에 결국 육아가 나를 죽이지는 못했으므로 나는 strong 해져야만 하며, 그것을 우리는 성장 혹은 행복으로 인지하는 것이 아닐까?  
+  
+시도 때도 없던 그녀의 요구는 이제 얼추 시간대를 맞춰가고 있다. 수많은 선조들이 유튜브며 블로그에 많은 것들을 공유해주셔서 어쩔 줄 몰라 허둥대던 신참 부모에게 큰 도움이 되고 있다. 모든 것은 익숙해져 간다.  
+  
+회사에서 제공한 과일바구니에는 아주 맛이 훌륭한 과일들이 가득 차 있었다. 지유가 먹어야 마땅한 과일들을 먹고 있노라니, 좋은 것들은 다 자식을 주려는 부모의 마음을 알게 됐달까.. 이유식이 끝나고 나면 결국 닭한마리를 먹어도 다리는 먹지 못하게 되는 날이 곧 오리라.    
+  
+<p align="center">
+  <br>
+  <div class="content-image-fit">
+    <img alt="img-name" src="/assets/images/reproduce/infant_39d_1.jpeg" style="width:49%">
+    <img alt="img-name" src="/assets/images/reproduce/infant_39d_2.jpeg" style="width:49%">
+  </div>
+  <br>
+</p>
 
 ### 24일차
 
