@@ -13,7 +13,7 @@ permalink: develop/springboot/heapdump1-npe
 
 코드만 보면 NPE 가 날 수가 없는데 NPE 가 났다. 알고 보면 다 보이겠지만, 알고 보는 문제는 몇 개 없다. 분석할 줄 알아야 한다.  
   
-```kt
+```kotlin
 abstract class Target {
     private val str: String = ""
     fun getStringLength(): Int = str.length
