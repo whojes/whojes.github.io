@@ -149,7 +149,7 @@ public class SunReflectionFactoryInstantiator<T> implements ObjectInstantiator<T
    ...
 ```
 
-일반적인 객체 생성이 아니라, `java.lang.Object` 의 생성자를 reflection 으로 받아와서 객체를 생성한다. 이렇게 객체를 만들게 되면 stack 상에는 `TargetImpl` 로 타입이 있지만 그 포인터가 가리키는 힙에는 그냥 공간만 할당되어있을 뿐 아무 정보(인스턴스 필드로 인해 할당받는 필드 포함)가 없이 생성이 되고, 원래 `TargetImpl` 클래스가 가진 생성자와 jvm이 수행하는 초기화 루틴 또한 호출이 되지 않아 정말 빈껍데기의 객체가 생성이 된다.  
+일반적인 객체 생성이 아니라, `java.lang.Object` 의 생성자를 reflection 으로 받아와서 객체를 생성한다. 이렇게 객체를 만들게 되면 stack 상에는 `TargetImpl` 로 타입이 있지만 그 포인터가 가리키는 힙에는 그냥 공간만 할당되어있을 뿐 아무 정보(객체 생성시에 초기화되는 인스턴스 필드 포함)가 없이 생성이 되고, 원래 `TargetImpl` 클래스가 가진 생성자와 jvm이 수행하는 초기화 루틴 또한 호출이 되지 않아 정말 빈껍데기의 객체가 생성이 된다.  
   
 즉, `getStringLength` 가 정상적으로 오버라이드가 되어 프록시 메서드가 생성이 됐다면, 프록시 객체의 초기화 되지 않은 `str` 에 접근할 필요가 없고, 프록시 객체 안에 품고 있는 실제 `TargetImpl` 객체의 `str` 에 접근을 해서 NPE 가 발생하지 않았을 것이다.
 <p align="center">
