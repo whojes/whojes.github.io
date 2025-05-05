@@ -52,7 +52,7 @@ java.lang.NullPointerException: Cannot invoke "String.length()" because "this.st
 	at kotlin.reflect.jvm.internal.KCallableImpl.callBy(KCallableImpl.kt:112) ~[kotlin-reflect-2.1.20.jar:2.1.20-release-217]
 ```
 
-아니 어떻게 this.str 이 null 이 될 수 있을까?  
+아니 어떻게 `this.str` 이 `null` 이 될 수 있을까?  
   
   
 ---  
@@ -66,7 +66,7 @@ OQL 에서 `SELECT * FROM io.github.whojes.heapdumptest.npe.TestController` 로 
 알파 환경에서는 `TargetImpl` 객체를 참조하지만, 라이브 환경에서는 `TargetImpl$$SpringCGLIB$$0` 객체를 참조하고 있다. CGLIB 에 관련해서는 여러 블로그가 있으니, 구글링해보면 알 수 있겠고... 그럼 문제를 정리해보자면,
 
 1. 왜 라이브에서만 CGLIB 프록시 객체가 생겼는가??  
-2. 내 코드 상에서 null 일 수 없는 `this.str` 가 왜 null 일까??  
+2. 내 코드 상에서 `null` 일 수 없는 `this.str` 가 왜 `null` 일까??  
   
 1번이 사실상 먼저 궁금하지만, 우선순위는 아니다. cglib 프록시 객체가 왜 생겼는지는 다양한 설정에 따라 다르므로 우선 넘어가고, cglib 프록시 객체 생긴 꼬라지를 살짝 보자면,
 <p align="center">
@@ -80,7 +80,7 @@ OQL 에서 `SELECT * FROM io.github.whojes.heapdumptest.npe.TestController` 로 
 프록시 메서드 객체가 없으면 어떻게 될까? 답은 간단하다. `TargetImpl$$SpringCGLIB$$0` 프록시 객체 역시 `TargetImpl` 의 하위 클래스로, 프록시 메서드 객체 없으면 그냥 `getStringLength` 메서드가 호출된다. 여기서 다시 문제를 정리해 보자면, 
   
 1. 왜 `getStringLength` 는 프록시 메서드 객체가 없을까?  
-2. 내 코드 상에서 null 일 수 없는 `this.str` 가 왜 null 일까??  
+2. 내 코드 상에서 `null` 일 수 없는 `this.str` 가 왜 `null` 일까??  
   
 1번이 사실상 먼저 궁금하지만, 우선순위는 아니다. `this.str` 는 언제 empty string 으로 초기화가 될까? 
 
@@ -116,28 +116,25 @@ public class TargetImpl extends Target {
 [Objenesis](https://github.com/spring-projects/spring-framework/blob/6.1.x/spring-core/src/main/java/org/springframework/objenesis/SpringObjenesis.java) 라는 라이브러리가 있다. CGLIB 은 프록시 객체 생성 시에 타겟 객체의 생성자를 호출하지 않고, 다음과 같이 객체를 생성한다. 
 ```java
 public <T> T newInstance(Class<T> clazz, boolean useCache) {
-	if (!useCache) {
-		return newInstantiatorOf(clazz).newInstance();
-	}
-	return getInstantiatorOf(clazz).newInstance();
+   if (!useCache) {
+      return newInstantiatorOf(clazz).newInstance();
+   }
+   return getInstantiatorOf(clazz).newInstance();
 }
 ```
 
-`new` 키워드를 사용하지 않고 `instantiator` 를 가져와서 `newInstance` 를 호출하는 방식으로 호출한다. 디버거를 찍어보면 instantiator 로 `SunReflectionFactoryInitiator` 가  구현체이고, 코드는 다음과 같다.  
+`new` 키워드를 사용하지 않고 `instantiator` 를 가져와서 `newInstance` 를 호출하는 방식으로 호출한다. 디버거를 찍어보면 `instantiator` 로 `SunReflectionFactoryInitiator` 가  구현체이고, 코드는 다음과 같다.  
 
 ```java
 @Instantiator(Typology.STANDARD)
 public class SunReflectionFactoryInstantiator<T> implements ObjectInstantiator<T> {
-
    private final Constructor<T> mungedConstructor;
-
    public SunReflectionFactoryInstantiator(Class<T> type) {
       Constructor<Object> javaLangObjectConstructor = getJavaLangObjectConstructor();
       mungedConstructor = SunReflectionFactoryHelper.newConstructorForSerialization(
           type, javaLangObjectConstructor);
       mungedConstructor.setAccessible(true);
    }
-
    public T newInstance() {
       try {
          return mungedConstructor.newInstance((Object[]) null);
@@ -154,6 +151,7 @@ public class SunReflectionFactoryInstantiator<T> implements ObjectInstantiator<T
 즉, `getStringLength` 가 정상적으로 오버라이드가 되어 프록시 메서드가 생성이 됐다면, 프록시 객체의 초기화 되지 않은 `str` 에 접근할 필요가 없고, 프록시 객체 안에 품고 있는 실제 `TargetImpl` 객체의 `str` 에 접근을 해서 NPE 가 발생하지 않았을 것이다.
 <p align="center">
 	<img alt="img-name" src="/assets/images/heapdump/1_npe_4.png" class="content-image-1"><br>
+	<em>메서드 프록싱이 됐다면 찾아갔을 `TargetImpl` 객체의 정상적인 `str` 필드</em><br>
 </p>
   
 ---  
