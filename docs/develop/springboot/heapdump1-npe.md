@@ -151,7 +151,7 @@ public class SunReflectionFactoryInstantiator<T> implements ObjectInstantiator<T
 즉, `getStringLength` 가 정상적으로 오버라이드가 되어 프록시 메서드가 생성이 됐다면, 프록시 객체의 초기화 되지 않은 `str` 에 접근할 필요가 없고, 프록시 객체 안에 품고 있는 실제 `TargetImpl` 객체의 `str` 에 접근을 해서 NPE 가 발생하지 않았을 것이다.
 <p align="center">
 	<img alt="img-name" src="/assets/images/heapdump/1_npe_4.png" class="content-image-1"><br>
-	<em>메서드 프록싱이 됐다면 찾아갔을 `TargetImpl` 객체의 정상적인 `str` 필드</em><br>
+	<em>메서드 프록싱이 됐다면 찾아갔을 TargetImpl 객체의 정상적인 str 필드</em><br>
 </p>
   
 ---  
