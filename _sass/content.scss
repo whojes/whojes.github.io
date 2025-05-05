@@ -6,7 +6,7 @@
 // stylelint-disable selector-no-type, max-nesting-depth, selector-max-compound-selectors, selector-max-type
 .content-image-1 {
   @include mq(sm) {
-    width: 80%;
+    width: 95%;
   }
   max-width: calc(100% + 2rem);
   width: calc(100% + 2rem);
