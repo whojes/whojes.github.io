@@ -175,9 +175,11 @@ class Configuration {
 @Aspect
 class TestAspect {
     @Around("execution(* io.github.whojes.heapdumptest.npe.Target.*(..))")
-    fun pointcut(joinPoint: ProceedingJoinPoint) {
+    fun pointcut(joinPoint: ProceedingJoinPoint): Any {
+        return joinPoint.proceed()
     }
 }
+
 ```
   
 지금은 이게 내 코드에 있었지만, 여러 라이브러리를 쓰는 이상 이정도 aspect 는 언제든 들어올 수 있다. 실제로 내가 겪은 환경에서는 `@Scheduled` 가 달려있는 메서드의 수행시간을 측정하기 위해 aspect 가 하나 있었고, 이게 하필 라이브에서만 수집하게 해놔서 라이브에서만 발생했었다. 사실 잘못된 것이 아니기 때문에 이걸 수정할 수는 없다.  
@@ -194,6 +196,5 @@ class TestAspect {
 
 해결법은 결국 `getStringLength` 메서드에 `open` 을 붙여주면 된다.  
   
-앞서 말했듯이, 문제를 알고 보면 해답은 매우 간단하다. "프록시는 당연히 final 은 안되는데 그걸 몰랐냐?"  
-  
-핵심은 "많은 것을 알고 있냐"가 아니라, "분석할 수 있냐" 이다.
+문제를 알고 보면 해답은 매우 간단했다.  
+ 
