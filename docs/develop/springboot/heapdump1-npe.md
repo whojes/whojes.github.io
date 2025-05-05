@@ -21,8 +21,8 @@ abstract class Target {
 
 @Component
 class TargetImpl : Target() {
-	fun foo(): String = "foo"
-	fun bar(): String = "bar"
+    fun foo(): String = "foo"
+    fun bar(): String = "bar"
 }
 
 @RestController
