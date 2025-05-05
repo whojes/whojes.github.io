@@ -61,7 +61,7 @@ java.lang.NullPointerException: Cannot invoke "String.length()" because "this.st
 OQL 에서 `SELECT * FROM io.github.whojes.heapdumptest.npe.TestController` 로 내 컨트롤러가 어떤 객체를 보고 있는지 먼저 확인할 수 있다.  
 
 <p align="center">
-  <br><img alt="img-name" src="/assets/images/heapdump/1_npe_1.png" class="content-image-1"><br>
+  <img alt="img-name" src="/assets/images/heapdump/1_npe_1.png" class="content-image-1"><br>
 </p>
 알파 환경에서는 `TargetImpl` 객체를 참조하지만, 라이브 환경에서는 `TargetImpl$$SpringCGLIB$$0` 객체를 참조하고 있다. CGLIB 에 관련해서는 여러 블로그가 있으니, 구글링해보면 알 수 있겠고... 그럼 문제를 정리해보자면,
 
@@ -70,7 +70,7 @@ OQL 에서 `SELECT * FROM io.github.whojes.heapdumptest.npe.TestController` 로 
   
 1번이 사실상 먼저 궁금하지만, 우선순위는 아니다. cglib 프록시 객체가 왜 생겼는지는 다양한 설정에 따라 다르므로 우선 넘어가고, cglib 프록시 객체 생긴 꼬라지를 살짝 보자면,
 <p align="center">
-  <br><img alt="img-name" src="/assets/images/heapdump/1_npe_2.png" class="content-image-1"><br>
+  <img alt="img-name" src="/assets/images/heapdump/1_npe_2.png" class="content-image-1"><br>
 </p>
 
 내가 실제로 호출한 `getStringLength` 메서드의 프록시 메서드 객체가 보이질 않는다. 임의로 만들어 둔 `foo` 메서드와 `bar` 메서드의 프록시 객체는 잘 보인다.  
@@ -153,7 +153,7 @@ public class SunReflectionFactoryInstantiator<T> implements ObjectInstantiator<T
   
 즉, `getStringLength` 가 정상적으로 오버라이드가 되어 프록시 메서드가 생성이 됐다면, 프록시 객체의 초기화 되지 않은 `str` 에 접근할 필요가 없고, 프록시 객체 안에 품고 있는 실제 `TargetImpl` 객체의 `str` 에 접근을 해서 NPE 가 발생하지 않았을 것이다.
 <p align="center">
-  <br><img alt="img-name" src="/assets/images/heapdump/1_npe_4.png" class="content-image-1"><br>
+	<img alt="img-name" src="/assets/images/heapdump/1_npe_4.png" class="content-image-1"><br>
 </p>
   
 ---  
@@ -186,7 +186,7 @@ class TestAspect {
   
 2번을 보자면, `arthas` 라는 런타임 분석을 통해 확인해볼 수 있다. 
 <p align="center">
-  <br><img alt="img-name" src="/assets/images/heapdump/1_npe_3.png" class="content-image-1"><br>
+  <img alt="img-name" src="/assets/images/heapdump/1_npe_3.png" class="content-image-1"><br>
 </p>
 `getStringLength` 메서드는 final 으로 돌고있다. 왜? kotlin은 `open` 을 달지 않으면 기본적으로 final 이기 때문이다.  
   
