@@ -73,7 +73,7 @@ OQL 에서 `SELECT * FROM io.github.whojes.heapdumptest.npe.TestController` 로 
   <img alt="img-name" src="/assets/images/heapdump/1_npe_2.png" class="content-image-1"><br>
 </p>
 
-내가 실제로 호출한 `getStringLength` 메서드의 프록시 메서드 객체가 보이질 않는다. 임의로 만들어 둔 `foo` 메서드와 `bar` 메서드의 프록시 객체는 잘 보인다.  
+내가 실제로 호출한 `getStringLength` 메서드의 프록시 메서드 객체가 보이질 않는다. 임의로 만들어 둔 `foo` 메서드와 `bar` 메서드의 프록시 메서드 객체는 잘 보인다.  
   
   
 ---  
