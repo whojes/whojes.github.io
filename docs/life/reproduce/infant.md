@@ -7,6 +7,19 @@ has_children: false
 nav_order: 2
 permalink: life/reproduce/infant
 ---
+   
+### 60일차  
+  
+내일이면 출산휴가 끝나고 복귀한다. 진짜 열심히 키웠는데 아직도 똑같은것이 신기하달까... 바뀐점이라고 한다면, 이제 분유를 120은 기본으로 먹는다는 점? 밤중에 한번만 수유해도 되는 날이 가끔씩 있다는 점? 아침에는 기분이 좋아 아 어 우~ 를 제법 많이 해준다는 점?  
+이번주엔,, 처음으로 수영도 한판 했고, 산책도 또 여러번 나갔고, 이거이거 언제 사람만드나~ 싶다가도, 또 금세 이 시기가 지나가고 그리워진다 하니 아쉽다가도, 또 아무런 의사전달 없이 울기만 하는 모습에 지치다가도... 하하 늘상 즐겁고 새롭다. 일상에 복귀하고서도 잘~ 키워보자~  
+<p align="center">
+  <div class="content-image-fit">
+    <img alt="img-name" src="/assets/images/reproduce/infant_60d_1.jpg" style="width:32%">
+    <img alt="img-name" src="/assets/images/reproduce/infant_60d_2.jpg" style="width:32%">
+    <img alt="img-name" src="/assets/images/reproduce/infant_60d_3.jpg" style="width:32%">
+  </div>
+  <br>
+</p>
 
 ### 53일차  
   
