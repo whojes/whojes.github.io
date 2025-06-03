@@ -8,6 +8,18 @@ nav_order: 2
 permalink: life/reproduce/infant
 ---
    
+### 69일차  
+  
+금요일엔 청량리 롯백, 토요일엔 대현산 배수지공원, 일요일엔 강남신세계를 다녀오고 오늘은 대선투표를 끝내고 왕십리로 다녀왔다. 앞으로 주말마다 나가야한다니.... 그래도 너무너무너무 재밌달까... 하루가 다르게 바뀌는 아기가 벌써부터 아쉽다. 아침마다 빵긋빵긋 웃어주고 옹알이 하고... 그래도 응가 씻어줄때나 목욕하기 전이나 목청이 떠나가라 우는건 여전히 힘들지만, 그래도 많이 할만해졌다.
+<p align="center">
+  <div class="content-image-fit">
+    <img alt="img-name" src="/assets/images/reproduce/infant_69d_1.jpg" style="width:36%">
+    <img alt="img-name" src="/assets/images/reproduce/infant_69d_2.jpg" style="width:31%">
+    <img alt="img-name" src="/assets/images/reproduce/infant_69d_3.jpg" style="width:31%">
+  </div>
+  <br>
+</p>
+
 ### 60일차  
   
 내일이면 출산휴가 끝나고 복귀한다. 진짜 열심히 키웠는데 아직도 똑같은것이 신기하달까... 바뀐점이라고 한다면, 이제 분유를 120은 기본으로 먹는다는 점? 밤중에 한번만 수유해도 되는 날이 가끔씩 있다는 점? 아침에는 기분이 좋아 아 어 우~ 를 제법 많이 해준다는 점?  
