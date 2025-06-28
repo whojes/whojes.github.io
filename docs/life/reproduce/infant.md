@@ -7,15 +7,30 @@ has_children: false
 nav_order: 2
 permalink: life/reproduce/infant
 ---
+
+### 94일차  
+  
+지난주까지만 해도 분유를 너무너무 안먹어서 분노의 눈물을 흘리던 우리의 모습이 무색하게도, 이번주는 700~800 을 그냥 먹어주고 있다. 한번에 많이 먹기도 하고, 또 짜증도 안내고 잘 먹는 모습을 보고 있으니 절로 기분이 좋아지는 것이 참 사람 마음이 쉽지가 않다. 이제는 힘도 많이 생겨서 터미타임이라도 할라치면 번쩍 고개를 들고는 내리질 않아 아주 귀여운 모습을 오래오래 볼 수 있어서 이또한 기분이 좋다.  
+  
+내가 지금까지 누군가의 얼굴을 이렇게 열심히 조목조목 쳐다본 적이 있던가? 참 아름다운 생명체다.  
+<p align="center">
+  <div class="content-image-fit">
+    <img alt="img-name" src="/assets/images/reproduce/infant_94d_1.jpg" style="width:32%">
+    <img alt="img-name" src="/assets/images/reproduce/infant_94d_2.jpg" style="width:32%">
+    <img alt="img-name" src="/assets/images/reproduce/infant_94d_3.jpg" style="width:32%">
+  </div>
+  <br>
+</p>
+
    
 ### 69일차  
   
 금요일엔 청량리 롯백, 토요일엔 대현산 배수지공원, 일요일엔 강남신세계를 다녀오고 오늘은 대선투표를 끝내고 왕십리로 다녀왔다. 앞으로 주말마다 나가야한다니.... 그래도 너무너무너무 재밌달까... 하루가 다르게 바뀌는 아기가 벌써부터 아쉽다. 아침마다 빵긋빵긋 웃어주고 옹알이 하고... 그래도 응가 씻어줄때나 목욕하기 전이나 목청이 떠나가라 우는건 여전히 힘들지만, 그래도 많이 할만해졌다.
 <p align="center">
   <div class="content-image-fit">
-    <img alt="img-name" src="/assets/images/reproduce/infant_69d_1.jpg" style="width:44%">
-    <img alt="img-name" src="/assets/images/reproduce/infant_69d_2.jpg" style="width:26%">
-    <img alt="img-name" src="/assets/images/reproduce/infant_69d_3.jpg" style="width:26%">
+    <img alt="img-name" src="/assets/images/reproduce/infant_69d_1.jpg" style="width:43%">
+    <img alt="img-name" src="/assets/images/reproduce/infant_69d_2.jpg" style="width:26.5%">
+    <img alt="img-name" src="/assets/images/reproduce/infant_69d_3.jpg" style="width:26.5%">
   </div>
   <br>
 </p>
