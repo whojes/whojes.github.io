@@ -13,9 +13,9 @@ permalink: life/reproduce/infant
 금요일엔 청량리 롯백, 토요일엔 대현산 배수지공원, 일요일엔 강남신세계를 다녀오고 오늘은 대선투표를 끝내고 왕십리로 다녀왔다. 앞으로 주말마다 나가야한다니.... 그래도 너무너무너무 재밌달까... 하루가 다르게 바뀌는 아기가 벌써부터 아쉽다. 아침마다 빵긋빵긋 웃어주고 옹알이 하고... 그래도 응가 씻어줄때나 목욕하기 전이나 목청이 떠나가라 우는건 여전히 힘들지만, 그래도 많이 할만해졌다.
 <p align="center">
   <div class="content-image-fit">
-    <img alt="img-name" src="/assets/images/reproduce/infant_69d_1.jpg" style="width:36%">
-    <img alt="img-name" src="/assets/images/reproduce/infant_69d_2.jpg" style="width:31%">
-    <img alt="img-name" src="/assets/images/reproduce/infant_69d_3.jpg" style="width:31%">
+    <img alt="img-name" src="/assets/images/reproduce/infant_69d_1.jpg" style="width:44%">
+    <img alt="img-name" src="/assets/images/reproduce/infant_69d_2.jpg" style="width:26%">
+    <img alt="img-name" src="/assets/images/reproduce/infant_69d_3.jpg" style="width:26%">
   </div>
   <br>
 </p>
