@@ -16,7 +16,7 @@ permalink: life/reproduce/infant
   
 아기의 매력은 눈으로 볼 수 있는것에 한정되지 않는다. 진정한 매력은 냄새에 있나니.... 신생아 냄새가 그리워 하나 더 낳을란다. 이유식 먹기 전까지 한참 즐기도록 해야지~ 룰루  
 <p align="center">
-  <br><video src="/assets/movies/reproduce/infant_105d_flip.mp4" class="content-image-1" controls=true loop=false></video><br>
+  <br><video src="/assets/movies/reproduce/infant_105d_flip.mov" class="content-image-1" controls=true loop=false></video><br>
 </p>
 
 ### 94일차  
