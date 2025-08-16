@@ -19,7 +19,7 @@ permalink: life/reproduce/infant
   <div class="content-image-fit">
     <img alt="img-name" src="/assets/images/reproduce/infant_142d_1.jpeg" style="width:32%"/>
     <img alt="img-name" src="/assets/images/reproduce/infant_142d_2.jpeg" style="width:32%"/>
-    <video alt="img-name" src="/assets/images/reproduce/infant_142d_3.mp4" style="width:32%"></video>
+    <img alt="img-name" src="/assets/images/reproduce/infant_142d_4.jpeg" style="width:32%"/>
   </div>
   <br>
 </p>
