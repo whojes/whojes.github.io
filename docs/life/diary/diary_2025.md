@@ -20,7 +20,7 @@ code {
 <!-- - [November](#november) -->
 <!-- - [October](#october) -->
 <!-- - [September](#september) -->
-<!-- - [August](#August) -->
+- [August](#August)
 - [July](#july)
 <!-- - [June](#june) -->
 - [May](#may)
@@ -31,6 +31,12 @@ code {
   
 ---
   
+### August  
+
+| 16일 토요일, 덥다.  
+  
+몸이 아픈 구석이 한두군데가 아니다. 꼬리뼈는 며칠 째 멍든 것처럼 아프고, 오른발 앞꿈치는 여전히 욱씬욱씬, 이제는 오른손 4~5번 MCP 부분도 자다 일어나면 접는게 아프다. 나 80세까지 살 수 있을까?  
+
 ### July
   
 | 10일 목요일, 최고온도 37도  
