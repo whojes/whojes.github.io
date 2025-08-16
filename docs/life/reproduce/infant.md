@@ -17,9 +17,9 @@ permalink: life/reproduce/infant
 지유는 이제 손을 쓰기 시작했다. 정밀하게는 아니고... 분유병도 자기가 잡고 먹으려고 하고, 뭐든지 잡아채서 입으로 가져가려고 한다. 졸려 죽어 잠에 빠져들랑말랑 할 때쯤 손이  자유의지를 가지고 스스로 움직여.. 잡히는게 없으니 입에 물려있는 공갈젖꼭지를 잡아 당기는데 뾱 하고 빠지면 잠에서 깨서 울고... 머 이런놈이 다있담?  
 <p align="center">
   <div class="content-image-fit">
-    <img alt="img-name" src="/assets/images/reproduce/infant_142d_1.jpeg" style="width:32%">
-    <img alt="img-name" src="/assets/images/reproduce/infant_142d_2.jpeg" style="width:32%">
-    <img alt="img-name" src="/assets/images/reproduce/infant_142d_3.mp4" style="width:32%">
+    <img alt="img-name" src="/assets/images/reproduce/infant_142d_1.jpeg" style="width:32%"/>
+    <img alt="img-name" src="/assets/images/reproduce/infant_142d_2.jpeg" style="width:32%"/>
+    <video alt="img-name" src="/assets/images/reproduce/infant_142d_3.mp4" style="width:32%"></video>
   </div>
   <br>
 </p>
