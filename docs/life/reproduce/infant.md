@@ -12,7 +12,7 @@ permalink: life/reproduce/infant
   
 지유는 음.... 말을 빨리 하려나? 벌써부터 아바바바를 연달하고 있다. 또, 되집기도 했다. 들썩들썩 몸이 아주 가만있질 못한다. 안고 있으면 기어코 몸에 힘을 준다. 여자애들은 폭 안겨 있는다더니.. 인터넷에 있는 말은 역시 다 거짓이군  
 <p align="center">
-  <br><video src="/assets/movies/reproduce/infant_156d_1.mp4" class="content-image-1" controls=true loop=false></video><br>
+  <br><video src="/assets/images/reproduce/infant_156d_1.mp4" class="content-image-1" controls=true loop=false></video><br>
 </p>
 
 ### 142일차  
