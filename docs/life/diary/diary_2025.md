@@ -16,7 +16,7 @@ code {
 }
 </style>
 
-<!-- - [December](#december) -->
+- [December](#december)
 <!-- - [November](#november) -->
 - [October](#october)
 <!-- - [September](#september) -->
@@ -30,6 +30,12 @@ code {
 - [January](#january)
   
 ---
+
+### December
+
+| 14일 일요일, 날씨는 쾌청하나 많이 추움
+
+지난 금요일엔 도무지 잡히지 않는 2/5 MCP 통증을 잡아보기 위해 마곡의 두팔로 병원에 재방문, 스테로이드 주사를 맞았으나 크게 호전은 없는 상태. 난 왜 아픈걸까? 다수의 의사들은 왜 짐작가는게 없다고 하는걸까? 
   
 ### October
 

@@ -7,6 +7,18 @@ has_children: false
 nav_order: 2
 permalink: life/reproduce/infant
 ---
+### 263일차  
+  
+이게 벌써 두달이나 지났네 육아일기가 맞는가?  
+연재는 어제 돌잔치를 했다. 지유는 너무 많은 발달사항이 있었으나 기록으로 남기질 못했네. 우선.. 이는 아직 안났다. 다른 발달에 비해 치아는 늦게 발달하는군
+이젠 네발기기도 잘한다. 아주 그냥... 퇴근하는 맛이 있달까? 요새는 참.. 삶의 낙이다. 딸기도 잘먹구... 먹는 것만 봐도 행복하다는게 이런 기분이었던건가,, 흠
+<p align="center">
+  <br><video src="/assets/images/reproduce/infant_263d_2.mp4" class="content-image-1" controls=true loop=false></video><br>
+</p>
+<p align="center">
+  <br><video src="/assets/images/reproduce/infant_263d_1.mp4" class="content-image-1" controls=true loop=false></video><br>
+</p>
+
 ### 197일차  
   
 올 추석은 10월 10일 금요일 하루를 휴가를 쓰게 되면 10일짜리 황금 연휴다. 난 내가 쉴 수 있을줄 알았다. 지유는 이제 진짜 고래고래 소리를 지른다. 말을 빨리 하려나... 빨리 말이나 했으면... 유진이도 그렇고, 나도 그렇고 이 작고 소중하지만 시끄럽고 번거로운 생명체와 함께 하루를 보내기 위해서는 집에 앉아있을 수 없게 되었다. 그래서 여기도 다니고 저기도 다니고... 어제는 날이 오랜만에 아주 쾌청하여 잠원한강공원으로 소풍을 갔고, 오늘은 일산에 아쿠아리움에 가서 시간을 보냈다.  
