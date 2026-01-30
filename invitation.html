@@ -1,111 +1,230 @@
----
-layout: null
-permalink: /invitation
----
-
 <!DOCTYPE html>
-<html class="light" lang="ko">
-
+<html lang="ko">
 <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta property="og:image" content="https://whojes.github.io/assets/images/invitation/invitation_og.jpg">
-    <title>지유 돌잔치 초대장</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <script id="tailwind-config">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#faf9f6" />
+    <title>우지유 돌잔치 초대장</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+    <script>
         tailwind.config = {
-            darkMode: "class",
             theme: {
                 extend: {
-                    colors: {
-                        "charcoal": "#333333",
-                        "soft-grey": "#666666",
-                    },
-                    fontFamily: {
-                        "sans": ["-apple-system", "BlinkMacSystemFont", "'Apple SD Gothic Neo'", "'Noto Sans KR'", "sans-serif"]
-                    }
-                },
-            },
-        }
+                    colors: { "charcoal": "#333333", "soft-grey": "#666666" },
+                    fontFamily: { "sans": ["-apple-system", "BlinkMacSystemFont", "'Apple SD Gothic Neo'", "'Noto Sans KR'", "sans-serif"] }
+                }
+            }
+        };
     </script>
-    <style type="text/tailwindcss">
+    <style>
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
             -webkit-font-smoothing: antialiased;
             color: #333333;
-        }.ios-refined-text {
-            font-weight: 400;letter-spacing: 0.01em; 
+            margin: 0;
+            overflow-x: hidden;
         }
-        .ios-title-spacing {
-            letter-spacing: 0.02em;
+        .ios-refined-text { font-weight: 400; letter-spacing: 0.01em; }
+        .ios-title-spacing { letter-spacing: 0.02em; }
+
+        /* 모바일만: 데스크톱에서 열면 안내 */
+        @media (min-width: 768px) {
+            .mobile-only-content { display: none !important; }
+            .desktop-message { display: flex !important; }
         }
-    </style>
-    <style>
-        body {
-            min-height: max(884px, 100dvh);
+        .desktop-message {
+            display: none;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+            background: #faf9f6;
+            color: #666;
         }
-    </style>
-    <style>
-        body {
-            min-height: max(884px, 100dvh);
+
+        /* 플립 카드 */
+        .flip-section {
+            min-height: 200vh;
+            position: relative;
+        }
+        .flip-sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1200px;
+            padding: 1rem;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            max-width: 340px;
+            aspect-ratio: 3 / 4;
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+        .flip-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        .flip-front {
+            background: #faf9f6;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+        /* 편지지 앞면: 이미지 없을 때 기본 스타일 */
+        .flip-front::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(250,249,246,0.97) 0%, rgba(245,243,238,0.98) 100%);
+            pointer-events: none;
+        }
+        .flip-front .letter-label {
+            position: relative;
+            z-index: 1;
+            font-size: 15px;
+            font-weight: 500;
+            color: #333;
+            letter-spacing: 0.05em;
+        }
+        .flip-back {
+            transform: rotateY(180deg);
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 1.5rem 1.25rem;
+        }
+        .flip-back .back-preview {
+            font-size: 14px;
+            color: #333;
+            text-align: center;
+            margin-top: 1rem;
         }
     </style>
 </head>
-
 <body class="bg-white text-charcoal">
-    <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto bg-white">
-        <div class="flex items-center p-6 pb-2 justify-start">
-            <div class="text-zinc-300 flex size-10 shrink-0 items-center justify-start cursor-pointer"
-                data-icon="close">
-                <span class="material-symbols-outlined font-light">close</span>
-            </div>
-        </div>
-        <div class="relative mt-2 flex justify-center px-8">
-            <div class="relative z-10 w-full aspect-[3/4] overflow-hidden rounded-sm">
-                <div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="Portrait of baby girl Ji-yu"
-                    style='background-image: url("/assets/images/invitation/invitation_main.jpg");'>
+    <!-- 데스크톱 안내 -->
+    <div class="desktop-message">
+        <p>우지유 돌잔치 초대장은 모바일에서만 열람할 수 있어요.<br />휴대폰으로 접속해 주세요.</p>
+    </div>
+
+    <div class="mobile-only-content">
+        <!-- 1. 스크롤 시 뒤집히는 편지 카드 -->
+        <section class="flip-section" id="flip-section">
+            <div class="flip-sticky">
+                <div class="flip-card-inner" id="flip-card">
+                    <!-- 앞면: 편지지 모양 (원하는 사진 넣을 때: style="background-image: url('사진경로');") -->
+                    <div class="flip-face flip-front" id="letter-front">
+                        <span class="letter-label">우지유 돌잔치<br />초대장</span>
+                    </div>
+                    <!-- 뒷면: 플립 후 보이는 미리보기 -->
+                    <div class="flip-face flip-back">
+                        <p class="back-preview ios-title-spacing">우지유의 첫 생일을<br />축하해주세요</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="flex flex-col items-center pt-10 pb-6 px-6 z-10 text-center">
-            <h1 class="text-[20px] font-normal text-charcoal ios-title-spacing">
-                우지유의 첫 생일을 축하해주세요
-            </h1>
-        </div>
-        <div class="px-10 text-center pb-12">
-            <p class="text-charcoal text-[15px] font-normal leading-[1.85] ios-refined-text">
-                지유의 첫 번째 생일을 맞이했습니다.<br />
-                밝고 건강하게 자랄 수 있도록<br />
-                함께 축하해주세요!
-            </p>
-        </div>
-        <div class="px-8 space-y-12 mb-16">
-            <div class="flex flex-col items-center text-center">
-                <p class="text-[10px] text-zinc-400 font-medium mb-3 uppercase tracking-[0.2em]">When</p>
-                <div class="w-6 h-px bg-zinc-200 mb-4"></div>
-                <p class="text-[17px] font-normal text-charcoal ios-refined-text leading-relaxed">
-                    2026년 3월 8일 (일)<br />
-                    오후 12시
+        </section>
+
+        <!-- 2. 플립 이후 노출되는 본문 (temp.html 내용) -->
+        <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto bg-white pt-6">
+            <div class="relative mt-2 flex justify-center px-8">
+                <div class="relative z-10 w-full aspect-[3/4] overflow-hidden rounded-sm">
+                    <div class="w-full h-full bg-center bg-no-repeat bg-cover"
+                         style="background-image: url('/assets/images/invitation/invitation_main.jpg');">
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col items-center pt-10 pb-6 px-6 z-10 text-center">
+                <h1 class="text-[20px] font-normal text-charcoal ios-title-spacing">
+                    우지유의 첫 생일을 축하해주세요
+                </h1>
+            </div>
+            <div class="px-10 text-center pb-12">
+                <p class="text-charcoal text-[15px] font-normal leading-[1.85] ios-refined-text">
+                    지유의 첫 번째 생일을 맞이했습니다.<br />
+                    밝고 건강하게 자랄 수 있도록<br />
+                    함께 축하해주세요!
                 </p>
             </div>
-            <div class="flex flex-col items-center text-center">
-                <p class="text-[10px] text-zinc-400 font-medium mb-3 uppercase tracking-[0.2em]">Where</p>
-                <div class="w-6 h-px bg-zinc-200 mb-4"></div>
-                <p class="text-[17px] font-normal text-charcoal ios-refined-text mb-1">서울 롯데호텔 소공점</p>
-                <p class="text-sm text-soft-grey font-light tracking-wide">37층 도림</p>
+            <div class="px-8 space-y-12 mb-16">
+                <div class="flex flex-col items-center text-center">
+                    <p class="text-[10px] text-zinc-400 font-medium mb-3 uppercase tracking-[0.2em]">When</p>
+                    <div class="w-6 h-px bg-zinc-200 mb-4"></div>
+                    <p class="text-[17px] font-normal text-charcoal ios-refined-text leading-relaxed">
+                        2026년 3월 8일 (일)<br />오후 12시
+                    </p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <p class="text-[10px] text-zinc-400 font-medium mb-3 uppercase tracking-[0.2em]">Where</p>
+                    <div class="w-6 h-px bg-zinc-200 mb-4"></div>
+                    <p class="text-[17px] font-normal text-charcoal ios-refined-text mb-1">서울 롯데호텔 소공점</p>
+                    <p class="text-sm text-soft-grey font-light tracking-wide">37층 도림</p>
+                </div>
             </div>
-        </div>
-        <div class="flex flex-col items-center pb-16">
-            <div class="w-1.5 h-1.5 bg-zinc-100 rounded-full mb-2"></div>
-            <div class="w-1 h-1 bg-zinc-50 rounded-full"></div>
+            <div class="flex flex-col items-center pb-16">
+                <div class="w-1.5 h-1.5 bg-zinc-100 rounded-full mb-2"></div>
+                <div class="w-1 h-1 bg-zinc-50 rounded-full"></div>
+            </div>
         </div>
     </div>
 
-</body>
+    <script>
+        (function () {
+            var flipSection = document.getElementById('flip-section');
+            var flipCard = document.getElementById('flip-card');
+            if (!flipSection || !flipCard) return;
 
+            var flipMaxScroll = 420;
+            var raf = null;
+
+            function updateFlip() {
+                var rect = flipSection.getBoundingClientRect();
+                var top = rect.top;
+                var winH = window.innerHeight;
+                var progress = 0;
+                if (top < winH) {
+                    var scrolled = winH - top;
+                    progress = Math.min(1, scrolled / flipMaxScroll);
+                }
+                var deg = progress * 180;
+                flipCard.style.transform = 'rotateY(' + deg + 'deg)';
+            }
+
+            function onScroll() {
+                if (raf) cancelAnimationFrame(raf);
+                raf = requestAnimationFrame(function () {
+                    updateFlip();
+                    raf = null;
+                });
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', onScroll);
+            updateFlip();
+        })();
+    </script>
+</body>
 </html>
