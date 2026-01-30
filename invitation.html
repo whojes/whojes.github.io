@@ -4,13 +4,108 @@ permalink: /invitation
 ---
 
 <!DOCTYPE html>
-<html lang="ko">
+<html class="light" lang="ko">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitation</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta property="og:image" content="https://whojes.github.io/assets/images/invitation/invitation_og.jpg">
+    <title>지유 돌잔치 초대장</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "charcoal": "#333333",
+                        "soft-grey": "#666666",
+                    },
+                    fontFamily: {
+                        "sans": ["-apple-system", "BlinkMacSystemFont", "'Apple SD Gothic Neo'", "'Noto Sans KR'", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            color: #333333;
+        }.ios-refined-text {
+            font-weight: 400;letter-spacing: 0.01em; 
+        }
+        .ios-title-spacing {
+            letter-spacing: 0.02em;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
 </head>
-<body>
-    <h1>Hello World</h1>
+
+<body class="bg-white text-charcoal">
+    <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto bg-white">
+        <div class="flex items-center p-6 pb-2 justify-start">
+            <div class="text-zinc-300 flex size-10 shrink-0 items-center justify-start cursor-pointer"
+                data-icon="close">
+                <span class="material-symbols-outlined font-light">close</span>
+            </div>
+        </div>
+        <div class="relative mt-2 flex justify-center px-8">
+            <div class="relative z-10 w-full aspect-[3/4] overflow-hidden rounded-sm">
+                <div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="Portrait of baby girl Ji-yu"
+                    style='background-image: url("/assets/images/invitation/invitation_main.jpg");'>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col items-center pt-10 pb-6 px-6 z-10 text-center">
+            <h1 class="text-[20px] font-normal text-charcoal ios-title-spacing">
+                우지유의 첫 생일을 축하해주세요
+            </h1>
+        </div>
+        <div class="px-10 text-center pb-12">
+            <p class="text-charcoal text-[15px] font-normal leading-[1.85] ios-refined-text">
+                지유의 첫 번째 생일을 맞이했습니다.<br />
+                밝고 건강하게 자랄 수 있도록<br />
+                함께 축하해주세요!
+            </p>
+        </div>
+        <div class="px-8 space-y-12 mb-16">
+            <div class="flex flex-col items-center text-center">
+                <p class="text-[10px] text-zinc-400 font-medium mb-3 uppercase tracking-[0.2em]">When</p>
+                <div class="w-6 h-px bg-zinc-200 mb-4"></div>
+                <p class="text-[17px] font-normal text-charcoal ios-refined-text leading-relaxed">
+                    2026년 3월 8일 (일)<br />
+                    오후 12시
+                </p>
+            </div>
+            <div class="flex flex-col items-center text-center">
+                <p class="text-[10px] text-zinc-400 font-medium mb-3 uppercase tracking-[0.2em]">Where</p>
+                <div class="w-6 h-px bg-zinc-200 mb-4"></div>
+                <p class="text-[17px] font-normal text-charcoal ios-refined-text mb-1">서울 롯데호텔 소공점</p>
+                <p class="text-sm text-soft-grey font-light tracking-wide">37층 도림</p>
+            </div>
+        </div>
+        <div class="flex flex-col items-center pb-16">
+            <div class="w-1.5 h-1.5 bg-zinc-100 rounded-full mb-2"></div>
+            <div class="w-1 h-1 bg-zinc-50 rounded-full"></div>
+        </div>
+    </div>
+
 </body>
+
 </html>
